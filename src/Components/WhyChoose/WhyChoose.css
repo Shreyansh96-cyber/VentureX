@@ -1,0 +1,215 @@
+.whyChoose{
+    max-width:1700px;
+    margin:140px auto;
+    padding:0 8%;
+}
+
+.whyHeader{
+
+    text-align:center;
+
+    margin-bottom:70px;
+
+}
+
+.whyHeader span{
+
+    color:#2563EB;
+
+    letter-spacing:2px;
+
+    font-weight:700;
+
+    font-size:14px;
+
+}
+
+.whyHeader h2{
+
+    margin-top:18px;
+
+    font-size:56px;
+
+    color:#0F172A;
+
+    line-height:1.15;
+
+}
+
+.whyHeader p{
+
+    margin:25px auto 0;
+
+    max-width:720px;
+
+    color:#64748B;
+
+    line-height:1.8;
+
+    font-size:19px;
+
+}
+
+.whyGrid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:30px;
+
+}
+
+.whyCard{
+
+    background:rgba(255,255,255,.75);
+
+    backdrop-filter:blur(18px);
+
+    -webkit-backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.8);
+
+    border-radius:28px;
+
+    padding:40px;
+
+    transition:.4s;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.05);
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.whyCard::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    top:0;
+
+    width:100%;
+
+    height:5px;
+
+    background:linear-gradient(90deg,#2563EB,#38BDF8);
+
+    transform:scaleX(0);
+
+    transition:.35s;
+
+    transform-origin:left;
+
+}
+
+.whyCard:hover::before{
+
+    transform:scaleX(1);
+
+}
+
+.whyCard:hover{
+
+    transform:translateY(-12px);
+
+    box-shadow:0 25px 60px rgba(37,99,235,.15);
+
+}
+
+.iconCircle{
+
+    width:70px;
+
+    height:70px;
+
+    border-radius:50%;
+
+    color:white;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:24px;
+
+    font-weight:700;
+
+    margin-bottom:25px;
+
+}
+
+.whyCard h3{
+
+    font-size:28px;
+
+    margin-bottom:18px;
+
+    color:#0F172A;
+
+}
+
+.whyCard p{
+
+    color:#64748B;
+
+    line-height:1.8;
+
+    margin-bottom:30px;
+
+}
+
+.whyCard button{
+
+    background:none;
+
+    border:none;
+
+    color:#2563EB;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+}
+
+.whyCard button:hover{
+
+    transform:translateX(6px);
+
+}
+
+@media(max-width:1000px){
+
+    .whyGrid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+@media(max-width:700px){
+
+    .whyGrid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .whyHeader h2{
+
+        font-size:38px;
+
+    }
+
+}

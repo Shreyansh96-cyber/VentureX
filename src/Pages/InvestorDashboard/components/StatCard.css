@@ -1,0 +1,107 @@
+.investorStatCard{
+
+    background:rgba(255,255,255,.75);
+
+    backdrop-filter:blur(18px);
+
+    -webkit-backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.65);
+
+    border-radius:24px;
+
+    padding:24px;
+
+    transition:.35s ease;
+
+    box-shadow:
+    0 15px 35px rgba(15,23,42,.06);
+
+    cursor:pointer;
+
+}
+
+.investorStatCard:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:
+    0 25px 45px rgba(37,99,235,.14);
+
+}
+
+.statTop{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:22px;
+
+}
+
+.statIcon{
+
+    width:56px;
+
+    height:56px;
+
+    border-radius:18px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:28px;
+
+    background:#EFF6FF;
+
+}
+
+.statChange{
+
+    color:#16A34A;
+
+    font-weight:700;
+
+    font-size:15px;
+
+}
+
+.investorStatCard h2{
+
+    font-size:34px;
+
+    color:#0F172A;
+
+    margin-bottom:8px;
+
+}
+
+.investorStatCard p{
+
+    color:#64748B;
+
+    font-size:16px;
+
+}
+
+@media(max-width:768px){
+
+.investorStatCard{
+
+padding:20px;
+
+}
+
+.investorStatCard h2{
+
+font-size:28px;
+
+}
+
+}

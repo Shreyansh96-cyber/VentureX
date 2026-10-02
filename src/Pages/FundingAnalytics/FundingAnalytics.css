@@ -1,0 +1,403 @@
+.fundingAnalyticsPage {
+  width: min(1200px, 100%);
+  margin: 0 auto;
+  padding-bottom: 40px;
+  color: #0f172a;
+}
+
+.fundingAnalyticsHeader {
+  margin-bottom: 28px;
+}
+
+.fundingAnalyticsBack {
+  display: inline-block;
+  margin-bottom: 24px;
+  color: #2563eb;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.fundingAnalyticsBack:hover {
+  color: #1d4ed8;
+}
+
+.fundingAnalyticsEyebrow {
+  margin: 0 0 7px;
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.fundingAnalyticsHeader h1 {
+  margin: 0 0 8px;
+  font-size: 34px;
+  color: #0f172a;
+}
+
+.fundingAnalyticsHeader > p:last-child {
+  color: #64748b;
+  line-height: 1.6;
+}
+
+.fundingAnalyticsSectionHeading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.fundingAnalyticsSectionHeading h2,
+.fundingAnalyticsPanel h2 {
+  margin: 0;
+  color: #0f172a;
+  font-size: 20px;
+}
+
+.fundingAnalyticsSectionHeading > span {
+  color: #64748b;
+  font-size: 14px;
+}
+
+.fundingAnalyticsStartups,
+.fundingAnalyticsPanel {
+  margin-bottom: 20px;
+  padding: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+}
+
+.fundingAnalyticsStartupList {
+  display: grid;
+  gap: 10px;
+}
+
+.fundingAnalyticsStartup {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 16px 18px;
+  border: 1px solid #e8eef7;
+  border-radius: 12px;
+  background: #fff;
+}
+
+.fundingAnalyticsStartup h3 {
+  margin: 0 0 5px;
+  font-size: 16px;
+}
+
+.fundingAnalyticsStartup p {
+  margin: 0;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.fundingAnalyticsStartupNumbers {
+  display: grid;
+  gap: 4px;
+  color: #475569;
+  font-size: 14px;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.fundingAnalyticsOverview {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(280px, 1fr);
+  gap: 20px;
+  align-items: stretch;
+}
+
+.fundingAnalyticsOverview .fundingAnalyticsPanel {
+  margin-bottom: 20px;
+}
+
+.fundingAnalyticsPercent {
+  color: #2563eb;
+  font-size: 28px;
+}
+
+.fundingAnalyticsProgressTrack {
+  height: 12px;
+  margin: 22px 0;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #e2e8f0;
+}
+
+.fundingAnalyticsProgressTrack span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #2563eb, #60a5fa);
+  transition: width 240ms ease;
+}
+
+.fundingAnalyticsTotals {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.fundingAnalyticsTotals div,
+.fundingAnalyticsInvestorStats div {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+}
+
+.fundingAnalyticsTotals span,
+.fundingAnalyticsInvestorStats span {
+  color: #64748b;
+  font-size: 13px;
+}
+
+.fundingAnalyticsTotals strong {
+  overflow-wrap: anywhere;
+  font-size: 17px;
+}
+
+.fundingAnalyticsInvestorStats {
+  display: grid;
+  gap: 18px;
+  margin-top: 22px;
+}
+
+.fundingAnalyticsInvestorStats strong {
+  font-size: 24px;
+}
+
+.fundingMilestoneList {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.fundingMilestone {
+  display: grid;
+  gap: 7px;
+  padding: 15px;
+  border: 1px solid #e8eef7;
+  border-radius: 12px;
+  background: #fff;
+}
+
+.fundingMilestone > strong {
+  color: #2563eb;
+  font-size: 20px;
+}
+
+.fundingMilestone > span:nth-child(2) {
+  color: #475569;
+  font-size: 13px;
+}
+
+.fundingMilestoneStatus,
+.fundingStatus {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  padding: 4px 9px;
+  border-radius: 999px;
+  background: #f1f5f9;
+  color: #475569;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.fundingMilestoneStatus.completed,
+.fundingStatus.accepted {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.fundingStatus.pending {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.fundingStatus.rejected {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.fundingHistoryTableWrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.fundingHistoryTable {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.fundingHistoryTable th,
+.fundingHistoryTable td {
+  padding: 13px 12px;
+  border-bottom: 1px solid #e8eef7;
+  color: #334155;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.fundingHistoryTable th {
+  color: #64748b;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.fundingHistoryCards {
+  display: none;
+}
+
+.fundingActivityList {
+  display: grid;
+  gap: 0;
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.fundingActivityList li {
+  display: grid;
+  grid-template-columns: 10px minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 12px;
+  padding: 14px 0;
+  border-top: 1px solid #e8eef7;
+}
+
+.fundingActivityDot {
+  width: 8px;
+  height: 8px;
+  margin-top: 5px;
+  border-radius: 50%;
+  background: #2563eb;
+}
+
+.fundingActivityList strong {
+  font-size: 14px;
+}
+
+.fundingActivityList p {
+  margin: 4px 0 0;
+  color: #64748b;
+  font-size: 13px;
+}
+
+.fundingActivityList time {
+  color: #64748b;
+  font-size: 12px;
+  text-align: right;
+}
+
+.fundingAnalyticsMessage,
+.fundingAnalyticsError {
+  margin: 12px 0;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+.fundingAnalyticsError {
+  color: #b91c1c;
+}
+
+.fundingAnalyticsEmpty a {
+  color: #2563eb;
+  font-weight: 700;
+}
+
+@media (max-width: 900px) {
+  .fundingAnalyticsOverview {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
+
+@media (max-width: 680px) {
+  .fundingAnalyticsPage {
+    padding-bottom: 24px;
+  }
+
+  .fundingAnalyticsHeader h1 {
+    font-size: 28px;
+  }
+
+  .fundingAnalyticsStartups,
+  .fundingAnalyticsPanel {
+    padding: 18px;
+  }
+
+  .fundingAnalyticsStartup {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .fundingAnalyticsStartupNumbers {
+    text-align: left;
+  }
+
+  .fundingAnalyticsTotals {
+    grid-template-columns: 1fr;
+  }
+
+  .fundingMilestoneList {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .fundingHistoryTableWrap {
+    display: none;
+  }
+
+  .fundingHistoryCards {
+    display: grid;
+    gap: 10px;
+  }
+
+  .fundingHistoryCard {
+    padding: 15px;
+    border: 1px solid #e8eef7;
+    border-radius: 12px;
+    background: #fff;
+  }
+
+  .fundingHistoryCardHeading,
+  .fundingHistoryCard > div:not(.fundingHistoryCardHeading) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .fundingHistoryCard > p {
+    margin: 7px 0 12px;
+    color: #64748b;
+  }
+
+  .fundingHistoryCard > div:not(.fundingHistoryCardHeading) {
+    padding-top: 8px;
+    color: #64748b;
+    font-size: 13px;
+  }
+
+  .fundingHistoryCard > div strong {
+    color: #0f172a;
+  }
+
+  .fundingActivityList li {
+    grid-template-columns: 10px minmax(0, 1fr);
+  }
+
+  .fundingActivityList time {
+    grid-column: 2;
+    text-align: left;
+  }
+}

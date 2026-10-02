@@ -1,0 +1,1411 @@
+/* ==========================================
+   GOOGLE FONT
+========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+
+/* ==========================================
+   RESET
+========================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:var(--vx-font-sans,"Inter",sans-serif);
+}
+
+body{
+
+    background:
+        radial-gradient(circle at 15% 10%, rgba(63, 142, 253, 0.18) 0%, transparent 28%),
+        radial-gradient(circle at 85% 15%, rgba(63, 142, 253, 0.18) 0%, transparent 25%),
+        radial-gradient(circle at 20% 80%, rgba(63, 142, 253, 0.18) 0%, transparent 30%),
+        linear-gradient(180deg, #F9FCFF 0%, #F2F8FF 45%, #FFFFFF 100%);
+
+    overflow-x:hidden;
+    position: relative;
+
+}
+
+
+/* ==========================================
+   LAYOUT
+========================================== */
+
+.dashboardLayout{
+
+    display:flex;
+
+    min-height:100vh;
+
+    background: transparent;
+
+}
+
+.mainContent{
+
+    margin-left:270px;
+
+    margin-top:90px;
+
+    width:calc(100% - 270px);
+
+    min-height:100vh;
+
+    padding:35px;
+
+    background: transparent;
+
+    transition:.35s;
+
+}
+
+
+/* ==========================================
+   navbar1
+========================================== */
+
+.navbar1{
+
+    position:fixed;
+
+    top:18px;
+
+    left:20px;
+
+    right:20px;
+
+    height:70px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 30px;
+
+    background:rgba(255,255,255,.75);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.5);
+
+    border-radius:var(--vx-radius-lg);
+
+    box-shadow:
+
+    var(--vx-shadow-md);
+
+    z-index:999;
+
+}
+
+.logo{
+
+    font-size:34px;
+    padding-left: 5px;
+    font-weight:800;
+
+    color:#2563eb;
+
+    letter-spacing:-1px;
+
+}
+
+.navbar1Right{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+}
+
+.userName{
+
+    font-size:17px;
+
+    font-weight:700;
+
+    color:#1e293b;
+
+}
+
+.dashboardProfileLink{
+
+    text-decoration:none;
+
+}
+
+.dashboardProfileLink:hover{
+
+    color:#2563eb;
+
+}
+
+
+/* ==========================================
+   LOGOUT BUTTON
+========================================== */
+
+.logoutBtn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:8px;
+
+    min-height:42px;
+
+    border:1px solid #fecaca;
+
+    outline:none;
+
+    background:linear-gradient(135deg,#ffffff,#fff1f2);
+
+    color:#be123c;
+
+    margin-left:10px;
+
+    padding:0 18px;
+
+    border-radius:var(--vx-radius-pill);
+
+    box-shadow:0 4px 12px rgba(190,18,60,.1);
+
+    cursor:pointer;
+
+    font-size:14px;
+
+    font-weight:700;
+
+    white-space:nowrap;
+
+    transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease, color .18s ease;
+
+}
+
+.logoutBtn svg{
+
+    font-size:13px;
+
+}
+
+.logoutBtn:hover{
+
+    transform:translateY(-1px);
+
+    background:linear-gradient(135deg,#fff1f2,#ffe4e6);
+
+    border-color:#fca5a5;
+
+    color:#9f1239;
+
+    box-shadow:0 7px 16px rgba(190,18,60,.18);
+
+}
+
+
+/* ==========================================
+   SIDEBAR
+========================================== */
+
+.sidebar{
+
+    position:fixed;
+
+    top:105px;
+
+    left:20px;
+
+    width:230px;
+
+    height:calc(100vh - 125px);
+
+    background:rgba(255,255,255,.72);
+
+    backdrop-filter:blur(16px);
+
+    border-radius:var(--vx-radius-lg);
+
+    border:1px solid rgba(255,255,255,.4);
+
+    padding:28px 20px;
+
+    box-shadow:var(--vx-shadow-md);
+
+}
+
+.sidebarMenu h3{
+    display: flex;
+    justify-content: center;
+    font-size:28px;
+
+    margin-bottom:30px;
+
+    color:#0f172a;
+
+}
+
+.sidebarMenu ul{
+
+    list-style:none;
+
+}
+
+.sidebarMenu li{
+
+    margin-bottom:12px;
+
+}
+
+.sidebarMenu a{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    text-decoration:none;
+
+    color:#475569;
+
+    padding:14px 18px;
+
+    border-radius:var(--vx-radius-md);
+
+    font-size:16px;
+
+    font-weight:600;
+
+    transition:.35s;
+
+}
+
+.sidebarMenu a:hover{
+
+    background:#eff6ff;
+
+    color:var(--vx-primary);
+
+    transform:translateX(2px);
+
+}
+
+.sidebarMenu a.active{
+
+    background:#2563eb;
+
+    color:white;
+
+    box-shadow:
+
+    0 12px 24px rgba(37,99,235,.25);
+
+}
+
+
+/* ==========================================
+   SCROLLBAR
+========================================== */
+
+::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#cbd5e1;
+
+    border-radius:20px;
+
+}
+
+/* ==========================================
+   CONTENT CONTAINERS
+========================================== */
+
+.contentWrapper{
+
+    width:100%;
+
+    max-width:1600px;
+
+    margin:0 auto;
+
+}
+
+
+/* ==========================================
+   PAGE TITLE SECTION
+========================================== */
+
+.dashboardTitle{
+
+    margin-bottom:32px;
+}
+
+.dashboardTitle p{
+
+    color:#64748b;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    margin-bottom:8px;
+}
+
+.dashboardTitle h1{
+
+    font-size:48px;
+
+    font-weight:800;
+
+    color: #2563eb;
+
+    letter-spacing:-1.5px;
+
+    margin-bottom:10px;
+}
+
+.dashboardTitle span{
+
+    color:#64748b;
+
+    font-size:18px;
+
+    font-weight:500;
+}
+
+
+/* ==========================================
+   GENERIC CARD
+========================================== */
+
+.card{
+
+    background:rgba(255,255,255,.82);
+
+    backdrop-filter:blur(14px);
+
+    border:1px solid rgba(255,255,255,.45);
+
+    border-radius:var(--vx-radius-lg);
+
+    padding:26px;
+
+    box-shadow:var(--vx-shadow-md);
+
+    transition:transform var(--vx-transition-fast), box-shadow var(--vx-transition-fast);
+}
+
+.card:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:0 16px 34px rgba(15,23,42,.1);
+}
+
+
+/* ==========================================
+   GRID HELPERS
+========================================== */
+
+.grid2{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:22px;
+}
+
+.grid3{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:22px;
+}
+
+.grid4{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:22px;
+}
+
+
+/* ==========================================
+   SECTION SPACING
+========================================== */
+
+.section{
+
+    margin-bottom:28px;
+}
+
+.sectionTitle{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:18px;
+}
+
+.sectionTitle h2{
+
+    font-size:24px;
+
+    font-weight:700;
+
+    color:#0f172a;
+}
+
+
+/* ==========================================
+   PREMIUM BUTTONS
+========================================== */
+
+.primaryBtn{
+
+    border:none;
+
+    outline:none;
+
+    background:linear-gradient(135deg,var(--vx-primary),var(--vx-secondary));
+
+    color:white;
+
+    padding:12px 22px;
+
+    border-radius:var(--vx-radius-md);
+
+    font-size:15px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:transform var(--vx-transition-fast), box-shadow var(--vx-transition-fast), background var(--vx-transition-fast);
+}
+
+.primaryBtn:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:0 12px 24px rgba(37,99,235,.28);
+}
+
+.primaryBtn:active,
+.logoutBtn:active{
+    transform:scale(.98);
+}
+
+
+/* ==========================================
+   SEARCH INPUT
+========================================== */
+
+.searchInput{
+
+    width:280px;
+
+    background:rgba(255,255,255,.9);
+
+    border:1px solid var(--vx-border);
+
+    padding:12px 16px;
+
+    border-radius:var(--vx-radius-md);
+
+    outline:none;
+
+    transition:.3s;
+}
+
+.searchInput:focus{
+
+    border-color:var(--vx-primary);
+
+    box-shadow:var(--vx-focus-ring);
+}
+
+
+/* ==========================================
+   TABLES
+========================================== */
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+}
+
+th{
+
+    text-align:left;
+
+    padding:14px 16px;
+
+    color:#64748b;
+
+    font-size:14px;
+
+    font-weight:700;
+
+    border-bottom:1px solid #e5e7eb;
+}
+
+td{
+
+    padding:16px;
+
+    color:#334155;
+
+    border-bottom:1px solid #eef2f7;
+}
+
+tr:last-child td{
+
+    border-bottom:none;
+}
+
+
+/* ==========================================
+   BADGES
+========================================== */
+
+.badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:6px;
+
+    padding:6px 12px;
+
+    border-radius:999px;
+
+    font-size:13px;
+
+    font-weight:700;
+}
+
+.badge.success{
+
+    background:var(--vx-success-soft);
+
+    color:var(--vx-success);
+}
+
+.badge.warning{
+
+    background:var(--vx-warning-soft);
+
+    color:var(--vx-warning);
+}
+
+.badge.info{
+
+    background:var(--vx-info-soft);
+
+    color:var(--vx-info);
+}
+
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media(max-width:1200px){
+
+    .grid4{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .grid3{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:900px){
+
+    .sidebar{
+        display:none;
+    }
+
+    .mainContent{
+        margin-left:0;
+        width:100%;
+        padding:24px;
+    }
+
+    .navbar1{
+        left:10px;
+        right:10px;
+        padding:0 18px;
+    }
+
+    .logo{
+        font-size:28px;
+    }
+
+    .userName{
+        display:none;
+    }
+
+    .grid4,
+    .grid3,
+    .grid2{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:600px){
+
+    .mainContent{
+        padding:18px;
+    }
+
+    .dashboardTitle h1{
+        font-size:34px;
+    }
+
+    .dashboardTitle span{
+        font-size:16px;
+    }
+
+    .searchInput{
+        width:100%;
+    }
+}
+
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width:1200px){
+
+.mainContent{
+
+    margin-left:240px;
+
+    width:calc(100% - 240px);
+
+    padding:30px;
+
+}
+
+.sidebar{
+
+    width:200px;
+
+}
+
+.logo{
+
+    font-size:30px;
+
+}
+
+}
+
+@media (max-width:992px){
+
+.sidebar{
+
+    width:90px;
+
+    padding:25px 12px;
+
+}
+
+.sidebarMenu h3{
+
+    display:none;
+
+}
+
+.sidebarMenu a{
+
+    justify-content:center;
+
+    font-size:0;
+
+    padding:16px;
+
+}
+
+.sidebarMenu a::first-letter{
+
+    font-size:20px;
+
+}
+
+.mainContent{
+
+    margin-left:110px;
+
+    width:calc(100% - 110px);
+
+}
+
+}
+
+@media (max-width:768px){
+
+.sidebar{
+
+    display:none;
+
+}
+
+.mainContent{
+
+    margin-left:0;
+
+    width:100%;
+
+    padding:20px;
+
+}
+
+.navbar1{
+
+    left:10px;
+
+    right:10px;
+
+    top:10px;
+
+    padding:0 18px;
+
+}
+
+.logo{
+
+    font-size:26px;
+
+}
+
+.userName{
+
+    display:none;
+
+}
+
+.logoutBtn{
+
+    padding:10px 18px;
+
+    font-size:14px;
+
+}
+
+}
+
+@media (max-width:500px){
+
+.mainContent{
+
+    padding:15px;
+
+}
+
+.navbar1{
+
+    height:65px;
+
+}
+
+.logo{
+
+    font-size:22px;
+
+}
+
+.logoutBtn{
+
+    padding:8px 15px;
+
+    border-radius:10px;
+
+}
+
+}
+
+
+/* ==========================================
+   GLASS UTILITIES
+========================================== */
+
+.glass{
+
+    background:rgba(255,255,255,.72);
+
+    backdrop-filter:blur(16px);
+
+    border:1px solid rgba(255,255,255,.45);
+
+    box-shadow:0 12px 30px rgba(15,23,42,.08);
+
+}
+
+.rounded{
+
+    border-radius:22px;
+
+}
+
+.shadow{
+
+    box-shadow:0 20px 45px rgba(15,23,42,.08);
+
+}
+
+
+/* ==========================================
+   BUTTON UTILITIES
+========================================== */
+
+.primaryBtn{
+
+    border:none;
+
+    background:#2563eb;
+
+    color:white;
+
+    padding:12px 24px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-weight:700;
+
+    transition:.35s;
+
+}
+
+.primaryBtn:hover{
+
+    background:#1d4ed8;
+
+    transform:translateY(-3px);
+
+}
+
+.secondaryBtn{
+
+    border:none;
+
+    background:white;
+
+    color:#2563eb;
+
+    padding:12px 22px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-weight:700;
+
+    transition:.35s;
+
+}
+
+.secondaryBtn:hover{
+
+    background:#eff6ff;
+
+}
+
+
+/* ==========================================
+   CARD UTILITIES
+========================================== */
+
+.dashboardCard{
+
+    background:white;
+
+    border-radius:22px;
+
+    padding:25px;
+
+    box-shadow:0 12px 28px rgba(15,23,42,.06);
+
+    transition:.35s;
+
+}
+
+.dashboardCard:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:0 18px 35px rgba(37,99,235,.12);
+
+}
+
+.sectionTitle{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:25px;
+
+}
+
+.sectionTitle h2{
+
+    color:#0f172a;
+
+    font-size:24px;
+
+    font-weight:700;
+
+}
+
+/* ==========================================
+   SEARCH BAR
+========================================== */
+
+.searchBox{
+
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    background:white;
+
+    padding:10px 18px;
+
+    border-radius:14px;
+
+    box-shadow:0 8px 18px rgba(15,23,42,.06);
+
+}
+
+.searchBox input{
+
+    border:none;
+
+    outline:none;
+
+    background:transparent;
+
+    font-size:15px;
+
+    color:#334155;
+
+    width:220px;
+
+}
+
+.searchBox input::placeholder{
+
+    color:#94a3b8;
+
+}
+
+
+/* ==========================================
+   PROFILE IMAGE
+========================================== */
+
+.profileImage{
+
+    width:45px;
+
+    height:45px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    cursor:pointer;
+
+    border:3px solid white;
+
+    box-shadow:0 8px 18px rgba(37,99,235,.18);
+
+    transition:.35s;
+
+}
+
+.profileImage:hover{
+
+    transform:scale(1.08);
+
+}
+
+
+/* ==========================================
+   NOTIFICATION BUTTON
+========================================== */
+
+.notificationBtn{
+
+    width:46px;
+
+    height:46px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:white;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    box-shadow:0 8px 18px rgba(15,23,42,.08);
+
+    transition:.35s;
+
+    position:relative;
+
+}
+
+.notificationBtn:hover{
+
+    background:#2563eb;
+
+    color:white;
+
+    transform:translateY(-3px);
+
+}
+
+.notificationBtn::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:10px;
+
+    right:11px;
+
+    width:9px;
+
+    height:9px;
+
+    border-radius:50%;
+
+    background:#ef4444;
+
+    border:2px solid white;
+
+}
+
+
+/* ==========================================
+   BADGES
+========================================== */
+
+.badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:6px 14px;
+
+    border-radius:40px;
+
+    font-size:13px;
+
+    font-weight:700;
+
+}
+
+.badgeBlue{
+
+    background:var(--vx-info-soft);
+
+    color:var(--vx-info);
+
+}
+
+.badgeGreen{
+
+    background:var(--vx-success-soft);
+
+    color:var(--vx-success);
+
+}
+
+.badgeRed{
+
+    background:var(--vx-danger-soft);
+
+    color:var(--vx-danger);
+
+}
+
+.badgeOrange{
+
+    background:var(--vx-warning-soft);
+
+    color:var(--vx-warning);
+
+}
+
+
+/* ==========================================
+   TABLES
+========================================== */
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+th{
+
+    text-align:left;
+
+    padding:16px;
+
+    color:#64748b;
+
+    font-size:14px;
+
+    font-weight:700;
+
+    border-bottom:1px solid #e2e8f0;
+
+}
+
+td{
+
+    padding:18px 16px;
+
+    border-bottom:1px solid #f1f5f9;
+
+}
+
+tr:hover{
+
+    background:#f8fbff;
+
+}
+
+
+/* ==========================================
+   FADE ANIMATION
+========================================== */
+
+.fadeIn{
+
+    animation:fadeIn .45s ease;
+
+}
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(15px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+/* ==========================================
+   FLOAT ANIMATION
+========================================== */
+
+.float{
+
+    animation:float 4s ease-in-out infinite;
+
+}
+
+@keyframes float{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-8px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+/* ==========================================
+   CARD HOVER EFFECT
+========================================== */
+
+.hoverCard{
+
+    transition:transform var(--vx-transition-fast), box-shadow var(--vx-transition-fast);
+
+}
+
+.hoverCard:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:var(--vx-shadow-md);
+
+}
+
+
+/* ==========================================
+   LOADING SKELETON
+========================================== */
+
+.skeleton{
+
+    background:linear-gradient(
+        90deg,
+        #f1f5f9 25%,
+        #e2e8f0 50%,
+        #f1f5f9 75%
+    );
+
+    background-size:400% 100%;
+
+    animation:skeleton 1.4s infinite;
+
+}
+
+@keyframes skeleton{
+
+    0%{
+
+        background-position:100% 0;
+
+    }
+
+    100%{
+
+        background-position:-100% 0;
+
+    }
+
+}
+
+
+/* ==========================================
+   SMOOTH TRANSITIONS
+========================================== */
+
+button,
+input,
+select,
+textarea,
+a{
+
+    transition:color var(--vx-transition-fast), background-color var(--vx-transition-fast), border-color var(--vx-transition-fast), box-shadow var(--vx-transition-fast);
+
+}
+
+
+/* ==========================================
+   REMOVE BLUE TAP HIGHLIGHT
+========================================== */
+
+*{
+
+    -webkit-tap-highlight-color:transparent;
+
+}
+
+@media (max-width: 900px) {
+    .sidebar {
+        display: none;
+    }
+
+    .mainContent {
+        margin-left: 0;
+        width: 100%;
+    }
+}
+
+@media (max-width: 500px) {
+    .navbar1 {
+        padding: 0 10px;
+    }
+
+    .navbar1Right {
+        gap: 8px;
+    }
+
+    .navbar1Right .homeButton {
+        min-height: 38px;
+        gap: 6px;
+        padding: 0 10px;
+        font-size: 12px;
+    }
+
+    .logoutBtn {
+        margin-left: 0;
+        padding: 8px 10px;
+    }
+}
+
+@media (max-width: 360px) {
+    .navbar1Right .homeButton {
+        width: 38px;
+        padding: 0;
+        font-size: 0;
+    }
+}

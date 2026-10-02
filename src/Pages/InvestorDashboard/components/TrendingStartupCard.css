@@ -1,0 +1,208 @@
+.trendingStartupCard{
+
+    background:rgba(255,255,255,.75);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.6);
+
+    border-radius:22px;
+
+    padding:24px;
+
+    margin-bottom:20px;
+
+    transition:.35s ease;
+
+    box-shadow:
+    0 12px 30px rgba(15,23,42,.05);
+
+}
+
+.trendingStartupCard:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:
+    0 22px 45px rgba(37,99,235,.12);
+
+}
+
+.startupHeader{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+    margin-bottom:18px;
+
+    gap:20px;
+
+}
+
+.startupHeader h3{
+
+    color:#0F172A;
+
+    font-size:22px;
+
+    margin-bottom:6px;
+
+}
+
+.startupCategory{
+
+    color:#64748B;
+
+    font-size:15px;
+
+}
+
+.startupStage{
+
+    background:#DBEAFE;
+
+    color:#2563EB;
+
+    padding:8px 16px;
+
+    border-radius:40px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+}
+
+.startupDescription{
+
+    color:#64748B;
+
+    line-height:1.8;
+
+    margin-bottom:24px;
+
+}
+
+.startupFooter{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
+
+}
+
+.raisedLabel{
+
+    color:#94A3B8;
+
+    font-size:14px;
+
+}
+
+.startupFooter h4{
+
+    font-size:24px;
+
+    color:#2563EB;
+
+    margin-top:4px;
+
+}
+
+.startupButtons{
+
+    display:flex;
+
+    gap:12px;
+
+}
+
+.viewBtn{
+
+    background:#2563EB;
+
+    color:white;
+
+    border:none;
+
+    border-radius:12px;
+
+    padding:12px 20px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.viewBtn:hover{
+
+    background:#1D4ED8;
+
+}
+
+.saveBtn{
+
+    background:transparent;
+
+    border:1px solid #CBD5E1;
+
+    color:#0F172A;
+
+    border-radius:12px;
+
+    padding:12px 20px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.saveBtn:hover{
+
+    border-color:#2563EB;
+
+    color:#2563EB;
+
+}
+
+@media(max-width:768px){
+
+.startupHeader{
+
+flex-direction:column;
+
+}
+
+.startupFooter{
+
+flex-direction:column;
+
+align-items:flex-start;
+
+}
+
+.startupButtons{
+
+width:100%;
+
+}
+
+.viewBtn,
+.saveBtn{
+
+flex:1;
+
+}
+
+}

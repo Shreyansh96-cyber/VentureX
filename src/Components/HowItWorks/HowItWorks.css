@@ -1,0 +1,165 @@
+/* ===========================
+   HOW IT WORKS
+=========================== */
+
+.howItWorks{
+    padding:120px 8%;
+    background:transparent;
+}
+
+.how-header{
+    text-align:center;
+    max-width:720px;
+    margin:0 auto 80px;
+}
+
+.how-header span{
+    color:#2563EB;
+    font-weight:700;
+    letter-spacing:2px;
+    font-size:14px;
+}
+
+.how-header h2{
+    margin-top:18px;
+    font-size:48px;
+    color:#0F172A;
+    font-family:"Poppins",sans-serif;
+}
+
+.how-header p{
+    margin-top:18px;
+    color:#64748B;
+    font-size:18px;
+    line-height:1.8;
+}
+
+/* ===========================
+   TIMELINE
+=========================== */
+
+.timeline{
+    position:relative;
+    max-width:900px;
+    margin:auto;
+}
+
+.timeline::before{
+    content:"";
+    position:absolute;
+    left:50%;
+    top:0;
+    transform:translateX(-50%);
+    width:2px;
+    height:100%;
+    background:rgb(199, 192, 192);
+    border-radius:20px;
+}
+
+.timeline-card{
+    width:calc(50% - 50px);
+    background:transparent;
+    padding:30px;
+    border-radius:22px;
+    position:relative;
+    margin-bottom:60px;
+    box-shadow:0 12px 35px rgba(0,0,0,.06);
+    transition:.35s;
+}
+
+.timeline-card:nth-child(odd){
+    margin-right:auto;
+}
+
+.timeline-card:nth-child(even){
+    margin-left:auto;
+}
+
+.timeline-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 20px 45px rgba(37,99,235,.12);
+}
+
+.step-number{
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    background:rgb(211, 221, 244); 
+    color:black;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:22px;
+    font-weight:700;
+    position:absolute;
+    top:70px;
+}
+
+.timeline-card:nth-child(odd) .step-number{
+    right:-65px;
+}
+
+.timeline-card:nth-child(even) .step-number{
+    left:-65px;
+}
+
+.step-content h3{
+    color:#335ec2;
+    font-size:26px;
+    margin-bottom:15px;
+}
+
+.step-content p{
+    color:#485363;
+    line-height:1.8;
+    font-size:17px;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:900px){
+
+    .timeline::before{
+        left:35px;
+    }
+
+    .timeline-card{
+        width:calc(100% - 90px);
+        margin-left:90px !important;
+        margin-right:0 !important;
+    }
+
+    .timeline-card .step-number{
+        left:-70px !important;
+        right:auto !important;
+        width:60px;
+        height:60px;
+    }
+
+}
+
+@media(max-width:600px){
+
+    .howItWorks{
+        padding:80px 20px;
+    }
+
+    .how-header h2{
+        font-size:34px;
+    }
+
+    .timeline-card{
+        padding:24px;
+    }
+
+    .step-content h3{
+        font-size:22px;
+    }
+
+    .step-content p{
+        font-size:16px;
+    }
+
+}

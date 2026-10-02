@@ -1,0 +1,196 @@
+.progressWidget{
+
+    background:rgba(255,255,255,.7);
+    backdrop-filter:blur(18px);
+
+    border-radius:22px;
+
+    padding:30px;
+
+    border:1px solid rgba(255,255,255,.5);
+
+    box-shadow:0 15px 40px rgba(15,23,42,.08);
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+}
+
+.progressWidget h3{
+
+    color:#0F172A;
+
+    margin-bottom:25px;
+
+    font-size:22px;
+
+}
+
+.progressCircle{
+
+    position:relative;
+
+    width:180px;
+    height:180px;
+
+    margin-bottom:30px;
+
+}
+
+.progressCircle svg{
+
+    transform:rotate(-90deg);
+
+}
+
+.bgCircle{
+
+    fill:none;
+
+    stroke:#E2E8F0;
+
+    stroke-width:12;
+
+}
+
+.progressCircleStroke{
+
+    fill:none;
+
+    stroke:#2563EB;
+
+    stroke-width:12;
+
+    stroke-linecap:round;
+
+    stroke-dasharray:440;
+
+    transition:stroke-dashoffset .8s ease;
+
+}
+
+.progressContent{
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+}
+
+.progressContent h2{
+
+    font-size:34px;
+
+    color:#2563EB;
+
+    font-weight:800;
+
+}
+
+.progressContent span{
+
+    color:#64748B;
+
+}
+
+.fundingSummary{
+
+    width:100%;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:15px;
+
+    margin-bottom:25px;
+
+}
+
+.summaryCard{
+
+    background:#F8FAFC;
+
+    border-radius:16px;
+
+    padding:18px;
+
+    text-align:center;
+
+}
+
+.summaryCard h4{
+
+    color:#64748B;
+
+    margin-bottom:8px;
+
+    font-size:14px;
+
+}
+
+.summaryCard p{
+
+    color:#0F172A;
+
+    font-size:22px;
+
+    font-weight:700;
+
+}
+
+.progressBtn{
+
+    width:100%;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#2563EB;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.progressBtn:hover{
+
+    background:#1D4ED8;
+
+    transform:translateY(-2px);
+
+}
+
+@media(max-width:768px){
+
+.progressWidget{
+
+margin-top:20px;
+
+}
+
+}
+
+.progressError {
+    width: 100%;
+    margin: 0 0 12px;
+    color: #b91c1c;
+    font-size: 13px;
+    text-align: center;
+}

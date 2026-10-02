@@ -1,0 +1,593 @@
+/* ==========================================
+   CREATE STARTUP PAGE
+========================================== */
+
+.createStartupPage{
+
+    min-height:100vh;
+
+    padding:45px;
+
+    display:flex;
+
+    justify-content:center;
+
+    background:
+    linear-gradient(135deg,#f8fbff,#eef5ff);
+
+}
+
+.createCard{
+
+    width:100%;
+
+    max-width:1100px;
+
+    background:white;
+
+    border-radius:28px;
+
+    padding:45px;
+
+    box-shadow:0 25px 50px rgba(37,99,235,.08);
+
+    animation:fadeUp .5s ease;
+
+}
+
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.cardHeader{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:40px;
+
+}
+
+.cardHeader h1{
+
+    font-size:42px;
+
+    color:#0f172a;
+
+    font-weight:800;
+
+    margin-bottom:10px;
+
+}
+
+.cardHeader p{
+
+    color:#64748b;
+
+    font-size:17px;
+
+}
+
+
+/* ==========================================
+   LOGO UPLOAD
+========================================== */
+
+.logoUpload{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    margin-bottom:45px;
+
+}
+
+.logoCircle{
+
+    width:130px;
+
+    height:130px;
+
+    border-radius:50%;
+
+    border:3px dashed #2563eb;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:52px;
+
+    color:#2563eb;
+
+    background:#f8fbff;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+}
+
+.logoCircle:hover{
+
+    transform:scale(1.05);
+
+    background:#eef4ff;
+
+}
+
+.logoUpload span{
+
+    margin-top:15px;
+
+    font-weight:600;
+
+    color:#475569;
+
+}
+
+.logoUpload input{
+
+    margin-top:15px;
+
+}
+
+
+/* ==========================================
+   FORM GRID
+========================================== */
+
+.formGrid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:24px;
+
+    margin-bottom:25px;
+
+}
+
+.inputBox{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.inputBox label{
+
+    margin-bottom:10px;
+
+    font-weight:600;
+
+    color:#334155;
+
+}
+
+/* ==========================================
+   INPUTS
+========================================== */
+
+.inputBox input,
+.inputBox select,
+.inputBox textarea{
+
+    width:100%;
+
+    padding:16px 18px;
+
+    border:1px solid #dbe4f0;
+
+    border-radius:14px;
+
+    outline:none;
+
+    font-size:15px;
+
+    background:#fafcff;
+
+    transition:.35s;
+
+    box-sizing:border-box;
+
+}
+
+.inputBox input:hover,
+.inputBox select:hover,
+.inputBox textarea:hover{
+
+    border-color:#60a5fa;
+
+}
+
+.inputBox input:focus,
+.inputBox select:focus,
+.inputBox textarea:focus{
+
+    background:white;
+
+    border-color:#2563eb;
+
+    box-shadow:0 0 0 4px rgba(37,99,235,.12);
+
+}
+
+.inputBox textarea{
+
+    resize:none;
+
+    min-height:180px;
+
+    line-height:1.7;
+
+}
+
+
+/* ==========================================
+   FULL WIDTH
+========================================== */
+
+.fullWidth{
+
+    margin-top:20px;
+
+    margin-bottom:30px;
+
+}
+
+
+/* ==========================================
+   PITCH DECK
+========================================== */
+
+.uploadBox{
+
+    margin-bottom:35px;
+
+    border:2px dashed #93c5fd;
+
+    border-radius:20px;
+
+    padding:35px;
+
+    background:#f8fbff;
+
+    text-align:center;
+
+    transition:.35s;
+
+}
+
+.uploadBox:hover{
+
+    background:#eef5ff;
+
+    border-color:#2563eb;
+
+}
+
+.uploadBox h3{
+
+    margin-bottom:18px;
+
+    color:#2563eb;
+
+    font-size:22px;
+
+}
+
+.uploadBox input{
+
+    cursor:pointer;
+
+}
+
+
+/* ==========================================
+   FILE INPUT
+========================================== */
+
+input[type=file]{
+
+    font-size:15px;
+
+    color:#475569;
+
+}
+
+input[type=file]::file-selector-button{
+
+    border:none;
+
+    padding:12px 20px;
+
+    border-radius:12px;
+
+    background:#2563eb;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    margin-right:15px;
+
+    transition:.3s;
+
+}
+
+input[type=file]::file-selector-button:hover{
+
+    background:#1d4ed8;
+
+}
+
+
+/* ==========================================
+   PLACEHOLDER
+========================================== */
+
+::placeholder{
+
+    color:#94a3b8;
+
+}
+
+/* ==========================================
+   SUBMIT BUTTON
+========================================== */
+
+.launchBtn{
+
+    width:100%;
+
+    margin-top:15px;
+
+    padding:18px;
+
+    border:none;
+
+    border-radius:16px;
+
+    background:linear-gradient(135deg,#2563eb,#3b82f6);
+
+    color:white;
+
+    font-size:18px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+    box-shadow:0 15px 30px rgba(37,99,235,.20);
+
+}
+
+.launchBtn:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 25px 45px rgba(37,99,235,.35);
+
+}
+
+.launchBtn:active{
+
+    transform:scale(.98);
+
+}
+
+
+/* ==========================================
+   ANIMATIONS
+========================================== */
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(25px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+.inputBox{
+
+    animation:fadeUp .45s ease;
+
+}
+
+
+/* ==========================================
+   PREMIUM DECORATION
+========================================== */
+
+.createCard{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.createCard::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:350px;
+
+    height:350px;
+
+    top:-180px;
+
+    right:-150px;
+
+    border-radius:50%;
+
+    background:rgba(37,99,235,.05);
+
+}
+
+.createCard::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:250px;
+
+    height:250px;
+
+    bottom:-120px;
+
+    left:-100px;
+
+    border-radius:50%;
+
+    background:rgba(59,130,246,.05);
+
+}
+
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media(max-width:900px){
+
+.formGrid{
+
+    grid-template-columns:1fr;
+
+}
+
+.cardHeader{
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+    gap:12px;
+
+}
+
+.cardHeader h1{
+
+    font-size:34px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.createStartupPage{
+
+    padding:20px;
+
+}
+
+.createCard{
+
+    padding:28px;
+
+}
+
+.logoCircle{
+
+    width:100px;
+
+    height:100px;
+
+    font-size:40px;
+
+}
+
+.cardHeader h1{
+
+    font-size:30px;
+
+}
+
+.cardHeader p{
+
+    font-size:15px;
+
+}
+
+}
+
+@media(max-width:500px){
+
+.createCard{
+
+    padding:22px;
+
+}
+
+.logoCircle{
+
+    width:90px;
+
+    height:90px;
+
+}
+
+.launchBtn{
+
+    font-size:16px;
+
+    padding:16px;
+
+}
+
+}
+
+
+/* ==========================================
+   SCROLLBAR
+========================================== */
+
+.createStartupPage::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+.createStartupPage::-webkit-scrollbar-thumb{
+
+    background:#cbd5e1;
+
+    border-radius:20px;
+
+}

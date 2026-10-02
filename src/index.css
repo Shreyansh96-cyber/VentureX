@@ -1,0 +1,173 @@
+/* RESET */
+
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    overflow-x:hidden;
+
+    font-family:Inter,sans-serif;
+
+    background:
+    radial-gradient(circle at 15% 10%, rgba(63, 142, 253, 0.18) 0%, transparent 28%),
+    radial-gradient(circle at 85% 15%, rgba(63, 142, 253, 0.18) 0%, transparent 25%),
+    radial-gradient(circle at 20% 80%, rgba(63, 142, 253, 0.18) 0%, transparent 30%),
+    linear-gradient(180deg,#F9FCFF 0%,#F2F8FF 45%,#FFFFFF 100%);
+
+    position:relative;
+
+    color:#0F172A;
+
+}
+
+/* LEFT BIG RINGS */
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    left:-380px;
+
+    top:-220px;
+
+    width:900px;
+
+    height:900px;
+
+    border-radius:50%;
+
+    border:2px solid rgba(74,144,226,.12);
+
+    box-shadow:
+    0 0 0 90px rgba(74,144,226,.05),
+    0 0 0 180px rgba(74,144,226,.035),
+    0 0 0 270px rgba(74,144,226,.02);
+
+    pointer-events:none;
+
+    z-index:-2;
+
+}
+
+/* RIGHT RINGS */
+
+body::after{
+
+    content:"";
+
+    position:fixed;
+
+    right:-260px;
+
+    top:250px;
+
+    width:650px;
+
+    height:650px;
+
+    border-radius:50%;
+
+    border:2px solid rgba(74,144,226,.08);
+
+    box-shadow:
+    0 0 0 80px rgba(74,144,226,.04),
+    0 0 0 160px rgba(74,144,226,.025);
+
+    pointer-events:none;
+
+    z-index:-2;
+
+}
+
+/* BLUE GLOW */
+
+#root{
+
+    position:relative;
+
+}
+
+#root::before{
+
+    content:"";
+
+    position:fixed;
+
+    width:500px;
+
+    height:500px;
+
+    left:-120px;
+
+    top:250px;
+
+    border-radius:50%;
+
+    background:#7DC9FF;
+
+    filter:blur(140px);
+
+    opacity:.18;
+
+    z-index:-3;
+
+}
+
+/* RIGHT GLOW */
+
+#root::after{
+
+    content:"";
+
+    position:fixed;
+
+    width:400px;
+
+    height:400px;
+
+    right:-80px;
+
+    top:120px;
+
+    border-radius:50%;
+
+    background:#A8DBFF;
+
+    filter:blur(120px);
+
+    opacity:.18;
+
+    z-index:-3;
+
+}
+
+.hero,
+.howItWorks,
+.features,
+.explore,
+.whyChoose,
+.about,
+.contactSection{
+    background: transparent;
+    
+}
+
+.hero{
+    min-height:100vh;
+}
+
+.features,
+.howItWorks,
+.explore,
+.whyChoose,
+.about,
+.contactSection{
+    min-height:auto;
+    padding:100px 8%;
+}
+  

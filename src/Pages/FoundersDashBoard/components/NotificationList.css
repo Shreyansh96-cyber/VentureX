@@ -1,0 +1,61 @@
+.notificationItem{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    padding:18px;
+
+    border-radius:18px;
+
+    margin-bottom:15px;
+
+    background:#F8FAFC;
+
+    transition:.3s;
+
+}
+
+.notificationItem:hover{
+
+    background:#EFF6FF;
+
+}
+
+.notificationIcon{
+
+    width:50px;
+
+    height:50px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:#DBEAFE;
+
+    font-size:22px;
+
+}
+
+.notificationItem h4{
+
+    color:#0F172A;
+
+    margin-bottom:5px;
+
+}
+
+.notificationItem p{
+
+    color:#64748B;
+
+    font-size:14px;
+
+}

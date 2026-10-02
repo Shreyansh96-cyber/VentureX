@@ -1,0 +1,37 @@
+:root {
+	--vx-primary: #2563eb;
+	--vx-primary-hover: #1d4ed8;
+	--vx-secondary: #3b82f6;
+	--vx-accent: #14b8a6;
+	--vx-background: #f7fbff;
+	--vx-surface: #ffffff;
+	--vx-text: #0f172a;
+	--vx-muted: #64748b;
+	--vx-border: #dbe5f0;
+	--vx-success: #15803d;
+	--vx-success-soft: #dcfce7;
+	--vx-warning: #b45309;
+	--vx-warning-soft: #fef3c7;
+	--vx-danger: #b91c1c;
+	--vx-danger-soft: #fee2e2;
+	--vx-info: #1d4ed8;
+	--vx-info-soft: #dbeafe;
+	--vx-font-sans: "Inter", "Segoe UI", sans-serif;
+	--vx-radius-sm: 8px;
+	--vx-radius-md: 12px;
+	--vx-radius-lg: 18px;
+	--vx-radius-pill: 999px;
+	--vx-shadow-sm: 0 4px 14px rgba(15, 23, 42, 0.06);
+	--vx-shadow-md: 0 12px 30px rgba(15, 23, 42, 0.08);
+	--vx-focus-ring: 0 0 0 3px rgba(37, 99, 235, 0.18);
+	--vx-transition-fast: 160ms ease;
+
+	--primary: var(--vx-primary);
+	--secondary: var(--vx-secondary);
+	--accent: var(--vx-accent);
+	--bg: var(--vx-background);
+	--text: var(--vx-text);
+	--gray: var(--vx-muted);
+	--radius: var(--vx-radius-lg);
+	--shadow: var(--vx-shadow-md);
+}

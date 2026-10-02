@@ -1,0 +1,115 @@
+.sessionCard{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:20px;
+
+    margin-bottom:18px;
+
+    border:1px solid #E2E8F0;
+
+    border-radius:18px;
+
+    transition:.3s;
+
+    background:white;
+
+}
+
+.sessionCard:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 15px 35px rgba(15,23,42,.08);
+
+}
+
+.sessionInfo h3{
+
+    color:#0F172A;
+
+    margin-bottom:6px;
+
+    font-size:18px;
+
+}
+
+.sessionInfo p{
+
+    color:#64748B;
+
+    margin-bottom:10px;
+
+}
+
+.sessionTime{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    color:#14B8A6;
+
+    font-weight:600;
+
+}
+
+.joinBtn{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    background:#2563EB;
+
+    color:white;
+
+    border:none;
+
+    padding:12px 18px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    font-weight:600;
+
+}
+
+.joinBtn:hover{
+
+    background:#1D4ED8;
+
+}
+
+@media(max-width:768px){
+
+.sessionCard{
+
+flex-direction:column;
+
+align-items:flex-start;
+
+gap:15px;
+
+}
+
+.joinBtn{
+
+width:100%;
+
+justify-content:center;
+
+}
+
+}

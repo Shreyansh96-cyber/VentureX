@@ -1,0 +1,179 @@
+.startupDetailsPage {
+  min-height: 100vh;
+  padding: 30px;
+  background: transparent;
+}
+
+.startupDetailsTopbar {
+  max-width: 1200px;
+  margin: 0 auto 25px;
+}
+
+.backButton {
+  border: none;
+  background: transparent;
+  font-size: 15px;
+  cursor: pointer;
+  padding: 10px 0;
+}
+
+.startupDetailsContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 20px;
+  padding: 35px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.06);
+}
+
+.startupDetailsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #e8edf3;
+}
+
+.startupDetailsCategory {
+  font-size: 14px;
+  font-weight: 600;
+  color: #4d8dff;
+}
+
+.startupDetailsHeader h1 {
+  margin: 8px 0;
+  font-size: 36px;
+}
+
+.startupTagline {
+  color: #667085;
+  font-size: 17px;
+}
+
+.startupDetailsStage {
+  padding: 8px 16px;
+  border-radius: 20px;
+  background: #eef4ff;
+  color: #3975df;
+  font-weight: 600;
+}
+
+.detailsSection {
+  padding: 30px 0;
+  border-bottom: 1px solid #e8edf3;
+}
+
+.detailsSection h2 {
+  margin-bottom: 12px;
+}
+
+.detailsSection p {
+  color: #667085;
+  line-height: 1.7;
+}
+
+.startupInfoGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  padding: 30px 0;
+}
+
+.infoCard {
+  padding: 20px;
+  background: #f8fafc;
+  border-radius: 14px;
+}
+
+.infoCard span {
+  display: block;
+  font-size: 13px;
+  color: #667085;
+  margin-bottom: 7px;
+}
+
+.infoCard strong {
+  font-size: 17px;
+}
+
+.fundingNumbers {
+  display: flex;
+  gap: 60px;
+  margin: 25px 0;
+}
+
+.fundingNumbers span {
+  display: block;
+  color: #667085;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.fundingNumbers strong {
+  font-size: 22px;
+}
+
+.detailsProgressBar {
+  width: 100%;
+  height: 10px;
+  background: #e8edf3;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.detailsProgressFill {
+  height: 100%;
+  background: #4d8dff;
+  border-radius: 20px;
+  transition: width 0.4s ease;
+}
+
+.detailsSection a {
+  color: #3975df;
+  text-decoration: none;
+}
+
+.startupDetailsLoading,
+.startupDetailsError {
+  max-width: 700px;
+  margin: 100px auto;
+  text-align: center;
+}
+
+.startupDetailsError button {
+  margin-top: 20px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+
+  .startupDetailsPage {
+    padding: 15px;
+  }
+
+  .startupDetailsContainer {
+    padding: 20px;
+  }
+
+  .startupDetailsHeader {
+    flex-direction: column;
+  }
+
+  .startupDetailsHeader h1 {
+    font-size: 28px;
+  }
+
+  .startupInfoGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .fundingNumbers {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+}

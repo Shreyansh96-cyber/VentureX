@@ -1,0 +1,18 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="VentureX logo">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="50%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#0B1120"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#67E8F9"/>
+      <stop offset="50%" stop-color="#60A5FA"/>
+      <stop offset="100%" stop-color="#A78BFA"/>
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="28" fill="url(#bg)"/>
+  <path d="M32 92L51 34H62L80 76L98 34H109L90 92H79L64 52L49 92H32Z" fill="url(#glow)"/>
+  <path d="M50 24L64 48L78 24H90L71 56L92 92H79L64 70L49 92H36L57 56L38 24H50Z" fill="#E2E8F0" opacity="0.9"/>
+  <circle cx="102" cy="28" r="7" fill="#67E8F9" opacity="0.9"/>
+</svg>

@@ -1,0 +1,270 @@
+.editStartupPage {
+  min-height: 100vh;
+  padding: 38px 24px 72px;
+  background: transparent;
+  color: #0f172a;
+  font-family: Inter, Arial, sans-serif;
+}
+
+.editStartupContainer {
+  width: min(100%, 980px);
+  margin: 0 auto;
+}
+
+.editStartupBackLink {
+  display: inline-block;
+  margin-bottom: 24px;
+  color: #1d4ed8;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.editStartupBackLink:hover {
+  color: #1e40af;
+  text-decoration: underline;
+}
+
+.editStartupHeader {
+  margin-bottom: 24px;
+}
+
+.editStartupEyebrow {
+  margin: 0 0 8px;
+  color: #2563eb;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+}
+
+.editStartupHeader h1 {
+  margin: 0 0 8px;
+  color: #0f172a;
+  font-size: 34px;
+  font-weight: 800;
+}
+
+.editStartupHeader > p:last-child {
+  margin: 0;
+  color: #64748b;
+  font-size: 15px;
+}
+
+.editStartupForm {
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.06);
+}
+
+.editStartupSection {
+  padding: 28px 32px;
+  border-bottom: 1px solid #e8edf5;
+}
+
+.editStartupSectionHeading {
+  margin-bottom: 22px;
+}
+
+.editStartupSectionHeading h2 {
+  margin: 0 0 6px;
+  color: #0f172a;
+  font-size: 19px;
+  font-weight: 750;
+}
+
+.editStartupSectionHeading p {
+  margin: 0;
+  color: #64748b;
+  font-size: 13px;
+}
+
+.editStartupFields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.editStartupField {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.editStartupField > span {
+  color: #334155;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.editStartupField > span b {
+  color: #dc2626;
+}
+
+.editStartupField input,
+.editStartupField select,
+.editStartupField textarea {
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  outline: none;
+  background: #fff;
+  color: #0f172a;
+  font: inherit;
+  font-size: 14px;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.editStartupField textarea {
+  min-height: 120px;
+  resize: vertical;
+  line-height: 1.55;
+}
+
+.editStartupField input:focus,
+.editStartupField select:focus,
+.editStartupField textarea:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.editStartupFieldFull {
+  grid-column: 1 / -1;
+}
+
+.editStartupSubmitError {
+  margin: 20px 32px 0;
+  color: #b91c1c;
+  font-size: 14px;
+}
+
+.editStartupActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 22px 32px;
+  background: #fbfcfe;
+}
+
+.editStartupPrimaryButton,
+.editStartupSecondaryButton {
+  min-height: 44px;
+  padding: 0 19px;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+}
+
+.editStartupPrimaryButton {
+  background: #2563eb;
+  color: #fff;
+}
+
+.editStartupPrimaryButton:hover:not(:disabled) {
+  transform: translateY(-1px);
+  background: #1d4ed8;
+}
+
+.editStartupSecondaryButton {
+  border-color: #cbd5e1;
+  background: #fff;
+  color: #334155;
+}
+
+.editStartupSecondaryButton:hover:not(:disabled) {
+  background: #f1f5f9;
+}
+
+.editStartupPrimaryButton:disabled,
+.editStartupSecondaryButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.editStartupMessage {
+  display: flex;
+  min-height: 65vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+}
+
+.editStartupMessage h1 {
+  margin: 0;
+  color: #0f172a;
+  font-size: 24px;
+}
+
+.editStartupMessage p {
+  max-width: 520px;
+  margin: 0;
+  color: #64748b;
+  line-height: 1.6;
+}
+
+.editStartupError h1 {
+  color: #991b1b;
+}
+
+.editStartupSpinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid #dbeafe;
+  border-top-color: #2563eb;
+  border-radius: 50%;
+  animation: editStartupSpin 0.8s linear infinite;
+}
+
+@keyframes editStartupSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 640px) {
+  .editStartupPage {
+    padding: 25px 15px 48px;
+  }
+
+  .editStartupHeader h1 {
+    font-size: 29px;
+  }
+
+  .editStartupSection {
+    padding: 23px 19px;
+  }
+
+  .editStartupFields {
+    grid-template-columns: 1fr;
+    gap: 17px;
+  }
+
+  .editStartupFieldFull {
+    grid-column: auto;
+  }
+
+  .editStartupActions {
+    padding: 18px 19px;
+  }
+}
+
+@media (max-width: 420px) {
+  .editStartupActions {
+    flex-direction: column-reverse;
+  }
+
+  .editStartupPrimaryButton,
+  .editStartupSecondaryButton {
+    width: 100%;
+  }
+}

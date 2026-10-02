@@ -1,0 +1,133 @@
+.about{
+    max-width:1700px;
+    margin:140px auto;
+    padding: 0 8%;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:70px;
+    align-items:center;
+}
+
+.aboutLeft span{
+
+    color:#2563EB;
+
+    font-weight:700;
+
+    letter-spacing:2px;
+
+}
+
+.aboutLeft h2{
+
+    font-size:56px;
+
+    margin:20px 0;
+
+    color:#0F172A;
+
+    line-height:1.2;
+
+}
+
+.aboutLeft p{
+
+    font-size:18px;
+
+    line-height:1.9;
+
+    color:#64748B;
+
+    margin-bottom:20px;
+
+}
+
+.aboutLeft button{
+
+    margin-top:0px;
+
+    padding:16px 36px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:linear-gradient(90deg,#2563EB,#38BDF8);
+
+    color:white;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+}
+
+.aboutRight{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:30px;
+
+}
+
+.aboutCard{
+
+    background:rgba(255,255,255,.75);
+
+    backdrop-filter:blur(18px);
+
+    border-radius:24px;
+
+    padding:40px;
+
+    border:1px solid rgba(255,255,255,.7);
+
+    box-shadow:none;
+
+    transition:.35s;
+
+}
+
+.aboutCard:hover{
+
+    transform:translateY(-10px);
+
+}
+
+.aboutCard h3{
+
+    font-size:28px;
+
+    margin-bottom:18px;
+
+    color:#0F172A;
+
+}
+
+.aboutCard p{
+
+    color:#64748B;
+
+    line-height:1.8;
+
+}
+
+@media(max-width:900px){
+
+.about{
+
+grid-template-columns:1fr;
+
+}
+
+.aboutLeft h2{
+
+font-size:40px;
+
+}
+
+}

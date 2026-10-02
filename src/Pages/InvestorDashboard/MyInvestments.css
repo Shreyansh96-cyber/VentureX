@@ -1,0 +1,307 @@
+.my-investments-page {
+  min-height: 100vh;
+  padding: 40px 7%;
+  background: transparent;
+  color: #171717;
+}
+
+/* BACK BUTTON */
+
+.investments-back {
+  display: inline-block;
+  margin-bottom: 35px;
+  color: #555;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.investments-back:hover {
+  color: #000;
+}
+
+
+/* HEADER */
+
+.investments-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 35px;
+}
+
+.investments-label {
+  font-size: 11px;
+  letter-spacing: 2px;
+  font-weight: 700;
+  color: #777;
+  margin-bottom: 8px;
+}
+
+.investments-header h1 {
+  font-size: 42px;
+  margin: 0 0 8px;
+  font-weight: 700;
+}
+
+.investments-header p {
+  color: #777;
+  margin: 0;
+}
+
+
+/* STATS */
+
+.investment-stats {
+  display: grid;
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 18px;
+  margin-bottom: 35px;
+}
+
+.investment-stat {
+  background: white;
+  border: 1px solid #e7e7e7;
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.investment-stat span {
+  display: block;
+  font-size: 13px;
+  color: #777;
+  margin-bottom: 10px;
+}
+
+.investment-stat strong {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+
+/* MAIN CONTAINER */
+
+.investments-container {
+  background: white;
+  border: 1px solid #e7e7e7;
+  border-radius: 18px;
+  padding: 28px;
+}
+
+.investments-title {
+  margin-bottom: 25px;
+}
+
+.investments-title h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+
+/* EMPTY STATE */
+
+.investments-empty {
+  text-align: center;
+  padding: 70px 20px;
+}
+
+.empty-investment-icon,
+.loading-icon {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  background: #f2f2f2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  font-size: 25px;
+}
+
+.investments-empty h3 {
+  margin-bottom: 8px;
+  font-size: 20px;
+}
+
+.investments-empty p {
+  color: #777;
+  margin-bottom: 25px;
+}
+
+.discover-investment-btn {
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 10px;
+  background: #111;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+
+/* INVESTMENT LIST */
+
+.investment-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+
+/* CARD */
+
+.investment-card {
+  display: grid;
+  grid-template-columns:
+    1fr 180px 120px;
+
+  align-items: center;
+  gap: 20px;
+
+  padding: 20px;
+
+  border: 1px solid #e8e8e8;
+  border-radius: 14px;
+
+  transition: 0.2s;
+}
+
+.investment-card:hover {
+  border-color: #ccc;
+}
+
+
+/* STARTUP */
+
+.investment-main {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.investment-logo {
+  width: 48px;
+  height: 48px;
+
+  border-radius: 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #111;
+  color: white;
+
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.investment-info h3 {
+  margin: 0 0 4px;
+  font-size: 17px;
+}
+
+.investment-info span {
+  font-size: 12px;
+  color: #777;
+}
+
+.investment-info p {
+  margin: 6px 0 0;
+  font-size: 11px;
+  color: #999;
+}
+
+
+/* AMOUNT */
+
+.investment-amount {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.investment-amount small {
+  font-size: 11px;
+  color: #888;
+}
+
+.investment-amount strong {
+  font-size: 18px;
+}
+
+
+/* STATUS */
+
+.investment-status {
+  justify-self: end;
+
+  padding: 7px 12px;
+
+  border-radius: 20px;
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.investment-status.pending {
+  background: #fff4d6;
+  color: #9a6b00;
+}
+
+.investment-status.accepted {
+  background: #e5f7eb;
+  color: #16703a;
+}
+
+.investment-status.rejected {
+  background: #fde8e8;
+  color: #b42323;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+
+  .investment-stats {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+  .investment-card {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .investment-status {
+    justify-self: start;
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .my-investments-page {
+    padding: 25px 5%;
+  }
+
+  .investments-header h1 {
+    font-size: 32px;
+  }
+
+  .investment-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .investment-card {
+    grid-template-columns: 1fr;
+  }
+
+  .investment-status {
+    justify-self: start;
+  }
+
+}

@@ -1,0 +1,84 @@
+.mentorSessionCard{
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:18px;
+
+    padding:18px;
+
+    margin-bottom:18px;
+
+    border-radius:18px;
+
+    background:#F8FAFC;
+
+    transition:.3s;
+
+}
+
+.mentorSessionCard:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+.mentorAvatar{
+
+    width:60px;
+    height:60px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+}
+
+.mentorInfo{
+
+    flex:1;
+
+}
+
+.mentorInfo h4{
+
+    color:#0F172A;
+
+    margin-bottom:6px;
+
+}
+
+.mentorInfo p{
+
+    color:#64748B;
+
+    margin-bottom:6px;
+
+}
+
+.mentorInfo span{
+
+    font-size:13px;
+
+    color:#94A3B8;
+
+}
+
+.mentorSessionCard button{
+
+    background:#2563EB;
+
+    color:white;
+
+    border:none;
+
+    padding:10px 18px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+}

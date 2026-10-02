@@ -1,0 +1,153 @@
+.investorProfileCard{
+
+    background:rgba(255,255,255,.75);
+
+    backdrop-filter:blur(18px);
+
+    -webkit-backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.65);
+
+    border-radius:24px;
+
+    padding:30px;
+
+    text-align:center;
+
+    box-shadow:
+    0 15px 35px rgba(15,23,42,.06);
+
+    transition:.35s;
+
+}
+
+.investorProfileCard:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:
+    0 25px 45px rgba(37,99,235,.12);
+
+}
+
+.profileHeader img{
+
+    width:90px;
+
+    height:90px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    margin:0 auto 18px;
+
+    border:4px solid #DBEAFE;
+
+}
+
+.profileHeader h3{
+
+    color:#0F172A;
+
+    font-size:24px;
+
+    margin-bottom:6px;
+
+}
+
+.profileHeader p{
+
+    color:#64748B;
+
+    margin-bottom:28px;
+
+}
+
+.profileStats{
+
+    display:grid;
+
+    grid-template-columns:1fr;
+
+    gap:18px;
+
+    margin-bottom:28px;
+
+}
+
+.profileStat{
+
+    padding:18px;
+
+    border-radius:16px;
+
+    background:#F8FAFC;
+
+}
+
+.profileStat h4{
+
+    color:#2563EB;
+
+    font-size:22px;
+
+    margin-bottom:5px;
+
+}
+
+.profileStat span{
+
+    color:#64748B;
+
+    font-size:15px;
+
+}
+
+.profileBtn{
+
+    width:100%;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:#2563EB;
+
+    color:white;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.profileBtn:hover{
+
+    background:#1D4ED8;
+
+}
+
+@media(max-width:992px){
+
+.profileStats{
+
+grid-template-columns:repeat(3,1fr);
+
+}
+
+}
+
+@media(max-width:600px){
+
+.profileStats{
+
+grid-template-columns:1fr;
+
+}
+
+}

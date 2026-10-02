@@ -1,0 +1,521 @@
+.mentorDashboardPage {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 20px 80px;
+  color: #0f172a;
+}
+
+.mentorDashboardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+.mentorDashboardHeadingWrap h1 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.1;
+  color: #0f172a;
+}
+
+.mentorDashboardEyebrow {
+  margin: 0 0 10px;
+  font-size: 0.76rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #6d5efc;
+  font-weight: 700;
+}
+
+.mentorDashboardActions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.mentorDashboardAvatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(109, 94, 252, 0.18);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+}
+
+.mentorStatsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  margin: 0 0 28px;
+}
+
+.mentorStatCard {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 20px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.05);
+}
+
+.mentorStatCard--amber {
+  border-top: 4px solid #f59e0b;
+}
+
+.mentorStatCard--cyan {
+  border-top: 4px solid #06b6d4;
+}
+
+.mentorStatCard--green {
+  border-top: 4px solid #16a34a;
+}
+
+.mentorStatCard--violet {
+  border-top: 4px solid #6d5efc;
+}
+
+.mentorStatIcon {
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: rgba(109, 94, 252, 0.08);
+  font-size: 1.5rem;
+}
+
+.mentorStatCard p {
+  margin: 0 0 6px;
+  color: #64748b;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.mentorStatCard strong {
+  font-size: clamp(1.7rem, 2vw, 2.4rem);
+  line-height: 1;
+  color: #0f172a;
+}
+
+.mentorDashboardSection,
+.mentorDashboardColumn {
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  border-radius: 24px;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.05);
+}
+
+.mentorDashboardSection {
+  padding: 24px;
+  margin-bottom: 28px;
+}
+
+.mentorDashboardColumns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.mentorDashboardColumn {
+  padding: 24px;
+}
+
+.mentorSectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.mentorSectionHeader h2 {
+  margin: 0;
+  font-size: 1.4rem;
+  color: #0f172a;
+}
+
+.mentorEmptyState {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 22px;
+  text-align: center;
+  color: #475569;
+}
+
+.mentorSessionList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.mentorSessionCard {
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  padding: 20px;
+}
+
+.compactCard {
+  padding: 18px;
+}
+
+.mentorSessionMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.mentorSessionMeta h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #0f172a;
+}
+
+.mentorMetaLabel {
+  margin: 0 0 6px;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #64748b;
+}
+
+.mentorStatusBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 10px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.mentorStatusBadge--pending {
+  background: #fff7ed;
+  color: #b45309;
+}
+
+.mentorStatusBadge--accepted {
+  background: #ecfdf5;
+  color: #047857;
+}
+
+.mentorStatusBadge--completed {
+  background: #eef2ff;
+  color: #4338ca;
+}
+
+.mentorSessionDetails {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.compactDetails {
+  grid-template-columns: 1fr;
+}
+
+.mentorSessionDetails strong,
+.mentorSessionModalGrid strong {
+  color: #0f172a;
+  font-size: 0.98rem;
+}
+
+.mentorSessionMessage {
+  margin-top: 18px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+}
+
+.mentorSessionMessage p {
+  margin: 0;
+  color: #475569;
+  line-height: 1.6;
+}
+
+.mentorSessionActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.compactActions {
+  justify-content: flex-start;
+}
+
+.mentorGhostButton,
+.mentorPrimaryButton,
+.mentorSecondaryButton,
+.mentorCloseButton {
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.mentorGhostButton {
+  background: #f8fafc;
+  color: #0f172a;
+  border: 1px solid #e2e8f0;
+  padding: 10px 14px;
+}
+
+.mentorPrimaryButton {
+  background: linear-gradient(135deg, #6d5efc 0%, #4f46e5 100%);
+  color: white;
+  padding: 10px 16px;
+  box-shadow: 0 14px 28px rgba(79, 70, 229, 0.2);
+}
+
+.mentorPrimaryButton--accept {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  box-shadow: 0 14px 28px rgba(5, 150, 105, 0.18);
+}
+
+.mentorSecondaryButton {
+  background: #fee2e2;
+  color: #991b1b;
+  padding: 10px 16px;
+}
+
+.mentorGhostButton:hover,
+.mentorPrimaryButton:hover,
+.mentorSecondaryButton:hover,
+.mentorCloseButton:hover {
+  transform: translateY(-1px);
+}
+
+.mentorGhostButton:disabled,
+.mentorPrimaryButton:disabled,
+.mentorSecondaryButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+.mentorDashboardError {
+  margin-bottom: 18px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #b91c1c;
+}
+
+.mentorDashboardSuccess {
+  margin-bottom: 18px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  color: #047857;
+}
+
+.mentorQuickActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 0 0 24px;
+}
+
+.mentorQuickAction,
+.mentorPrimaryButton--profile {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: rgba(109, 94, 252, 0.08);
+  color: #1f2937;
+  border: 1px solid rgba(109, 94, 252, 0.14);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.mentorProfileCard {
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  border-radius: 24px;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.05);
+  padding: 20px;
+  margin-bottom: 24px;
+}
+
+.mentorProfileCardHeader {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.mentorProfileCardHeader h3 {
+  margin: 0;
+  font-size: 1.4rem;
+  color: #0f172a;
+}
+
+.mentorProfileAvatar {
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(109, 94, 252, 0.18);
+}
+
+.mentorProfileMeta {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.mentorProfileMeta div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 12px 14px;
+}
+
+.mentorProfileMeta span {
+  color: #64748b;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.mentorProfileMeta strong {
+  color: #0f172a;
+}
+
+.mentorProfileBio {
+  margin: 18px 0 0;
+  color: #475569;
+  line-height: 1.7;
+}
+
+.mentorProfileActions {
+  margin-top: 18px;
+}
+
+.mentorSessionModalBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 1000;
+}
+
+.mentorSessionModal {
+  width: min(700px, 100%);
+  max-height: 90vh;
+  overflow-y: auto;
+  background: white;
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 30px 80px rgba(15, 23, 42, 0.2);
+}
+
+.mentorSessionModalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.mentorSessionModalHeader h3 {
+  margin: 0;
+  font-size: 1.65rem;
+  color: #0f172a;
+}
+
+.mentorCloseButton {
+  width: 42px;
+  height: 42px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  color: #0f172a;
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.mentorSessionModalGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px 20px;
+  margin-bottom: 18px;
+}
+
+.modalMessage {
+  margin: 0 0 18px;
+}
+
+.modalActions {
+  margin-top: 0;
+}
+
+@media (max-width: 1024px) {
+  .mentorStatsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .mentorDashboardColumns {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .mentorDashboardHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .mentorDashboardActions {
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .mentorStatsGrid,
+  .mentorSessionModalGrid,
+  .mentorSessionDetails {
+    grid-template-columns: 1fr;
+  }
+
+  .mentorDashboardSection,
+  .mentorDashboardColumn {
+    padding: 18px;
+  }
+
+  .mentorSessionActions {
+    flex-direction: column;
+  }
+
+  .mentorPrimaryButton,
+  .mentorSecondaryButton,
+  .mentorGhostButton {
+    width: 100%;
+  }
+}

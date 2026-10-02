@@ -1,0 +1,121 @@
+.investmentTable{
+
+    width:100%;
+
+}
+
+.tableHeader{
+
+    display:grid;
+
+    grid-template-columns:2fr 1.2fr 1fr 1fr;
+
+    padding:16px 20px;
+
+    background:#EFF6FF;
+
+    border-radius:14px;
+
+    font-weight:700;
+
+    color:#2563EB;
+
+    margin-bottom:12px;
+
+}
+
+.tableRow{
+
+    display:grid;
+
+    grid-template-columns:2fr 1.2fr 1fr 1fr;
+
+    align-items:center;
+
+    padding:18px 20px;
+
+    margin-bottom:12px;
+
+    background:white;
+
+    border-radius:14px;
+
+    transition:.3s;
+
+    box-shadow:
+    0 8px 18px rgba(15,23,42,.04);
+
+}
+
+.tableRow:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+    0 15px 30px rgba(37,99,235,.10);
+
+}
+
+.startupName{
+
+    font-weight:600;
+
+    color:#0F172A;
+
+}
+
+.status{
+
+    width:max-content;
+
+    padding:6px 14px;
+
+    border-radius:30px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+}
+
+.status.active{
+
+    background:#DCFCE7;
+
+    color:#15803D;
+
+}
+
+.status.completed{
+
+    background:#DBEAFE;
+
+    color:#2563EB;
+
+}
+
+@media(max-width:768px){
+
+.tableHeader{
+
+display:none;
+
+}
+
+.tableRow{
+
+grid-template-columns:1fr;
+
+gap:12px;
+
+padding:20px;
+
+}
+
+.status{
+
+margin-top:4px;
+
+}
+
+}

@@ -1,0 +1,128 @@
+/* RESET */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family: Inter, sans-serif;
+    overflow-x: hidden;
+    color: var(--vx-text, #0F172A);
+
+    background:
+        radial-gradient(circle at 15% 10%, rgba(63, 142, 253, 0.18) 0%, transparent 28%),
+        radial-gradient(circle at 85% 15%, rgba(63, 142, 253, 0.18) 0%, transparent 25%),
+        radial-gradient(circle at 20% 80%, rgba(63, 142, 253, 0.18) 0%, transparent 30%),
+        linear-gradient(180deg, #F9FCFF 0%, #F2F8FF 45%, #FFFFFF 100%);
+
+    position: relative;
+}
+
+body::before{
+    content: "";
+    position: fixed;
+    left: -380px;
+    top: -220px;
+    width: 900px;
+    height: 900px;
+    border-radius: 50%;
+    border: 2px solid rgba(74, 144, 226, 0.12);
+    box-shadow:
+        0 0 0 90px rgba(74, 144, 226, 0.05),
+        0 0 0 180px rgba(74, 144, 226, 0.035),
+        0 0 0 270px rgba(74, 144, 226, 0.02);
+    pointer-events: none;
+    z-index: -2;
+}
+
+body::after{
+    content: "";
+    position: fixed;
+    right: -260px;
+    top: 250px;
+    width: 650px;
+    height: 650px;
+    border-radius: 50%;
+    border: 2px solid rgba(74, 144, 226, 0.08);
+    box-shadow:
+        0 0 0 80px rgba(74, 144, 226, 0.04),
+        0 0 0 160px rgba(74, 144, 226, 0.025);
+    pointer-events: none;
+    z-index: -2;
+}
+
+#root {
+    position: relative;
+    min-height: 100vh;
+}
+
+#root::before{
+    content: "";
+    position: fixed;
+    width: 500px;
+    height: 500px;
+    left: -120px;
+    top: 250px;
+    border-radius: 50%;
+    background: #7DC9FF;
+    filter: blur(140px);
+    opacity: 0.18;
+    z-index: -3;
+}
+
+#root::after{
+    content: "";
+    position: fixed;
+    width: 400px;
+    height: 400px;
+    right: -80px;
+    top: 120px;
+    border-radius: 50%;
+    background: #A8DBFF;
+    filter: blur(120px);
+    opacity: 0.18;
+    z-index: -3;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    cursor: pointer;
+    font-family: inherit;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+section {
+    padding: 100px 8%;
+}
+
+.about,
+.whyChoose,
+.contactSection,
+.footer {
+    margin: 0;
+}
+
+.hero,
+.features,
+.howItWorks,
+.explore,
+.whyChoose,
+.about,
+.contactSection {
+    padding: 100px 8%;
+    background: transparent;
+}

@@ -1,0 +1,61 @@
+.mentorStatCard{
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:24px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    box-shadow:0 10px 30px rgba(15,23,42,.05);
+
+    transition:.3s;
+
+}
+
+.mentorStatCard:hover{
+
+    transform:translateY(-5px);
+
+}
+
+.statIcon{
+
+    width:60px;
+
+    height:60px;
+
+    border-radius:16px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:white;
+
+    font-size:24px;
+
+}
+
+.mentorStatCard p{
+
+    color:#64748B;
+
+    margin-bottom:6px;
+
+}
+
+.mentorStatCard h2{
+
+    color:#0F172A;
+
+    font-size:28px;
+
+}

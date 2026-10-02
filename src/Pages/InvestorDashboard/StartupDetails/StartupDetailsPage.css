@@ -1,0 +1,533 @@
+/* =========================================
+   PAGE
+========================================= */
+
+.startup-details-page {
+  min-height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 40px 5% 80px;
+  background: transparent;
+  color: #0f172a;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* =========================================
+   BACK BUTTON
+========================================= */
+
+.details-back {
+  display: inline-block;
+  margin-bottom: 30px;
+  color: #1e40af;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.details-back:hover {
+  text-decoration: underline;
+}
+
+.details-success-banner {
+  margin-bottom: 20px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid #86efac;
+  background: #ecfdf5;
+  color: #166534;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+.startup-details-header {
+  width: 100%;
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  gap: 24px;
+
+  padding: 35px;
+
+  background: white;
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+
+  margin-bottom: 25px;
+}
+
+
+/* =========================================
+   LOGO
+========================================= */
+
+.startup-details-logo {
+  width: 90px;
+  height: 90px;
+  min-width: 90px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 20px;
+
+  background: #111827;
+  color: white;
+
+  font-size: 38px;
+  font-weight: 700;
+}
+
+
+/* =========================================
+   TITLE
+========================================= */
+
+.startup-details-title {
+  flex: 1;
+}
+
+.details-label {
+  margin: 0 0 8px;
+
+  color: #64748b;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+}
+
+.startup-details-title h1 {
+  margin: 0;
+
+  font-size: 38px;
+  line-height: 1.1;
+
+  color: #0f172a;
+}
+
+.details-tagline {
+  margin: 10px 0;
+
+  color: #64748b;
+
+  font-size: 16px;
+}
+
+
+/* =========================================
+   TAGS
+========================================= */
+
+.details-tags {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 9px;
+
+  margin-top: 14px;
+}
+
+.details-tags span {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 7px 12px;
+
+  border-radius: 20px;
+
+  background: #eff6ff;
+  color: #1d4ed8;
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+
+/* =========================================
+   MAIN GRID
+========================================= */
+
+.startup-details-grid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 2fr)
+    minmax(280px, 1fr);
+
+  gap: 25px;
+
+  align-items: start;
+}
+
+
+/* =========================================
+   MAIN CARD
+========================================= */
+
+.details-main-card {
+  background: white;
+
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+
+  padding: 32px;
+
+  box-sizing: border-box;
+
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+}
+
+.details-main-card h2 {
+  margin: 0 0 12px;
+
+  font-size: 25px;
+
+  color: #0f172a;
+}
+
+.startup-full-description {
+  margin: 0;
+
+  color: #475569;
+
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+
+/* =========================================
+   INFORMATION GRID
+========================================= */
+
+.startup-info-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 14px;
+
+  margin-top: 30px;
+}
+
+.info-item {
+  padding: 18px;
+
+  background: #f8fafc;
+
+  border: 1px solid #e2e8f0;
+
+  border-radius: 14px;
+}
+
+.info-item span {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #64748b;
+
+  font-size: 13px;
+}
+
+.info-item strong {
+  display: block;
+
+  color: #0f172a;
+
+  font-size: 15px;
+
+  word-break: break-word;
+}
+
+
+/* =========================================
+   RIGHT SIDE
+========================================= */
+
+.details-side {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 15px;
+}
+
+
+/* =========================================
+   FUNDING CARD
+========================================= */
+
+.funding-card {
+  background: white;
+
+  border-radius: 20px;
+
+  border: 1px solid #e2e8f0;
+
+  padding: 28px;
+
+  box-sizing: border-box;
+
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+}
+
+.funding-title {
+  display: block;
+
+  margin-top: 4px;
+
+  color: #64748b;
+
+  font-size: 14px;
+}
+
+.funding-card h2 {
+  margin: 6px 0 10px;
+
+  color: #111827;
+
+  font-size: 32px;
+}
+
+.funding-status {
+  display: inline-block;
+
+  padding: 6px 10px;
+
+  border-radius: 20px;
+
+  background: #dcfce7;
+
+  color: #166534;
+
+  font-size: 12px;
+
+  font-weight: 700;
+}
+
+
+/* =========================================
+   INVEST BUTTON
+========================================= */
+
+.invest-now-btn {
+  width: 100%;
+
+  min-height: 54px;
+
+  border: none;
+
+  border-radius: 14px;
+
+  background: #111827;
+
+  color: white;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  padding: 15px 20px;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.invest-now-btn:hover {
+  background: #2563eb;
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.25);
+}
+
+.invest-now-btn:active {
+  transform: translateY(0);
+}
+
+
+/* =========================================
+   WEBSITE BUTTON
+========================================= */
+
+.website-btn {
+  width: 100%;
+
+  min-height: 50px;
+
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 14px;
+
+  border: 1px solid #cbd5e1;
+
+  background: white;
+
+  color: #1e293b;
+
+  text-decoration: none;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  transition: 0.2s ease;
+}
+
+.website-btn:hover {
+  background: #f8fafc;
+
+  border-color: #94a3b8;
+}
+
+.save-toggle-btn {
+  width: 100%;
+  min-height: 50px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  border: 1px solid #cbd5e1;
+  background: white;
+  color: #1e293b;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.save-toggle-btn:hover {
+  background: #f8fafc;
+  border-color: #94a3b8;
+}
+
+.save-toggle-btn.saved {
+  background: #fff1f2;
+  border-color: #fda4af;
+  color: #be123c;
+}
+
+
+/* =========================================
+   STARTUP ID
+========================================= */
+
+.startup-id-debug {
+  margin-top: 25px;
+
+  padding: 12px 15px;
+
+  color: #94a3b8;
+
+  font-size: 12px;
+
+  text-align: center;
+}
+
+
+/* =========================================
+   LOADING / ERROR
+========================================= */
+
+.details-message {
+  min-height: 70vh;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+}
+
+.details-message h2 {
+  margin-bottom: 8px;
+
+  color: #0f172a;
+}
+
+.details-message p {
+  color: #64748b;
+}
+
+.details-message a {
+  margin-top: 10px;
+
+  color: #2563eb;
+
+  text-decoration: none;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 850px) {
+  .startup-details-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .startup-details-header {
+    padding: 25px;
+  }
+}
+
+
+@media (max-width: 600px) {
+  .startup-details-page {
+    padding: 25px 15px 60px;
+  }
+
+  .startup-details-header {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    padding: 22px;
+  }
+
+  .startup-details-logo {
+    width: 70px;
+    height: 70px;
+
+    min-width: 70px;
+
+    font-size: 30px;
+  }
+
+  .startup-details-title h1 {
+    font-size: 28px;
+  }
+
+  .startup-info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .details-main-card,
+  .funding-card {
+    padding: 22px;
+  }
+}

@@ -1,0 +1,131 @@
+.investmentRequestsTableWrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.investmentRequestsTable {
+  width: 100%;
+  min-width: 760px;
+  border-collapse: collapse;
+}
+
+.investmentRequestsTable thead {
+  background: #eff6ff;
+}
+
+.investmentRequestsTable th {
+  padding: 14px 12px;
+  color: #475569;
+  font-size: 13px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.investmentRequestsTable td {
+  padding: 15px 12px;
+  border-top: 1px solid #e8edf5;
+  color: #334155;
+  font-size: 14px;
+}
+
+.investmentRequestsTable tbody tr:hover {
+  background: #f8fbff;
+}
+
+.investmentRequestName,
+.investmentRequestEmail {
+  display: block;
+}
+
+.investmentRequestName,
+.investmentRequestAmount {
+  color: #0f172a;
+  font-weight: 700;
+}
+
+.investmentRequestEmail {
+  margin-top: 4px;
+  color: #64748b;
+  font-size: 12px;
+}
+
+.investmentRequestStatus {
+  display: inline-block;
+  padding: 6px 11px;
+  border-radius: 999px;
+  background: #eff6ff;
+  color: #1d4ed8;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.investmentRequestStatus.rejected {
+  background: #fff1f2;
+  color: #be123c;
+}
+
+.investmentRequestActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.investmentRequestActions button {
+  min-height: 34px;
+  padding: 7px 11px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.investmentRequestAccept {
+  background: #2563eb;
+  color: #fff;
+}
+
+.investmentRequestAccept:hover:not(:disabled) {
+  background: #1d4ed8;
+}
+
+.investmentRequestReject {
+  border-color: #fecdd3 !important;
+  background: #fff !important;
+  color: #be123c;
+}
+
+.investmentRequestReject:hover:not(:disabled) {
+  background: #fff1f2 !important;
+}
+
+.investmentRequestActions button:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+.investmentRequestNoAction {
+  color: #94a3b8;
+}
+
+.investmentRequestsMessage {
+  margin: 0;
+  padding: 18px 0;
+  color: #64748b;
+}
+
+.investmentRequestsError {
+  margin: 0 0 14px;
+  padding: 11px 14px;
+  border: 1px solid #fecdd3;
+  border-radius: 9px;
+  background: #fff1f2;
+  color: #9f1239;
+  font-size: 14px;
+}
+
+@media (max-width: 640px) {
+  .investmentRequestsTableWrap {
+    margin-right: -4px;
+  }
+}

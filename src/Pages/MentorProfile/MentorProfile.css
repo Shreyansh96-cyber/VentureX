@@ -1,0 +1,263 @@
+.mentorProfilePage {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 20px 80px;
+}
+
+.mentorProfilePage.empty {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #475569;
+}
+
+.mentorProfileHeader {
+  margin-bottom: 22px;
+}
+
+.backLink {
+  color: #1d4ed8;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.mentorProfileCard {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 28px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid #e2e8f0;
+  border-radius: 24px;
+  padding: 26px;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.06);
+}
+
+.mentorProfileImageWrap {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.mentorProfileImage {
+  width: 220px;
+  height: 220px;
+  border-radius: 24px;
+  object-fit: cover;
+  border: 1px solid #e2e8f0;
+}
+
+.mentorProfileEyebrow {
+  margin: 0 0 8px;
+  letter-spacing: 0.16em;
+  font-size: 12px;
+  color: #6366f1;
+  font-weight: 800;
+}
+
+.mentorProfileBody h1 {
+  margin: 0 0 8px;
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: #0f172a;
+}
+
+.mentorProfileRole {
+  margin: 0 0 18px;
+  color: #1d4ed8;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.mentorSummaryGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(140px, 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.mentorSummaryGrid > div {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 14px 16px;
+}
+
+.summaryLabel {
+  display: block;
+  color: #64748b;
+  font-size: 12px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.mentorBioBox,
+.mentorSkillBox {
+  margin-bottom: 20px;
+}
+
+.mentorBioBox h3,
+.mentorSkillBox h3 {
+  margin: 0 0 10px;
+  color: #0f172a;
+}
+
+.mentorBioBox p {
+  margin: 0;
+  color: #475569;
+  line-height: 1.8;
+}
+
+.mentorSkillList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.mentorSkillList span {
+  background: #eef2ff;
+  color: #3730a3;
+  border-radius: 999px;
+  padding: 8px 12px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.requestSessionButton,
+.primaryButton,
+.secondaryButton,
+.closeModalButton {
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.requestSessionButton,
+.primaryButton {
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
+  color: #fff;
+  padding: 12px 18px;
+}
+
+.secondaryButton {
+  background: #e2e8f0;
+  color: #0f172a;
+  padding: 12px 18px;
+}
+
+.mentorSuccessMessage {
+  margin-top: 14px;
+  background: #ecfdf5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+  padding: 10px 12px;
+  border-radius: 10px;
+}
+
+.mentorRequestModalBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 200;
+}
+
+.mentorRequestModal {
+  width: min(640px, 100%);
+  background: #fff;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 30px 80px rgba(15, 23, 42, 0.2);
+}
+
+.mentorRequestHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.mentorRequestHeader h2 {
+  margin: 0;
+  color: #0f172a;
+}
+
+.closeModalButton {
+  width: 34px;
+  height: 34px;
+  background: #f1f5f9;
+  color: #0f172a;
+  font-size: 28px;
+  line-height: 1;
+}
+
+.mentorRequestForm {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.formField {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.formField label {
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.formField input,
+.formField textarea,
+.formField select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  font: inherit;
+  background: #fff;
+  color: #0f172a;
+}
+
+.formField textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.mentorRequestGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.mentorRequestActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.mentorFormError {
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: #fef2f2;
+  color: #b91c1c;
+  border: 1px solid #fecaca;
+}
+
+@media (max-width: 768px) {
+  .mentorProfileCard {
+    grid-template-columns: 1fr;
+  }
+
+  .mentorSummaryGrid,
+  .mentorRequestGrid {
+    grid-template-columns: 1fr;
+  }
+}

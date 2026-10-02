@@ -1,0 +1,244 @@
+.startupCard{
+
+    background:rgba(255,255,255,.75);
+
+    backdrop-filter:blur(18px);
+
+    border-radius:22px;
+
+    padding:22px;
+
+    border:1px solid rgba(255,255,255,.5);
+
+    box-shadow:
+    0 12px 35px rgba(15,23,42,.08);
+
+    transition:.35s;
+
+}
+
+.startupCard:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:
+    0 20px 45px rgba(37,99,235,.14);
+
+}
+
+.startupHeader{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+
+    margin-bottom:16px;
+
+}
+
+.startupHeader h3{
+
+    color:#0F172A;
+
+    font-size:20px;
+
+    margin-bottom:8px;
+
+}
+
+.startupCategory{
+
+    background:#EFF6FF;
+
+    color:#2563EB;
+
+    padding:6px 12px;
+
+    border-radius:30px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+.startupStage{
+
+    padding:7px 14px;
+
+    border-radius:30px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+.startupStage.idea{
+
+    background:#DBEAFE;
+    color:#1D4ED8;
+
+}
+
+.startupStage.prototype{
+
+    background:#FEF3C7;
+    color:#B45309;
+
+}
+
+.startupStage.growth{
+
+    background:#DCFCE7;
+    color:#15803D;
+
+}
+
+.startupDescription{
+
+    margin:20px 0;
+
+    color:#64748B;
+
+    line-height:1.6;
+
+    min-height:48px;
+
+}
+
+.fundingInfo{
+
+    display:flex;
+    justify-content:space-between;
+
+    margin-bottom:14px;
+
+}
+
+.fundingRow{
+
+    display:flex;
+    flex-direction:column;
+
+    gap:5px;
+
+}
+
+.fundingRow span{
+
+    color:#94A3B8;
+
+    font-size:13px;
+
+}
+
+.fundingRow strong{
+
+    color:#0F172A;
+
+    font-size:17px;
+
+}
+
+.progressBar{
+
+    height:10px;
+
+    border-radius:30px;
+
+    background:#E2E8F0;
+
+    overflow:hidden;
+
+    margin-bottom:20px;
+
+}
+
+.progressFill{
+
+    height:100%;
+
+    border-radius:30px;
+
+    background:linear-gradient(
+        90deg,
+        #2563EB,
+        #60A5FA
+    );
+
+    transition:width .7s ease;
+
+}
+
+.startupFooter{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+}
+
+.progressText{
+
+    font-weight:700;
+
+    color:#2563EB;
+
+}
+
+.startupFooter button{
+
+    background:#2563EB;
+
+    color:white;
+
+    border:none;
+
+    padding:11px 18px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    font-weight:600;
+
+}
+
+.startupFooter button:hover{
+
+    background:#1D4ED8;
+
+    transform:translateY(-2px);
+
+}
+
+@media(max-width:600px){
+
+.startupHeader{
+
+flex-direction:column;
+
+gap:15px;
+
+}
+
+.startupFooter{
+
+flex-direction:column;
+
+align-items:flex-start;
+
+gap:15px;
+
+}
+
+.startupFooter button{
+
+width:100%;
+
+}
+
+}

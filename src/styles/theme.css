@@ -1,0 +1,81 @@
+:root {
+	--light: var(--vx-surface);
+}
+
+body {
+	color: var(--vx-text);
+	font-family: var(--vx-font-sans);
+}
+
+button,
+input,
+select,
+textarea {
+	font: inherit;
+}
+
+:where(input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]):not([type="color"]), select, textarea) {
+	min-height: 44px;
+	padding: 10px 12px;
+	border: 1px solid var(--vx-border);
+	border-radius: var(--vx-radius-sm);
+	background: var(--vx-surface);
+	color: var(--vx-text);
+	transition: border-color var(--vx-transition-fast), box-shadow var(--vx-transition-fast);
+}
+
+:where(textarea) {
+	min-height: 112px;
+	resize: vertical;
+}
+
+:where(input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]):not([type="color"]), select, textarea):focus-visible {
+	border-color: var(--vx-primary);
+	box-shadow: var(--vx-focus-ring);
+	outline: none;
+}
+
+button,
+a,
+input,
+select,
+textarea {
+	-webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+	outline: 3px solid rgba(37, 99, 235, 0.4);
+	outline-offset: 2px;
+}
+
+button:disabled {
+	cursor: not-allowed;
+	opacity: 0.62;
+}
+
+input:disabled,
+select:disabled,
+textarea:disabled {
+	cursor: not-allowed;
+	opacity: 0.7;
+}
+
+::selection {
+	color: #ffffff;
+	background: var(--vx-primary);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		scroll-behavior: auto !important;
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+	}
+}

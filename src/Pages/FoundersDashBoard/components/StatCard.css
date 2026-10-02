@@ -1,0 +1,124 @@
+.statCard{
+
+    background:rgba(255,255,255,.65);
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.6);
+
+    border-radius:20px;
+
+    padding:24px;
+
+    transition:.35s;
+
+    box-shadow:
+    0 15px 40px rgba(15,23,42,.08);
+
+    cursor:pointer;
+
+}
+
+.statCard:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:
+    0 20px 50px rgba(37,99,235,.15);
+
+}
+
+.statTop{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    margin-bottom:20px;
+
+}
+
+.statIcon{
+
+    width:55px;
+    height:55px;
+
+    border-radius:16px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:linear-gradient(
+        135deg,
+        #2563EB,
+        #60A5FA
+    );
+
+    color:white;
+
+    font-size:24px;
+
+}
+
+.statChange{
+
+    background:#DCFCE7;
+
+    color:#16A34A;
+
+    padding:6px 12px;
+
+    border-radius:50px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+.statValue{
+
+    font-size:32px;
+
+    font-weight:800;
+
+    color:#0F172A;
+
+    margin-bottom:8px;
+
+}
+
+.statTitle{
+
+    color:#64748B;
+
+    font-size:15px;
+
+    line-height:1.5;
+
+}
+
+@media(max-width:768px){
+
+.statCard{
+
+padding:20px;
+
+}
+
+.statValue{
+
+font-size:28px;
+
+}
+
+.statIcon{
+
+width:48px;
+height:48px;
+
+font-size:22px;
+
+}
+
+}

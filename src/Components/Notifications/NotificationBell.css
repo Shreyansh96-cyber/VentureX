@@ -1,0 +1,181 @@
+.notificationBell {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	z-index: 1200;
+    padding-right: 5px;
+}
+
+.notificationBellTrigger {
+	position: relative;
+	display: inline-flex;
+	width: 42px;
+	height: 42px;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid rgba(37, 99, 235, 0.14);
+	border-radius: 50%;
+	background: rgba(255, 255, 255, 0.92);
+	color: #1e3a8a;
+	font-size: 17px;
+	box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
+}
+
+.notificationBellTrigger:hover {
+	background: #eff6ff;
+}
+
+.notificationBellCount {
+	position: absolute;
+	top: -5px;
+	right: -5px;
+	min-width: 19px;
+	height: 19px;
+	padding: 0 4px;
+	border: 2px solid #fff;
+	border-radius: 20px;
+	background: #2563eb;
+	color: #fff;
+	font-size: 10px;
+	font-weight: 800;
+	line-height: 15px;
+	text-align: center;
+}
+
+.notificationBellPanel {
+	position: absolute;
+	top: calc(100% + 12px);
+	right: 0;
+	width: min(390px, calc(100vw - 28px));
+	max-height: min(520px, calc(100vh - 100px));
+	overflow: hidden;
+	border: 1px solid #e2e8f0;
+	border-radius: 14px;
+	background: #fff;
+	box-shadow: 0 20px 50px rgba(15, 23, 42, 0.18);
+	color: #0f172a;
+}
+
+.notificationBellHeader {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	padding: 16px 17px;
+	border-bottom: 1px solid #e8edf5;
+}
+
+.notificationBellHeader > div,
+.notificationBellItemCopy {
+	display: grid;
+	gap: 4px;
+}
+
+.notificationBellHeader strong {
+	font-size: 15px;
+}
+
+.notificationBellHeader span {
+	color: #64748b;
+	font-size: 12px;
+}
+
+.notificationMarkAll,
+.notificationViewAll {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 7px;
+	border: 0;
+	background: transparent;
+	color: #1d4ed8;
+	font-size: 12px;
+	font-weight: 700;
+}
+
+.notificationMarkAll:disabled {
+	color: #94a3b8;
+	cursor: default;
+}
+
+.notificationBellList {
+	max-height: 370px;
+	overflow-y: auto;
+}
+
+.notificationBellItem {
+	display: grid;
+	width: 100%;
+	grid-template-columns: 9px minmax(0, 1fr);
+	gap: 11px;
+	padding: 13px 16px;
+	border: 0;
+	border-bottom: 1px solid #f1f5f9;
+	text-align: left;
+}
+
+.notificationBellItem.isUnread {
+	background: #eff6ff;
+}
+
+.notificationBellItem.isRead {
+	background: #fff;
+}
+
+.notificationBellItem:hover {
+	background: #f8fbff;
+}
+
+.notificationBellDot {
+	width: 7px;
+	height: 7px;
+	margin-top: 5px;
+	border-radius: 50%;
+	background: transparent;
+}
+
+.isUnread .notificationBellDot {
+	background: #2563eb;
+}
+
+.notificationBellItemCopy strong {
+	color: #0f172a;
+	font-size: 13px;
+}
+
+.notificationBellItemCopy > span {
+	color: #475569;
+	font-size: 12px;
+	line-height: 1.45;
+}
+
+.notificationBellItemCopy small {
+	color: #64748b;
+	font-size: 11px;
+}
+
+.notificationBellEmpty,
+.notificationBellError {
+	margin: 0;
+	padding: 22px 17px;
+	color: #64748b;
+	font-size: 13px;
+}
+
+.notificationBellError {
+	padding-bottom: 0;
+	color: #be123c;
+}
+
+.notificationViewAll {
+	width: 100%;
+	min-height: 44px;
+	border-top: 1px solid #e8edf5;
+	font-size: 13px;
+}
+
+@media (max-width: 480px) {
+	.notificationBellPanel {
+		right: -8px;
+	}
+}

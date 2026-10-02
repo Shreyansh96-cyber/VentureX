@@ -1,0 +1,163 @@
+.recommendedCard{
+
+    background:rgba(255,255,255,.75);
+
+    backdrop-filter:blur(18px);
+
+    -webkit-backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.65);
+
+    border-radius:22px;
+
+    padding:24px;
+
+    transition:.35s;
+
+    box-shadow:
+    0 12px 30px rgba(15,23,42,.05);
+
+}
+
+.recommendedCard:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:
+    0 22px 45px rgba(37,99,235,.12);
+
+}
+
+.recommendedHeader{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:16px;
+
+    gap:12px;
+
+}
+
+.recommendedHeader h3{
+
+    color:#0F172A;
+
+    font-size:22px;
+
+}
+
+.recommendedHeader span{
+
+    background:#DBEAFE;
+
+    color:#2563EB;
+
+    padding:6px 14px;
+
+    border-radius:30px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+}
+
+.recommendedCategory{
+
+    color:#64748B;
+
+    font-weight:600;
+
+    margin-bottom:18px;
+
+}
+
+.recommendedText{
+
+    color:#64748B;
+
+    line-height:1.7;
+
+    margin-bottom:24px;
+
+}
+
+.recommendedButtons{
+
+    display:flex;
+
+    gap:12px;
+
+}
+
+.recommendViewBtn{
+
+    flex:1;
+
+    padding:12px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#2563EB;
+
+    color:white;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.recommendViewBtn:hover{
+
+    background:#1D4ED8;
+
+}
+
+.recommendInvestBtn{
+
+    flex:1;
+
+    padding:12px;
+
+    border:1px solid #CBD5E1;
+
+    border-radius:12px;
+
+    background:white;
+
+    color:#0F172A;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.recommendInvestBtn:hover{
+
+    border-color:#2563EB;
+
+    color:#2563EB;
+
+}
+
+@media(max-width:768px){
+
+.recommendedButtons{
+
+flex-direction:column;
+
+}
+
+}

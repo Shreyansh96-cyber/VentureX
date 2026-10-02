@@ -1,0 +1,111 @@
+.fundingTableContainer{
+
+    overflow-x:auto;
+
+}
+
+.fundingTable{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+.fundingTable thead{
+
+    background:#EFF6FF;
+
+}
+
+.fundingTable th{
+
+    text-align:left;
+
+    padding:18px;
+
+    color:#0F172A;
+
+    font-size:15px;
+
+    font-weight:700;
+
+}
+
+.fundingTable td{
+
+    padding:18px;
+
+    color:#475569;
+
+    border-bottom:1px solid #E2E8F0;
+
+    font-size:15px;
+
+}
+
+.fundingTable tbody tr{
+
+    transition:.25s;
+
+}
+
+.fundingTable tbody tr:hover{
+
+    background:#F8FAFC;
+
+}
+
+.statusBadge{
+
+    padding:8px 14px;
+
+    border-radius:30px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+/* Pending */
+
+.statusBadge.pending{
+
+    background:#DBEAFE;
+
+    color:#2563EB;
+
+}
+
+/* Approved */
+
+.statusBadge.approved{
+
+    background:#DCFCE7;
+
+    color:#15803D;
+
+}
+
+/* Rejected */
+
+.statusBadge.rejected{
+
+    background:#FEE2E2;
+
+    color:#DC2626;
+
+}
+
+@media(max-width:768px){
+
+.fundingTable th,
+.fundingTable td{
+
+padding:14px;
+font-size:14px;
+
+}
+
+}

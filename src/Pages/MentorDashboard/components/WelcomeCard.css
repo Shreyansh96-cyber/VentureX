@@ -1,0 +1,83 @@
+.mentorWelcomeCard{
+
+    background:linear-gradient(
+        135deg,
+        #2563EB,
+        #14B8A6
+    );
+
+    color:white;
+
+    border-radius:24px;
+
+    padding:35px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    box-shadow:0 15px 35px rgba(37,99,235,.18);
+
+}
+
+.mentorWelcomeCard h2{
+
+    margin-bottom:12px;
+
+    font-size:30px;
+
+}
+
+.mentorWelcomeCard p{
+
+    line-height:1.8;
+
+    max-width:650px;
+
+    opacity:.95;
+
+}
+
+.mentorWelcomeCard button{
+
+    margin-top:25px;
+
+    border:none;
+
+    background:white;
+
+    color:#2563EB;
+
+    padding:12px 24px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+}
+
+.mentorWelcomeCard button:hover{
+
+    transform:translateY(-2px);
+
+}
+
+@media(max-width:768px){
+
+.mentorWelcomeCard{
+
+padding:25px;
+
+}
+
+.mentorWelcomeCard h2{
+
+font-size:24px;
+
+}
+
+}
