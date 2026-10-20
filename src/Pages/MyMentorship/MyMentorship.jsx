@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { getRequesterSessions, updateMentorSessionStatus } from "../../api/mentorSession";
 import "./MyMentorship.css";
 
@@ -61,10 +62,13 @@ export default function MyMentorship() {
   return (
     <main className="myMentorshipPage">
       <header className="myMentorshipHeader">
-        <div>
+        <div className="myMentorshipHeading">
           <p className="myMentorshipEyebrow">YOUR SESSIONS</p>
           <h1>My Mentorship</h1>
         </div>
+        <Link to="/dashboard" className="myMentorshipBackLink">
+          ← Back to Dashboard
+        </Link>
       </header>
 
       {error && <div className="myMentorshipError">{error}</div>}

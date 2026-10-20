@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { GoogleLogin } from "@react-oauth/google";
 import {
   FaArrowRight,
   FaBriefcase,
@@ -16,12 +17,14 @@ import {
   FaRegEdit,
   FaShieldAlt,
   FaSignOutAlt,
+  FaTrashAlt,
   FaUser,
 } from "react-icons/fa";
 
 import DashboardLayout from "../../Components/DashboardLayout/DashboardLayout";
 import {
   changeMyPassword,
+  deleteMyAccount,
   getMyProfile,
   getProfileImageUrl,
   updateMyProfile,
@@ -90,6 +93,7 @@ const roleStats = {
 function Profile() {
   const navigate = useNavigate();
   const [profile, setProfile] = useState(null);
+  const [authProvider, setAuthProvider] = useState("password");
   const [stats, setStats] = useState({});
   const [loading, setLoading] = useState(true);
   const [loadError, setLoadError] = useState("");
@@ -105,6 +109,11 @@ function Profile() {
   });
   const [savingPassword, setSavingPassword] = useState(false);
   const [notice, setNotice] = useState(null);
+  const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
+  const [deletePassword, setDeletePassword] = useState("");
+  const [deletingAccount, setDeletingAccount] = useState(false);
+  const [deleteError, setDeleteError] = useState("");
+  const [deleteSuccess, setDeleteSuccess] = useState("");
 
   useEffect(() => {
     let active = true;
@@ -114,6 +123,7 @@ function Profile() {
         const result = await getMyProfile();
         if (!active) return;
         setProfile(result.user);
+        setAuthProvider(result.authProvider || "password");
         setStats(result.stats || {});
         setForm(createFormValues(result.user));
       } catch {
@@ -307,6 +317,50 @@ function Profile() {
     }
   };
 
+  const openDeleteDialog = () => {
+    setDeletePassword("");
+    setDeleteError("");
+    setDeleteSuccess("");
+    setDeleteDialogOpen(true);
+  };
+
+  const closeDeleteDialog = () => {
+    if (deletingAccount || deleteSuccess) return;
+    setDeleteDialogOpen(false);
+    setDeleteError("");
+  };
+
+  const confirmAccountDeletion = async (reauthentication) => {
+    try {
+      setDeletingAccount(true);
+      setDeleteError("");
+      const result = await deleteMyAccount(reauthentication);
+      setDeleteSuccess(result.message || "Your account has been permanently deleted.");
+      localStorage.removeItem("token");
+      localStorage.removeItem("user");
+      sessionStorage.removeItem("pendingEmailVerification");
+      sessionStorage.removeItem("pendingEmailVerificationResendAt");
+      window.setTimeout(() => navigate("/", { replace: true }), 1100);
+    } catch (error) {
+      setDeleteError(error.response?.data?.message || "We couldn't delete your account. Please try again.");
+    } finally {
+      setDeletingAccount(false);
+    }
+  };
+
+  const submitAccountDeletion = (event) => {
+    event.preventDefault();
+    confirmAccountDeletion({ password: deletePassword });
+  };
+
+  const reauthenticateGoogleForDeletion = (credentialResponse) => {
+    if (!credentialResponse.credential) {
+      setDeleteError("Google re-authentication did not return a credential. Please try again.");
+      return;
+    }
+    confirmAccountDeletion({ credential: credentialResponse.credential });
+  };
+
   if (loading) {
     return (
       <DashboardLayout>
@@ -481,6 +535,7 @@ function Profile() {
               <Link className="profile-setting-link" to="/notifications"><span><FaRegBell />Notifications</span><FaArrowRight /></Link>
               <a className="profile-setting-link" href="#security"><span><FaLock />Security</span><FaArrowRight /></a>
               <button type="button" className="profile-logout-button" onClick={() => logout(navigate)}><span><FaSignOutAlt />Log out</span><FaArrowRight /></button>
+              <button type="button" className="profile-delete-account-button" onClick={openDeleteDialog}><span><FaTrashAlt />Delete Account</span><FaArrowRight /></button>
             </section>
 
             <section className="profile-panel profile-security-panel" id="security">
@@ -529,6 +584,71 @@ function Profile() {
                 <button type="submit" className="profile-save-button" disabled={savingProfile}>{savingProfile ? "Saving..." : "Save changes"}</button>
               </div>
             </form>
+          </section>
+        </div>
+      )}
+
+      {deleteDialogOpen && (
+        <div className="profile-modal-backdrop" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) closeDeleteDialog(); }}>
+          <section className="profile-edit-modal profile-delete-modal" role="dialog" aria-modal="true" aria-labelledby="delete-account-title" aria-describedby="delete-account-warning">
+            <div className="profile-modal-heading">
+              <div><p>PERMANENT ACCOUNT ACTION</p><h2 id="delete-account-title">Delete your account?</h2></div>
+              <button type="button" className="profile-icon-button" aria-label="Close delete account dialog" onClick={closeDeleteDialog} disabled={deletingAccount || Boolean(deleteSuccess)}>×</button>
+            </div>
+
+            {deleteSuccess ? (
+              <div className="profile-delete-success" role="status">
+                <span><FaCheck /></span>
+                <p>{deleteSuccess}</p>
+                <small>Returning to VentureX home...</small>
+              </div>
+            ) : (
+              <>
+                <div className="profile-delete-warning" id="delete-account-warning">
+                  <FaTrashAlt aria-hidden="true" />
+                  <p>This permanently deletes your VentureX account and associated startups, investment records, messages, saved startups, mentorship sessions, and notifications. This action cannot be undone.</p>
+                </div>
+
+                {deleteError && <p className="profile-delete-error" role="alert">{deleteError}</p>}
+
+                {authProvider === "google" ? (
+                  <div className="profile-delete-reauth profile-delete-google">
+                    <p>Re-authenticate with the Google account linked to this profile to confirm deletion.</p>
+                    {deletingAccount ? (
+                      <button type="button" className="profile-delete-confirm" disabled>Deleting account...</button>
+                    ) : (
+                      <GoogleLogin
+                        onSuccess={reauthenticateGoogleForDeletion}
+                        onError={() => setDeleteError("Google re-authentication was cancelled or failed. Please try again.")}
+                        text="continue_with"
+                        shape="rectangular"
+                        theme="outline"
+                      />
+                    )}
+                  </div>
+                ) : (
+                  <form className="profile-delete-reauth" onSubmit={submitAccountDeletion}>
+                    <label htmlFor="delete-account-password">Enter your password to continue</label>
+                    <input
+                      id="delete-account-password"
+                      type="password"
+                      autoComplete="current-password"
+                      value={deletePassword}
+                      onChange={(event) => setDeletePassword(event.target.value)}
+                      required
+                    />
+                    <div className="profile-modal-actions">
+                      <button type="button" className="profile-cancel-button" onClick={closeDeleteDialog} disabled={deletingAccount}>Cancel</button>
+                      <button type="submit" className="profile-delete-confirm" disabled={deletingAccount || !deletePassword}>
+                        {deletingAccount ? "Deleting account..." : "Permanently delete account"}
+                      </button>
+                    </div>
+                  </form>
+                )}
+
+                {authProvider === "google" && <div className="profile-modal-actions"><button type="button" className="profile-cancel-button" onClick={closeDeleteDialog} disabled={deletingAccount}>Cancel</button></div>}
+              </>
+            )}
           </section>
         </div>
       )}

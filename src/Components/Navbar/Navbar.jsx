@@ -19,6 +19,40 @@ function Navbar() {
       return null;
     }
   })();
+  const isAuthenticated = Boolean(user && localStorage.getItem("token"));
+
+  const roleNavigation = {
+    Founder: [
+      { label: "Home", href: "#hero" },
+      { label: "My Startups", to: "/my-startups" },
+      { label: "Funding", to: "/funding-analytics" },
+      { label: "Investors", href: "#recommended-investors" },
+      { label: "Mentors", to: "/mentors" },
+    ],
+    Investor: [
+      { label: "Home", href: "#hero" },
+      { label: "Discover Startups", to: "/discover-startups" },
+      { label: "Saved Startups", to: "/saved-startups" },
+      { label: "Portfolio", to: "/investments" },
+      { label: "Messages", to: "/messages" },
+    ],
+    Mentor: [
+      { label: "Home", href: "#hero" },
+      { label: "Sessions", href: "#upcoming-sessions" },
+      { label: "Requests", href: "#mentorship-requests" },
+      { label: "Discover Startups", to: "/discover-startups" },
+      { label: "Messages", to: "/messages" },
+    ],
+  };
+  const navItems = isAuthenticated && roleNavigation[user.role]
+    ? roleNavigation[user.role]
+    : [
+        { label: "Home", href: "#hero" },
+        { label: "Features", href: "#features" },
+        { label: "Explore", href: "#explore" },
+        { label: "About", href: "#about" },
+        { label: "Contact", href: "#contact" },
+      ];
 
   const profileInitials = user?.name
     ?.trim()
@@ -64,43 +98,16 @@ function Navbar() {
           NAVIGATION
       ========================= */}
 
-      <nav className={menuOpen ? "navLinks active" : "navLinks"}>
-
-        <a
-          href="#hero"
-          onClick={() => setMenuOpen(false)}
-        >
-          Home
-        </a>
-
-        <a
-          href="#features"
-          onClick={() => setMenuOpen(false)}
-        >
-          Features
-        </a>
-
-        <a
-          href="#explore"
-          onClick={() => setMenuOpen(false)}
-        >
-          Explore
-        </a>
-
-        <a
-          href="#about"
-          onClick={() => setMenuOpen(false)}
-        >
-          About
-        </a>
-
-        <a
-          href="#contact"
-          onClick={() => setMenuOpen(false)}
-        >
-          Contact
-        </a>
-
+      <nav className={menuOpen ? "navLinks active" : "navLinks"} aria-label="Main navigation">
+        {navItems.map((item) => item.href ? (
+          <a href={item.href} onClick={() => setMenuOpen(false)} key={item.label}>
+            {item.label}
+          </a>
+        ) : (
+          <Link to={item.to} onClick={() => setMenuOpen(false)} key={item.label}>
+            {item.label}
+          </Link>
+        ))}
       </nav>
 
 
@@ -110,7 +117,7 @@ function Navbar() {
 
       <div className="rightSection">
 
-        {user && localStorage.getItem("token") && <NotificationBell />}
+        {isAuthenticated && <NotificationBell />}
 
         {/* SEARCH */}
 
@@ -128,7 +135,7 @@ function Navbar() {
 
         {/* LOGIN */}
 
-        {user && localStorage.getItem("token") ? (
+        {isAuthenticated ? (
           <Link to="/profile" className="profileAvatarLink" aria-label="My profile" title="My profile">
             {user.profileImage ? (
               <img src={getProfileImageUrl(user.profileImage)} alt="" />
@@ -163,7 +170,7 @@ function Navbar() {
 
         {/* LOGOUT */}
 
-        {user && localStorage.getItem("token") && (
+        {isAuthenticated && (
           <button
             type="button"
             className="logoutBtn"

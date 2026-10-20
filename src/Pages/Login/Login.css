@@ -45,16 +45,6 @@ body,
     position:relative;
 }
 
-.loginPage{
-    width:100%;
-    min-height:100vh;
-    display:grid;
-    grid-template-columns:55% 45%;
-    align-items:center;
-    padding:10px 50px;
-    gap:20px;
-}
-
 
 @keyframes bgMove{
 
@@ -128,7 +118,7 @@ background-position:0% 50%;
 
     background:#7C3AED18;
 
-    bottom:-150px;
+    bottom:20px;
 
     left:45%;
 
@@ -159,9 +149,11 @@ transform:translateY(0);
 }
 
 .loginLeft{
+    min-width:0;
     height:100%;
     overflow:hidden;
     padding-right:10px;
+    padding-top: 20px;
     cursor: default;
     display:flex;
     justify-content:center;
@@ -226,9 +218,11 @@ transform:translateY(0);
 ======================================= */
 
 .loginRight{
+    min-width:0;
     display:flex;
     justify-content:flex-start;
-    align-items:start;
+    position: relative;
+    top: 60px;
     height:90%;
     cursor: default;
 }
@@ -241,6 +235,7 @@ transform:translateY(0);
 .loginCard{
 
     width:100%;
+    min-width:0;
     max-width:520px;
 
     background:rgba(255,255,255,.55);
@@ -343,6 +338,7 @@ transform:translateY(0);
 .inputIcon{
 
     display:flex;
+    min-width:0;
 
     align-items:center;
 
@@ -393,6 +389,7 @@ transform:translateY(0);
 .inputIcon input{
 
     flex:1;
+    min-width:0;
 
     border:none;
 
@@ -792,7 +789,14 @@ transform:translateY(0);
 
 .loginPage{
 
-grid-template-columns:1fr;
+grid-template-columns:minmax(0, 1fr);
+min-height:100vh;
+min-height:100svh;
+height:auto;
+overflow:visible;
+overflow-x:clip;
+align-items:center;
+padding:78px clamp(20px, 6vw, 60px) 32px;
 
 }
 
@@ -804,7 +808,12 @@ display:none;
 
 .loginRight{
 
-padding:40px;
+width:100%;
+height:auto;
+min-height:0;
+justify-content:center;
+align-items:center;
+padding:0;
 
 }
 
@@ -812,6 +821,7 @@ padding:40px;
     width:100%;
     max-width:500px;
     padding:35px;
+    margin:0 auto;
 }
 
 
@@ -820,9 +830,13 @@ padding:40px;
 
 @media(max-width:768px){
 
+.loginPage{
+    padding:74px 24px 24px;
+}
+
 .loginRight{
 
-padding:20px;
+padding:0;
 
 }
 
@@ -852,9 +866,19 @@ height:54px;
 
 @media(max-width:480px){
 
+.loginPage{
+    padding:72px 14px 20px;
+}
+
+.loginPage .homeButton--auth{
+    top:14px;
+    right:14px;
+}
+
 .loginCard{
 
 padding:22px 18px;
+border-radius:20px;
 
 }
 
@@ -872,6 +896,10 @@ gap:15px;
 
 height:54px;
 
+}
+
+.inputIcon input{
+    font-size:15px;
 }
 
 .brand h1{
@@ -917,7 +945,7 @@ font-size:54px;
 
 .loginBtn,
 .googleBtn{
-    height:54px;
+    height:50px;
 }
 
 .featureCards{

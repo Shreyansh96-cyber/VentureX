@@ -27,6 +27,17 @@ const userSchema = new mongoose.Schema(
       default: "Founder",
     },
 
+    emailVerified: {
+      type: Boolean,
+      default: true,
+    },
+
+    accountDeletionInProgress: {
+      type: Boolean,
+      default: false,
+      select: false,
+    },
+
     profileImage: {
       type: String,
       default: "",
@@ -83,12 +94,36 @@ const userSchema = new mongoose.Schema(
       default: "Flexible",
     },
 
-    otp:{
-      type:String
+    otp: {
+      type: String,
+      select: false,
     },
 
-    otpExpiry:{
-      type:Date
+    otpExpiry: {
+      type: Date,
+      select: false,
+    },
+
+    otpAttempts: {
+      type: Number,
+      default: 0,
+      select: false,
+    },
+
+    otpResendCount: {
+      type: Number,
+      default: 0,
+      select: false,
+    },
+
+    otpResendWindowStart: {
+      type: Date,
+      select: false,
+    },
+
+    otpLastSentAt: {
+      type: Date,
+      select: false,
     },
 
     resetPasswordToken: String,

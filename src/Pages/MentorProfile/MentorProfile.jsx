@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import StartupAPI from "../../api/startup";
 import { getProfileImageUrl } from "../../api/profile";
@@ -68,14 +68,14 @@ const normalizeTimeInput = (value) => {
 
 const getMentorRequestErrorMessage = (error) => {
   const status = error.response?.status;
-  const serverMessage = error.response?.data?.message;
+  const serverMessage = error.response?.data?.error || error.response?.data?.message;
 
   if (status === 401) return "Your session has expired. Please sign in again.";
   if (status === 403) return serverMessage || "You are not authorized to send this request.";
   if (status === 404) return serverMessage || "The selected mentor or startup could not be found.";
   if (status === 409) return serverMessage || "A pending request already exists for this mentor, date, and time.";
   if (status === 400) return serverMessage || "Please check the request details and try again.";
-  if (status >= 500) return "Server error while creating the mentoring request. Please try again.";
+  if (status >= 500) return serverMessage || "Server error while creating the mentoring request. Please try again.";
   if (!status) return "Unable to reach the server. Check your connection and try again.";
   return serverMessage || "Unable to create mentoring session request.";
 };
@@ -84,12 +84,14 @@ export default function MentorProfile() {
   const { id } = useParams();
   const user = getCurrentUser();
   const userId = user?._id || user?.id;
+  const userRole = user?.role;
   const [mentor, setMentor] = useState(null);
   const [startups, setStartups] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [showRequestModal, setShowRequestModal] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const submissionInFlight = useRef(false);
   const [success, setSuccess] = useState("");
   const [formError, setFormError] = useState("");
   const [form, setForm] = useState({
@@ -128,7 +130,10 @@ export default function MentorProfile() {
   }, [id]);
 
   useEffect(() => {
-    if (!user || user.role !== "Founder") return;
+    if (userRole !== "Founder") {
+      setStartups([]);
+      return;
+    }
 
     const loadFounderStartups = async () => {
       try {
@@ -143,7 +148,7 @@ export default function MentorProfile() {
     };
 
     loadFounderStartups();
-  }, [user, userId]);
+  }, [userRole, userId]);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -152,6 +157,10 @@ export default function MentorProfile() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+    // State updates render asynchronously. This ref also blocks a second
+    // submit event that arrives before the disabled button is rendered.
+    if (submissionInFlight.current) return;
 
     if (!userId) {
       setFormError("Please sign in to request a mentoring session.");
@@ -182,6 +191,7 @@ export default function MentorProfile() {
     }
 
     try {
+      submissionInFlight.current = true;
       setSubmitting(true);
       setFormError("");
       await createMentorSession({
@@ -204,15 +214,16 @@ export default function MentorProfile() {
       setShowRequestModal(false);
     } catch (submitError) {
       if (import.meta.env.DEV) {
-        console.error("Mentorship request failed:", {
+        console.error("Mentorship request failed:", submitError, {
           status: submitError.response?.status ?? null,
-          message: submitError.response?.data?.message || "No response message",
-          debug: submitError.response?.data?.debug,
+          message: submitError.response?.data?.error || submitError.response?.data?.message || "No response message",
+          stage: submitError.response?.data?.stage,
         });
       }
 
       setFormError(getMentorRequestErrorMessage(submitError));
     } finally {
+      submissionInFlight.current = false;
       setSubmitting(false);
     }
   };
@@ -276,14 +287,21 @@ export default function MentorProfile() {
 
           <button
             type="button"
-            className="requestSessionButton"
+            className={`requestSessionButton${success ? " requested" : ""}`}
+            disabled={Boolean(success)}
+            aria-live="polite"
             onClick={() => {
               setSuccess("");
               setFormError("");
               setShowRequestModal(true);
             }}
           >
-            Request Session
+            {success ? (
+              <>
+                <span className="requestedCheck" aria-hidden="true">✓</span>
+                Requested
+              </>
+            ) : "Request Session"}
           </button>
 
           {success && <p className="mentorSuccessMessage">{success}</p>}
@@ -301,7 +319,7 @@ export default function MentorProfile() {
             </div>
 
             <form onSubmit={handleSubmit} className="mentorRequestForm">
-              {user?.role === "Founder" && startups.length > 0 && (
+              {userRole === "Founder" && startups.length > 0 && (
                 <div className="formField">
                   <label htmlFor="startupId">Startup</label>
                   <select id="startupId" name="startupId" value={form.startupId} onChange={handleChange}>

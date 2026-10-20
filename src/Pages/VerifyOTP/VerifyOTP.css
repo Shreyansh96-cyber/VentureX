@@ -1,0 +1,138 @@
+.verifyPage {
+	grid-template-columns: minmax(0, 1fr);
+	align-items: center;
+}
+
+.verifyPage .registerRight {
+	min-height: calc(100vh - 60px);
+	align-items: center;
+	position: relative;
+	z-index: 1;
+	top: 0;
+}
+
+.verifyCard {
+	max-width: 500px;
+	padding: 42px clamp(26px, 5vw, 48px);
+}
+
+.verifyMark {
+	width: 54px;
+	height: 54px;
+	display: grid;
+	place-items: center;
+	margin-bottom: 22px;
+	border: 1px solid rgba(37, 99, 235, .13);
+	border-radius: 16px;
+	background: linear-gradient(145deg, #eff6ff, #e0f2fe);
+	color: #2563eb;
+	font-size: 20px;
+	box-shadow: 0 10px 24px rgba(37, 99, 235, .1);
+}
+
+.verifyEyebrow {
+	margin: 0 0 9px;
+	color: #2563eb;
+	font-size: 11px;
+	font-weight: 700;
+	letter-spacing: 1.5px;
+}
+
+.verifyCard h1 {
+	margin: 0 0 12px;
+	color: #0f172a;
+	font-size: clamp(30px, 5vw, 42px);
+	line-height: 1.15;
+}
+
+.verifyIntro {
+	margin: 0 0 5px;
+	color: #64748b;
+	line-height: 1.6;
+}
+
+.verifyEmail {
+	display: flex;
+	align-items: center;
+	gap: 9px;
+	margin: 0 0 28px;
+	color: #1d4ed8;
+	font-weight: 600;
+	overflow-wrap: anywhere;
+}
+
+.otpInput {
+	width: 100%;
+	height: 62px;
+	padding: 0 18px;
+	border: 1px solid rgba(37, 99, 235, .15);
+	border-radius: 14px;
+	outline: none;
+	background: rgba(255, 255, 255, .9);
+	color: #0f172a;
+	font-size: 26px;
+	font-weight: 700;
+	letter-spacing: 12px;
+	text-align: center;
+	transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.otpInput:focus {
+	border-color: #2563eb;
+	box-shadow: 0 0 0 4px rgba(37, 99, 235, .1);
+}
+
+.otpHelp {
+	display: block;
+	margin-top: 9px;
+	color: #64748b;
+	font-size: 12px;
+}
+
+.otpFeedback {
+	margin: 12px 0 0;
+	font-size: 13px;
+	line-height: 1.5;
+}
+
+.otpFeedback--error { color: #b91c1c; }
+.otpFeedback--success { color: #1d4ed8; }
+
+.verifyCard .registerBtn:disabled {
+	cursor: not-allowed;
+	opacity: .62;
+	transform: none;
+	box-shadow: none;
+}
+
+.otpResendRow {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	gap: 5px 8px;
+	margin-top: 22px;
+	color: #64748b;
+	font-size: 13px;
+}
+
+.otpResendBtn {
+	padding: 4px;
+	border: 0;
+	background: transparent;
+	color: #2563eb;
+	font: inherit;
+	font-weight: 700;
+	cursor: pointer;
+}
+
+.otpResendBtn:disabled { cursor: not-allowed; opacity: .55; }
+.verifyCard .loginLink { margin-top: 17px; }
+.verifyRegisterLink { display: flex; align-items: center; justify-content: center; text-decoration: none; }
+
+@media(max-width:600px) {
+	.verifyPage { padding: 22px 18px; }
+	.verifyPage .registerRight { min-height: calc(100vh - 44px); }
+	.verifyCard { padding: 30px 22px; }
+	.otpInput { height: 58px; font-size: 24px; letter-spacing: 9px; }
+}

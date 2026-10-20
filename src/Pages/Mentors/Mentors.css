@@ -20,14 +20,13 @@
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  background: rgba(255, 255, 255, 0.8);
-  color: #0f172a;
-  border: 1px solid #e2e8f0;
-  border-radius: 12px;
-  padding: 10px 14px;
-  font-weight: 700;
-  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.05);
+  color: #244bd1;
+  font-size: 18px;
+  font-weight: 500;
+  white-space: nowrap;
 }
+.mentorBackButton:hover { color:#1739ad; text-decoration:underline; }
+.mentorBackButton:focus-visible { outline:2px solid #365cf5; outline-offset:4px; border-radius:3px; }
 
 .mentorsEyebrow {
   margin: 0 0 8px;
@@ -180,6 +179,6 @@
   }
 
   .mentorBackButton {
-    width: 100%;
+    width: auto;
   }
 }

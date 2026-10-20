@@ -815,15 +815,6 @@ a{
 
 }
 
-.openNotificationsButton{
-    border:1px solid #dbeafe;
-    background:#eff6ff;
-    color:#1d4ed8;
-    padding:10px 16px;
-    border-radius:10px;
-    font-weight:700;
-}
-
 .dashboardStatsError {
     grid-column: 1 / -1;
     margin: 0;

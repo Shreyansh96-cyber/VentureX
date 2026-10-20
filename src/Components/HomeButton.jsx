@@ -6,7 +6,6 @@ export default function HomeButton({ className = "" }) {
   return (
     <Link to="/" className={`homeButton ${className}`.trim()}>
       <FaHome aria-hidden="true" />
-      Home
     </Link>
   );
 }

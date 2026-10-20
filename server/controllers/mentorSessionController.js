@@ -164,10 +164,22 @@ export const createMentorSession = async (req, res) => {
       linkedStartupId = startup._id;
     }
 
-    const normalizedDate = new Date(requestedDate);
+    const dateParts = typeof requestedDate === "string"
+      ? /^(\d{4})-(\d{2})-(\d{2})$/.exec(requestedDate)
+      : null;
+    const normalizedDate = dateParts
+      ? new Date(Date.UTC(Number(dateParts[1]), Number(dateParts[2]) - 1, Number(dateParts[3])))
+      : new Date(Number.NaN);
 
-    if (Number.isNaN(normalizedDate.getTime())) {
+    if (
+      Number.isNaN(normalizedDate.getTime()) ||
+      normalizedDate.toISOString().slice(0, 10) !== requestedDate
+    ) {
       return res.status(400).json({ message: "Preferred date is invalid." });
+    }
+
+    if (!/^([01]\d|2[0-3]):([0-5]\d)$/.test(String(requestedTime).trim())) {
+      return res.status(400).json({ message: "Preferred time must use 24-hour HH:mm format." });
     }
 
     if (String(topic).trim().length > 160 || String(requestedTime).trim().length > 80) {
@@ -183,8 +195,8 @@ export const createMentorSession = async (req, res) => {
       mentorId,
       requesterId,
       requestedDate: {
-        $gte: new Date(normalizedDate.setHours(0, 0, 0, 0)),
-        $lte: new Date(normalizedDate.setHours(23, 59, 59, 999)),
+        $gte: normalizedDate,
+        $lt: new Date(normalizedDate.getTime() + 24 * 60 * 60 * 1000),
       },
       requestedTime: String(requestedTime).trim(),
       status: "Pending",
@@ -209,16 +221,27 @@ export const createMentorSession = async (req, res) => {
     });
 
     failureStage = "populate-session";
-    const populatedSession = await populateSession(MentorSession.findById(session._id));
-    const fullSession = await populatedSession.exec();
+    const fullSession = await populateSession(MentorSession.findById(session._id)).exec();
 
-    failureStage = "create-notification";
-    await createMentorSessionNotification({
-      type: "MENTOR_REQUEST",
-      session: fullSession,
-      mentor,
-      requester,
-    });
+    // The session is already persisted at this point. A notification failure
+    // must not make the client believe the request failed (and encourage a
+    // retry that will then be rejected as a duplicate).
+    try {
+      await createMentorSessionNotification({
+        type: "MENTOR_REQUEST",
+        session: fullSession,
+        mentor,
+        requester,
+      });
+    } catch (notificationError) {
+      console.error("MENTOR SESSION REQUEST NOTIFICATION ERROR:", {
+        name: notificationError.name || "Error",
+        code: typeof notificationError.code === "number" || typeof notificationError.code === "string"
+          ? notificationError.code
+          : undefined,
+        message: notificationError.message || "Unknown notification error.",
+      });
+    }
 
     failureStage = "return-response";
     return res.status(201).json({
@@ -227,12 +250,15 @@ export const createMentorSession = async (req, res) => {
     });
   } catch (error) {
     console.error("CREATE MENTOR SESSION ERROR:", error);
+    console.error("ERROR MESSAGE:", error.message);
+    console.error("ERROR STACK:", error.stack);
     return res.status(500).json({
-      success: false,
       message: process.env.NODE_ENV !== "production"
-        ? error.message || "Unknown server error."
+        ? "Failed to create mentor session"
         : "Unable to create mentoring session request.",
-      ...(process.env.NODE_ENV !== "production" ? { stage: failureStage } : {}),
+      ...(process.env.NODE_ENV !== "production"
+        ? { error: error.message || "Unknown server error.", stage: failureStage }
+        : {}),
     });
   }
 };
@@ -333,7 +359,7 @@ export const updateMentorSessionStatus = async (req, res) => {
 
     return res.json({
       message: `Session status updated to ${normalizedStatus}.`,
-      session: await updatedSession.exec(),
+      session: updatedSession,
     });
   } catch (error) {
     console.error("UPDATE MENTOR SESSION STATUS ERROR:", error);

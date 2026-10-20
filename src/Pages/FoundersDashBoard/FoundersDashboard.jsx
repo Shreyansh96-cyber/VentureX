@@ -169,15 +169,25 @@ export default function FounderDashboard() {
     const fetchMentorSessions = async () => {
       try {
         const sessions = await getRequesterSessions(user._id);
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
         const normalized = Array.isArray(sessions)
-          ? sessions.slice(0, 2).map((session) => ({
-              id: session._id,
-              name: session.mentorId?.name || "Mentor",
-              topic: session.topic || "Mentoring Session",
-              date: session.requestedDate ? new Date(session.requestedDate).toLocaleDateString("en-IN", { weekday: "long" }) : "Upcoming",
-              time: session.requestedTime || "Flexible",
-              image: getProfileImageUrl(session.mentorId?.profileImage) || "https://i.pravatar.cc/100?img=12",
-            }))
+          ? sessions
+              .filter((session) => {
+                const requestedDate = new Date(session.requestedDate);
+                requestedDate.setHours(0, 0, 0, 0);
+                return session.status === "Accepted" && requestedDate >= today;
+              })
+              .slice(0, 2)
+              .map((session) => ({
+                id: session._id,
+                name: session.mentorId?.name || "Mentor",
+                topic: session.topic || "Mentoring Session",
+                status: session.status,
+                date: session.requestedDate ? new Date(session.requestedDate).toLocaleDateString("en-IN", { weekday: "long" }) : "Upcoming",
+                time: session.requestedTime || "Flexible",
+                image: getProfileImageUrl(session.mentorId?.profileImage) || "https://i.pravatar.cc/100?img=12",
+              }))
           : [];
 
         setMentorSessions(normalized);
@@ -417,26 +427,6 @@ export default function FounderDashboard() {
 
         </section>
 
-
-        {/* =========================
-            NOTIFICATIONS
-        ========================= */}
-
-        <section className="dashboardSection">
-
-          <h2>
-            Notifications
-          </h2>
-
-          <button
-            type="button"
-            className="openNotificationsButton"
-            onClick={() => navigate("/notifications")}
-          >
-            Open notifications
-          </button>
-
-        </section>
 
       </div>
 

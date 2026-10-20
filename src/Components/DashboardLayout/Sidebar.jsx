@@ -47,6 +47,12 @@ function Sidebar() {
             </li>
 
             <li>
+              <NavLink to="/messages">
+                ✉️ Messages
+              </NavLink>
+            </li>
+
+            <li>
               <NavLink to="/mentors">
                 👨‍🏫 Mentors
               </NavLink>
@@ -89,6 +95,12 @@ function Sidebar() {
             <li>
               <NavLink to="/investments">
                 💵 Investments
+              </NavLink>
+            </li>
+
+            <li>
+              <NavLink to="/messages">
+                ✉️ Messages
               </NavLink>
             </li>
 

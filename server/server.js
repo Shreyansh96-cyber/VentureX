@@ -18,6 +18,7 @@ import mentorSessionRoutes from "./routes/mentorSessionRoutes.js";
 import investorRoutes from "./routes/investorRoutes.js";
 import profileRoutes from "./routes/profileRoutes.js";
 import dashboardRoutes from "./routes/dashboardRoutes.js";
+import messageRoutes from "./routes/messageRoutes.js";
 
 const app = express();
 const serverDirectory = path.dirname(fileURLToPath(import.meta.url));
@@ -60,7 +61,7 @@ app.use((req, res, next) => {
   res.setHeader("X-Content-Type-Options", "nosniff");
   res.setHeader("X-Frame-Options", "DENY");
   res.setHeader("Referrer-Policy", "strict-origin-when-cross-origin");
-  res.setHeader("Permissions-Policy", "camera=(), microphone=(), geolocation=()");
+  res.setHeader("Permissions-Policy", "camera=(self), microphone=(self), geolocation=()");
   next();
 });
 
@@ -131,6 +132,8 @@ app.use("/api/profile", profileRoutes);
 app.use("/api/mentor-sessions", mentorSessionRoutes);
 
 app.use("/api/dashboard", dashboardRoutes);
+
+app.use("/api/messages", messageRoutes);
 
 
 // ==============================

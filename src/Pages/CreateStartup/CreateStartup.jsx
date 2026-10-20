@@ -1,7 +1,7 @@
 import "./CreateStartup.css";
 
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import API from "../../api/startup";
 
@@ -41,6 +41,19 @@ export default function CreateStartup() {
     targetMarket: "",
     competitors: "",
   });
+
+  const completionFields = [
+    ...Object.entries(formData)
+      .filter(([field]) => !["industry", "stage", "country", "foundedYear"].includes(field))
+      .map(([, value]) => Boolean(String(value).trim())),
+    Boolean(coverImage),
+    Boolean(logoImage),
+    Boolean(pitchDeck),
+    gallery.length > 0,
+  ];
+  const completion = Math.round(
+    (completionFields.filter(Boolean).length / completionFields.length) * 100
+  );
 
   // =========================
   // HANDLE INPUT
@@ -181,6 +194,9 @@ export default function CreateStartup() {
 
   return (
     <div className="startupBuilder">
+      <Link to="/dashboard" className="startupBackLink">
+        ← Back to Dashboard
+      </Link>
 
       <form onSubmit={handleSubmit}>
 
@@ -271,11 +287,21 @@ export default function CreateStartup() {
 
           <h3>Profile Completion</h3>
 
-          <div className="completionBar">
-            <div className="completionProgress"></div>
+          <div
+            className="completionBar"
+            role="progressbar"
+            aria-label="Profile completion"
+            aria-valuemin={0}
+            aria-valuemax={100}
+            aria-valuenow={completion}
+          >
+            <div
+              className="completionProgress"
+              style={{ width: `${completion}%` }}
+            />
           </div>
 
-          <span>76%</span>
+          <span>{completion}%</span>
 
         </div>
 

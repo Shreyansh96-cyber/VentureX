@@ -23,6 +23,15 @@ function Login() {
 
   const navigate = useNavigate();
 
+  const beginEmailVerification = (pendingEmail) => {
+    sessionStorage.setItem("pendingEmailVerification", pendingEmail);
+    sessionStorage.setItem(
+      "pendingEmailVerificationResendAt",
+      String(Date.now() + 60 * 1000)
+    );
+    navigate("/verify-otp", { state: { email: pendingEmail } });
+  };
+
   // ==========================
   // Normal Login
   // ==========================
@@ -72,6 +81,11 @@ function Login() {
     }
 
     catch (error) {
+
+      if (error.response?.data?.requiresEmailVerification) {
+        beginEmailVerification(error.response.data.email || email);
+        return;
+      }
 
       alert(
         error.response?.data?.message ||
@@ -127,7 +141,11 @@ function Login() {
 
   }
 
-  catch {
+  catch (error) {
+    if (error.response?.data?.requiresEmailVerification) {
+      beginEmailVerification(error.response.data.email || "");
+      return;
+    }
     alert("Google Login Failed");
 
   }

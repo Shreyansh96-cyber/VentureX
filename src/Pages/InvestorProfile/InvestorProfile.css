@@ -1,0 +1,95 @@
+.investorProfilePage {
+  max-width: 1120px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 34px 24px 80px;
+  color: #0f172a;
+}
+
+.investorProfileEmpty {
+  display: grid;
+  place-items: center;
+  color: #475569;
+}
+
+.investorProfileHeader { margin-bottom: 20px; }
+.investorProfileBack {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #3157c8;
+  font-size: .92rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 160ms ease, transform 160ms ease;
+}
+.investorProfileBack:hover { color: #173b9b; transform: translateX(-2px); }
+
+.investorProfileCard {
+  display: grid;
+  grid-template-columns: 248px minmax(0, 1fr);
+  align-items: start;
+  gap: 38px;
+  padding: 38px;
+  border: 1px solid rgba(210, 220, 237, .9);
+  border-radius: 28px;
+  background: linear-gradient(145deg, rgba(255,255,255,.97), rgba(248,251,255,.94));
+  box-shadow: 0 24px 70px rgba(35, 59, 105, .11), 0 2px 8px rgba(35, 59, 105, .04);
+  backdrop-filter: blur(10px);
+}
+
+.investorProfileAvatarWrap {
+  position: relative;
+  padding: 7px;
+  border-radius: 26px;
+  background: linear-gradient(145deg, #d9e8ff, #f0eaff 55%, #d9f1ff);
+  box-shadow: 0 15px 34px rgba(52, 88, 158, .15);
+}
+.investorProfileAvatarWrap img, .investorProfileInitials {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+.investorProfileInitials {
+  display: grid;
+  place-items: center;
+  background: linear-gradient(145deg, #e7efff, #dceaff);
+  color: #3157c8;
+  font-size: 56px;
+  font-weight: 800;
+}
+
+.investorProfileEyebrow { margin: 2px 0 10px; color: #5d67d8; font-size: 11px; font-weight: 800; letter-spacing: .18em; }
+.investorProfileBody h1 { margin: 0 0 9px; color: #111b32; font-size: clamp(2rem, 4.2vw, 3.15rem); line-height: 1.08; letter-spacing: -.045em; }
+.investorProfileRole { display: inline-flex; margin: 0 0 22px; color: #3157c8; font-size: 1rem; font-weight: 700; }
+.investorProfileFacts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 11px; margin-bottom: 27px; }
+.investorProfileFacts > div { min-width: 0; padding: 14px 15px; border: 1px solid #e8edf5; border-radius: 15px; background: #f7f9fd; }
+.investorProfileFacts span, .investorProfileFacts strong { display: block; }
+.investorProfileFacts span { margin-bottom: 6px; color: #71809a; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; }
+.investorProfileFacts strong { overflow-wrap: anywhere; color: #17223a; font-size: .94rem; }
+.investorProfileSection { margin-top: 23px; padding: 0; }
+.investorProfileSection + .investorProfileSection { margin-top: 25px; }
+.investorProfileSection h2 { margin: 0 0 9px; color: #17223a; font-size: 1.05rem; letter-spacing: -.015em; }
+.investorProfileSection p { margin: 0; color: #59677f; line-height: 1.75; white-space: pre-wrap; }
+.investorProfileSkills { display: flex; flex-wrap: wrap; gap: 9px; }
+.investorProfileSkills span { padding: 8px 13px; border: 1px solid #e0e9fb; border-radius: 999px; background: #f0f5ff; color: #3157a4; font-size: .88rem; font-weight: 600; }
+
+@media (max-width: 760px) {
+  .investorProfilePage { padding: 24px 18px 54px; }
+  .investorProfileCard { grid-template-columns: 180px minmax(0, 1fr); gap: 25px; padding: 26px; }
+  .investorProfileFacts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 680px) {
+  .investorProfileCard { grid-template-columns: 1fr; gap: 24px; padding: 22px; border-radius: 22px; }
+  .investorProfileAvatarWrap { display: flex; justify-content: center; }
+  .investorProfileAvatarWrap { width: 170px; }
+  .investorProfileBody h1 { font-size: clamp(1.9rem, 9vw, 2.5rem); }
+  .investorProfileFacts { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .investorProfileBack { transition: none; }
+}

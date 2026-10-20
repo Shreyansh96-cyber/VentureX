@@ -17,6 +17,7 @@ const notificationSchema = new mongoose.Schema(
 				"MENTOR_ACCEPTED",
 				"MENTOR_REJECTED",
 				"MENTOR_CANCELLED",
+				"MESSAGE_RECEIVED",
 			],
 			required: true,
 		},
@@ -34,6 +35,14 @@ const notificationSchema = new mongoose.Schema(
 			type: mongoose.Schema.Types.ObjectId,
 			ref: "Investment",
 		},
+		relatedMessageId: {
+			type: mongoose.Schema.Types.ObjectId,
+			ref: "Message",
+		},
+		conversationId: {
+			type: mongoose.Schema.Types.ObjectId,
+			ref: "Conversation",
+		},
 		isRead: {
 			type: Boolean,
 			default: false,
@@ -47,6 +56,14 @@ notificationSchema.index(
 	{
 		unique: true,
 		partialFilterExpression: { relatedId: { $type: "objectId" } },
+	}
+);
+
+notificationSchema.index(
+	{ recipientId: 1, type: 1, relatedMessageId: 1 },
+	{
+		unique: true,
+		partialFilterExpression: { relatedMessageId: { $type: "objectId" } },
 	}
 );
 

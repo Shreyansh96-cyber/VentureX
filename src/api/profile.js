@@ -39,3 +39,8 @@ export const changeMyPassword = async (passwords) => {
   const response = await profileAPI.put("/me/password", passwords);
   return response.data;
 };
+
+export const deleteMyAccount = async (reauthentication) => {
+  const response = await profileAPI.delete("/me", { data: reauthentication });
+  return response.data;
+};

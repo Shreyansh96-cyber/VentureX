@@ -6,10 +6,10 @@
   min-height: 100vh;
   width: 100%;
   box-sizing: border-box;
-  padding: 40px 5% 80px;
+  padding: 42px max(5%, calc((100% - 1728px) / 2)) 88px;
   background: transparent;
   color: #0f172a;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 
@@ -18,16 +18,19 @@
 ========================================= */
 
 .details-back {
-  display: inline-block;
-  margin-bottom: 30px;
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 28px;
   color: #1e40af;
   text-decoration: none;
   font-size: 15px;
   font-weight: 500;
+  transition: color .2s ease, transform .2s ease;
 }
 
 .details-back:hover {
-  text-decoration: underline;
+  color: #1d4ed8;
+  transform: translateX(-2px);
 }
 
 .details-success-banner {
@@ -53,13 +56,13 @@
   align-items: center;
   gap: 24px;
 
-  padding: 35px;
+  padding: 34px;
 
   background: white;
   border-radius: 20px;
   border: 1px solid #e2e8f0;
 
-  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+  box-shadow: 0 18px 55px rgba(25, 64, 115, .075);
 
   margin-bottom: 25px;
 }
@@ -79,6 +82,7 @@
   justify-content: center;
 
   border-radius: 20px;
+  box-shadow: 0 12px 24px rgba(15, 23, 42, .14);
 
   background: #111827;
   color: white;
@@ -111,8 +115,9 @@
 .startup-details-title h1 {
   margin: 0;
 
-  font-size: 38px;
+  font-size: clamp(32px, 3vw, 40px);
   line-height: 1.1;
+  letter-spacing: -.04em;
 
   color: #0f172a;
 }
@@ -152,7 +157,10 @@
 
   font-size: 13px;
   font-weight: 600;
+  transition: background .2s ease, transform .2s ease;
 }
+
+.details-tags span:hover { background: #e3efff; transform: translateY(-1px); }
 
 
 /* =========================================
@@ -186,13 +194,14 @@
 
   box-sizing: border-box;
 
-  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+  box-shadow: 0 16px 45px rgba(25, 64, 115, .055);
 }
 
 .details-main-card h2 {
   margin: 0 0 12px;
 
   font-size: 25px;
+  letter-spacing: -.025em;
 
   color: #0f172a;
 }
@@ -229,7 +238,10 @@
   border: 1px solid #e2e8f0;
 
   border-radius: 14px;
+  transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
 }
+
+.info-item:hover { transform: translateY(-2px); border-color: #c6d8f4; box-shadow: 0 8px 18px rgba(37, 99, 235, .06); }
 
 .info-item span {
   display: block;
@@ -280,7 +292,7 @@
 
   box-sizing: border-box;
 
-  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+  box-shadow: 0 16px 45px rgba(25, 64, 115, .055);
 }
 
 .funding-title {
@@ -299,6 +311,7 @@
   color: #111827;
 
   font-size: 32px;
+  letter-spacing: -.035em;
 }
 
 .funding-status {
@@ -392,10 +405,46 @@
   transition: 0.2s ease;
 }
 
-.website-btn:hover {
-  background: #f8fafc;
+.message-founder-btn {
+  width: 100%;
+  min-height: 52px;
+  border: 1px solid #1d4ed8;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(37, 99, 235, .18);
+}
 
+.message-founder-btn:hover {
+  border-color: #1e40af;
+  background: linear-gradient(135deg, #1d4ed8, #1e40af);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 11px 22px rgba(37, 99, 235, .24);
+}
+
+.message-founder-btn:focus-visible {
+  outline: 3px solid rgba(37, 99, 235, .28);
+  outline-offset: 3px;
+}
+
+.message-founder-btn:disabled {
+  opacity: .65;
+  cursor: wait;
+}
+
+.message-founder-error {
+  margin: -7px 2px 0;
+  color: #b42318;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.website-btn:hover {
   border-color: #94a3b8;
+  transform: translateY(-1px);
+  box-shadow: 0 7px 18px rgba(37, 99, 235, .07);
 }
 
 .save-toggle-btn {
@@ -418,6 +467,7 @@
 .save-toggle-btn:hover {
   background: #f8fafc;
   border-color: #94a3b8;
+  transform: translateY(-1px);
 }
 
 .save-toggle-btn.saved {
@@ -461,6 +511,8 @@
 
   text-align: center;
 }
+
+.details-message > * { max-width: min(100%, 560px); }
 
 .details-message h2 {
   margin-bottom: 8px;
@@ -508,6 +560,9 @@
 
     padding: 22px;
   }
+
+  .details-back { margin-bottom: 20px; }
+  .startup-details-grid { gap: 16px; }
 
   .startup-details-logo {
     width: 70px;

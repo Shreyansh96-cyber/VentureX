@@ -10,7 +10,7 @@ import SavedStartup from "../models/SavedStartup.js";
 import Startup from "../models/Startup.js";
 import User from "../models/User.js";
 
-const privateUserFields = "-password -googleId -otp -otpExpiry -resetPasswordToken -resetPasswordExpire";
+const privateUserFields = "-password -googleId -otp -otpExpiry -otpAttempts -otpResendCount -otpResendWindowStart -otpLastSentAt -accountDeletionInProgress -resetPasswordToken -resetPasswordExpire";
 const acceptedStatuses = { $in: ["Accepted", "accepted"] };
 const profilePhotoDirectory = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)),
@@ -82,7 +82,15 @@ export const getMyProfile = async (req, res) => {
     }
 
     const stats = await getProfileStats(user);
-    return res.status(200).json({ user, stats });
+    const googleAccount = await User.exists({
+      _id: user._id,
+      googleId: { $type: "string", $ne: "" },
+    });
+    return res.status(200).json({
+      user,
+      stats,
+      authProvider: googleAccount ? "google" : "password",
+    });
   } catch (error) {
     console.error("GET PROFILE ERROR:", error);
     return res.status(500).json({ message: "Unable to load your profile." });

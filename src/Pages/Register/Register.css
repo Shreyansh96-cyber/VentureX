@@ -7,14 +7,6 @@
     font-family:"Poppins",sans-serif;
 } */
 
-html,
-body,
-#root{
-    width:100%;
-    height:100%;
-    /* overflow:hidden; */
-}
-
 .registerPage{
 
     width:100%;
@@ -22,7 +14,7 @@ body,
 
     display:grid;
 
-    grid-template-columns:55% 45%;
+    grid-template-columns:minmax(0, 1.22fr) minmax(0, 1fr);
 
     background:transparent;
 
@@ -32,7 +24,8 @@ body,
 
     position:relative;
 
-    overflow:hidden;
+    overflow-x:clip;
+    overflow-y:visible;
 
     padding:30px 50px;
 
@@ -95,7 +88,7 @@ height:400px;
 
 background:#7C3AED15;
 
-bottom:-140px;
+bottom:20px;
 left:40%;
 
 animation-delay:5s;
@@ -114,13 +107,16 @@ animation-delay:5s;
 
 .registerLeft{
 
+min-width:0;
+
 display:flex;
 cursor: default;
 
 justify-content:center;
 
-align-items:center;
-
+position: relative;
+top: 90px;
+height: 90%;
 padding-right:20px;
 
 }
@@ -128,6 +124,8 @@ padding-right:20px;
 .brand{
 
 max-width:620px;
+width:100%;
+min-width:0;
 
 }
 
@@ -177,20 +175,144 @@ color:#64748B;
 
 }
 
+.networkScene{
+    position:relative;
+    isolation:isolate;
+    width:min(100%, 590px);
+    height:225px;
+    margin:18px auto 0;
+}
+
+.networkGraphic{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    overflow:visible;
+}
+
+.networkLine{
+    stroke:rgba(37,99,235,.28);
+    stroke-width:1.5;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+}
+
+.networkLine--soft{
+    stroke:rgba(56,189,248,.22);
+    stroke-dasharray:3 8;
+}
+
+.networkNode{
+    fill:#FFFFFF;
+    stroke:#3B82F6;
+    stroke-width:2;
+    filter:drop-shadow(0 0 5px rgba(37,99,235,.28));
+    animation:networkPulse 5s ease-in-out infinite;
+}
+
+.networkNode--large{
+    fill:#EFF6FF;
+    stroke:#2563EB;
+    stroke-width:2.5;
+}
+
+.networkCard{
+    position:absolute;
+    z-index:1;
+    display:flex;
+    align-items:center;
+    gap:11px;
+    padding:11px 14px;
+    border:1px solid rgba(255,255,255,.9);
+    border-radius:13px;
+    background:rgba(255,255,255,.76);
+    box-shadow:0 12px 28px rgba(37,99,235,.12), 0 3px 9px rgba(15,23,42,.04);
+    backdrop-filter:blur(14px);
+    animation:networkFloat 8s ease-in-out infinite;
+}
+
+.networkCard--discovery{
+    top:20%;
+    left:2%;
+}
+
+.networkCard--connection{
+    right:2%;
+    bottom:13%;
+    animation-delay:-3s;
+}
+
+.brand .networkCardIcon{
+    display:grid;
+    flex:0 0 34px;
+    width:34px;
+    height:34px;
+    place-items:center;
+    border-radius:10px;
+    color:#2563EB;
+    background:rgba(37,99,235,.1);
+}
+
+.brand .networkCardIcon--spark{
+    color:#3B82F6;
+    font-size:20px;
+}
+
+.networkCardIcon--link svg{
+    width:17px;
+    height:17px;
+    stroke:currentColor;
+    stroke-width:1.8;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+}
+
+.brand .networkCardCopy{
+    display:flex;
+    flex-direction:column;
+    gap:2px;
+    white-space:nowrap;
+    font-size:12px;
+    line-height:1.25;
+}
+
+.networkCardCopy strong{
+    color:#0F172A;
+    font-size:12px;
+    font-weight:600;
+}
+
+.networkCardCopy small{
+    color:#64748B;
+    font-size:10px;
+}
+
+@keyframes networkFloat{
+    0%, 100%{transform:translateY(0);}
+    50%{transform:translateY(-5px);}
+}
+
+@keyframes networkPulse{
+    0%, 100%{opacity:.78;}
+    50%{opacity:1;}
+}
+
 .registerRight{
 cursor: default;
+min-width:0;
+width:100%;
 display:flex;
 
-justify-content:flex-start;
+justify-content:center;
 
 align-items:center;
 
 }
 
 .registerCard{
-    max-height: 90vh;
-    overflow-y: auto;
     width:100%;
+    min-width:0;
     max-width:520px;
     padding:35px;
     background:rgba(255,255,255,.55);
@@ -491,6 +613,7 @@ color:#64748B;
 }
 
 .googleLoginContainer{
+    min-width:0;
     width:100%;
     display:flex;
     justify-content:center;
@@ -503,4 +626,110 @@ color:#64748B;
 
 .googleLoginContainer iframe{
     width:100% !important;
+}
+
+@media (max-width: 960px) {
+    .registerPage {
+        grid-template-columns:minmax(0, 1fr);
+        min-height:100vh;
+        min-height:100svh;
+        gap:0;
+        padding:78px clamp(24px, 8vw, 60px) 32px;
+    }
+
+    .registerLeft {
+        display:none;
+    }
+
+    .registerRight {
+        align-items:center;
+    }
+
+    .registerCard {
+        margin:0 auto;
+    }
+}
+
+@media (min-width: 961px) and (max-width: 1100px) {
+    .networkScene {
+        height:190px;
+    }
+
+    .networkCard {
+        transform:scale(.92);
+    }
+
+    .networkCard--discovery {
+        transform-origin:left center;
+    }
+
+    .networkCard--connection {
+        transform-origin:right center;
+    }
+}
+
+@media (max-width: 768px) {
+    .registerPage {
+        padding:74px 24px 24px;
+    }
+
+    .registerCard {
+        padding:30px 26px;
+    }
+
+    .registerCard h2 {
+        font-size:44px;
+    }
+}
+
+@media (max-width: 480px) {
+    .registerPage {
+        padding:72px 14px 20px;
+    }
+
+    .registerPage .homeButton--auth {
+        top:14px;
+        right:14px;
+    }
+
+    .registerCard {
+        padding:24px 18px;
+        border-radius:20px;
+    }
+
+    .registerCard h2 {
+        font-size:34px;
+    }
+
+    .registerCard > p {
+        margin-bottom:16px;
+    }
+
+    .inputIcon {
+        padding:0 13px;
+    }
+
+    .inputIcon input {
+        min-width:0;
+        font-size:14px;
+    }
+
+    .inputIcon svg {
+        flex:0 0 auto;
+        margin-right:11px;
+    }
+
+    .eye {
+        flex:0 0 auto;
+        padding:8px 0 8px 8px;
+    }
+
+    .loginLink {
+        font-size:14px;
+    }
+
+    .secure {
+        font-size:12px;
+        line-height:1.5;
+    }
 }

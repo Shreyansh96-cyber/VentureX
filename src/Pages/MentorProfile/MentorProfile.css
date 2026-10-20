@@ -140,6 +140,41 @@
   padding: 12px 18px;
 }
 
+.requestSessionButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 48px;
+  transition: background 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.requestSessionButton:not(:disabled):hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(79, 70, 229, 0.24);
+}
+
+.requestSessionButton.requested,
+.requestSessionButton.requested:disabled {
+  background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+  color: #047857;
+  border: 1px solid #a7f3d0;
+  box-shadow: 0 5px 14px rgba(16, 185, 129, 0.1);
+  cursor: default;
+}
+
+.requestedCheck {
+  display: inline-grid;
+  place-items: center;
+  width: 21px;
+  height: 21px;
+  border-radius: 50%;
+  background: #10b981;
+  color: #fff;
+  font-size: 14px;
+  line-height: 1;
+}
+
 .secondaryButton {
   background: #e2e8f0;
   color: #0f172a;

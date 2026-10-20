@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { useParams, Link, useLocation } from "react-router-dom";
+import { useParams, Link, useLocation, useNavigate } from "react-router-dom";
 import API from "../../../api/startup";
+import { startConversation } from "../../../api/messages";
 import { checkSavedStartup, saveStartup, unsaveStartup } from "../../../api/savedStartup";
 import { formatRupees } from "../../../utils/currency";
 
@@ -11,6 +12,7 @@ import "./StartupDetailsPage.css";
 function StartupDetailsPage() {
   const { id } = useParams();
   const location = useLocation();
+  const navigate = useNavigate();
 
   const [startup, setStartup] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -18,6 +20,8 @@ function StartupDetailsPage() {
   const [investmentSuccess, setInvestmentSuccess] = useState("");
   const [saved, setSaved] = useState(false);
   const [saving, setSaving] = useState(false);
+  const [contactingFounder, setContactingFounder] = useState(false);
+  const [contactError, setContactError] = useState("");
 
   const [showInvestModal, setShowInvestModal] = useState(false);
 
@@ -29,15 +33,20 @@ function StartupDetailsPage() {
     }
   })();
 
+  const currentUserId = currentUser?._id || currentUser?.id;
+  const hasAuthenticatedUser = Boolean(currentUserId && localStorage.getItem("token"));
+  const isInvestor = hasAuthenticatedUser && currentUser?.role === "Investor";
+
   const startupFounderId =
-    typeof startup?.founderId === "object"
-      ? startup?.founderId?._id
+    startup?.founderId && typeof startup.founderId === "object"
+      ? startup.founderId._id || startup.founderId.id
       : startup?.founderId;
 
   const canEditStartup =
+    hasAuthenticatedUser &&
     currentUser?.role === "Founder" &&
     startupFounderId != null &&
-    String(startupFounderId) === String(currentUser?._id);
+    String(startupFounderId) === String(currentUserId);
 
   // Check where the user came from
   const cameFromFounderDashboard =
@@ -114,6 +123,27 @@ function StartupDetailsPage() {
       alert(err.response?.data?.message || "Unable to update saved startup.");
     } finally {
       setSaving(false);
+    }
+  };
+
+  const handleMessageFounder = async () => {
+    if (!currentUser || !localStorage.getItem("token")) {
+      navigate("/login");
+      return;
+    }
+
+    setContactingFounder(true);
+    setContactError("");
+    try {
+      const conversation = await startConversation(startup._id);
+      navigate(`/messages?conversation=${conversation._id}`);
+    } catch (contactError) {
+      setContactError(
+        contactError.response?.data?.message ||
+          "Unable to contact this startup's founder. Please try again."
+      );
+    } finally {
+      setContactingFounder(false);
     }
   };
 
@@ -350,7 +380,7 @@ function StartupDetailsPage() {
             </Link>
           )}
 
-          {currentUser && (
+          {isInvestor && (
             <button
               type="button"
               className={`save-toggle-btn ${saved ? "saved" : ""}`}
@@ -361,22 +391,38 @@ function StartupDetailsPage() {
             </button>
           )}
 
+          {isInvestor && (
+            <>
+              <button
+                type="button"
+                className="website-btn message-founder-btn"
+                onClick={handleMessageFounder}
+                disabled={contactingFounder}
+              >
+                {contactingFounder ? "Opening conversation..." : "Message Founder"}
+              </button>
+              {contactError && <p className="message-founder-error" role="alert">{contactError}</p>}
+            </>
+          )}
+
           {/* =========================
               INVEST BUTTON
           ========================= */}
 
-          <button
-            type="button"
-            className="invest-now-btn"
-            onClick={() =>
-              setShowInvestModal(true)
-            }
-          >
-            Invest in{" "}
-            {startup.startupName ||
-              "Startup"}{" "}
-            →
-          </button>
+          {isInvestor && (
+            <button
+              type="button"
+              className="invest-now-btn"
+              onClick={() =>
+                setShowInvestModal(true)
+              }
+            >
+              Invest in{" "}
+              {startup.startupName ||
+                "Startup"}{" "}
+              →
+            </button>
+          )}
 
           {/* =========================
               WEBSITE

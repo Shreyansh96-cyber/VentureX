@@ -106,7 +106,7 @@ img {
 }
 
 section {
-    padding: 100px 8%;
+    padding: 10px 7%;
 }
 
 .about,
@@ -116,13 +116,12 @@ section {
     margin: 0;
 }
 
-.hero,
 .features,
 .howItWorks,
 .explore,
 .whyChoose,
 .about,
 .contactSection {
-    padding: 100px 8%;
+    padding: 50px 8%;
     background: transparent;
 }

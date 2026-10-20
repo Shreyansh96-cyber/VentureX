@@ -31,3 +31,8 @@ export const updateMentorSessionStatus = async (sessionId, status) => {
   const response = await mentorSessionAPI.put(`/${sessionId}/status`, { status });
   return response.data;
 };
+
+export const getMentorMeetingToken = async (sessionId) => {
+  const response = await mentorSessionAPI.post(`/${sessionId}/meeting-token`);
+  return response.data;
+};

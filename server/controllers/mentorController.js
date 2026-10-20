@@ -3,7 +3,7 @@ import User from "../models/User.js";
 
 export const getAllMentors = async (req, res) => {
   try {
-    const mentors = await User.find({ role: "Mentor" })
+    const mentors = await User.find({ role: "Mentor", emailVerified: { $ne: false } })
       .select(
         "_id name role profileImage expertise bio experience skills location availability"
       )
@@ -24,7 +24,7 @@ export const getMentorById = async (req, res) => {
       return res.status(400).json({ message: "Invalid mentor ID." });
     }
 
-    const mentor = await User.findOne({ _id: id, role: "Mentor" }).select(
+    const mentor = await User.findOne({ _id: id, role: "Mentor", emailVerified: { $ne: false } }).select(
       "_id name role profileImage expertise bio experience skills location availability"
     );
 

@@ -32,7 +32,9 @@ const relativeTime = (value) => {
 };
 
 const destinationFor = (notification) =>
-	notification.type === "INVESTMENT_REQUEST"
+	notification.type === "MESSAGE_RECEIVED" && notification.conversationId
+		? `/messages?conversation=${notification.conversationId}`
+		: notification.type === "INVESTMENT_REQUEST"
 		? "/dashboard#investment-requests"
 		: notification.type === "INVESTMENT_ACCEPTED" ||
 		    notification.type === "INVESTMENT_REJECTED"

@@ -1,9 +1,10 @@
 import { useEffect, useMemo, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./MentorDashboard.css";
 
 import HomeButton from "../../Components/HomeButton";
 import NotificationBell from "../../Components/Notifications/NotificationBell";
+import logo from "../../assets/VentureX.png";
 import { getProfileImageUrl } from "../../api/profile";
 import { getMentorSessions, updateMentorSessionStatus } from "../../api/mentorSession";
 
@@ -43,6 +44,7 @@ const sortByRequestedDateAsc = (a, b) => {
 };
 
 export default function MentorDashboard() {
+  const navigate = useNavigate();
   const user = getStoredUser();
   const mentorId = user?._id || user?.id;
   const [sessions, setSessions] = useState([]);
@@ -135,27 +137,17 @@ export default function MentorDashboard() {
     [sessions]
   );
 
-  const completedSessions = useMemo(
-    () =>
-      sessions
-        .filter((session) => session.status === "Completed")
-        .sort((a, b) => new Date(b.requestedDate).getTime() - new Date(a.requestedDate).getTime()),
-    [sessions]
-  );
-
   const stats = useMemo(() => {
     const pendingCount = pendingRequests.length;
     const upcomingCount = upcomingSessions.length;
-    const completedCount = completedSessions.length;
     const totalCount = sessions.length;
 
     return [
       { label: "Pending Requests", value: pendingCount, accent: "amber" },
       { label: "Upcoming Sessions", value: upcomingCount, accent: "cyan" },
-      { label: "Completed Sessions", value: completedCount, accent: "green" },
       { label: "Total Sessions", value: totalCount, accent: "violet" },
     ];
-  }, [pendingRequests.length, upcomingSessions.length, completedSessions.length, sessions.length]);
+  }, [pendingRequests.length, upcomingSessions.length, sessions.length]);
 
   const greeting = () => {
     const hour = new Date().getHours();
@@ -164,8 +156,27 @@ export default function MentorDashboard() {
     return "Good evening";
   };
 
+  const scrollToSection = (sectionId) => {
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   return (
-    <div className="mentorDashboardPage">
+    <div className="mentorDashboardLayout">
+      <aside className="mentorSidebar">
+        <Link to="/mentor-dashboard" className="mentorBrand"><img src={logo} alt="" className="mentorBrandMark"/><span>Venture<span className="mentorBrandAccent">X</span><small>MENTOR SPACE</small></span></Link>
+        <p className="mentorNavLabel">WORKSPACE</p>
+        <nav className="mentorSidebarNav" aria-label="Mentor dashboard navigation">
+          <button type="button" className="mentorNavItem is-active" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}><span>01</span> Overview</button>
+          <button type="button" className="mentorNavItem" onClick={() => scrollToSection("pending-requests")}><span>02</span> Requests <b>{pendingRequests.length}</b></button>
+          <button type="button" className="mentorNavItem" onClick={() => scrollToSection("upcoming-sessions")}><span>03</span> Sessions</button>
+          <Link to="/notifications" className="mentorNavItem"><span>04</span> Notifications</Link>
+        </nav>
+        <div className="mentorSidebarBottom">
+          <Link to="/profile" className="mentorSidebarProfile"><img src={getProfileImageUrl(user?.profileImage) || "https://i.pravatar.cc/100?img=12"} alt=""/><span>{user?.name || "Mentor"}<small>View profile</small></span><span className="mentorSidebarArrow">&#8599;</span></Link>
+          <Link to="/" className="mentorSidebarHome">&#8592; <span>Back to home</span></Link>
+        </div>
+      </aside>
+      <main className="mentorDashboardPage">
       <header className="mentorDashboardHeader">
         <div className="mentorDashboardHeadingWrap">
           <p className="mentorDashboardEyebrow">MENTOR DASHBOARD</p>
@@ -175,11 +186,13 @@ export default function MentorDashboard() {
         <div className="mentorDashboardActions">
           <HomeButton />
           <NotificationBell />
-          <img
-            src={getProfileImageUrl(user?.profileImage) || "https://i.pravatar.cc/100?img=12"}
-            alt={user?.name || "Mentor"}
-            className="mentorDashboardAvatar"
-          />
+          <Link to="/profile" className="mentorDashboardProfileLink" aria-label="View profile" title="View profile">
+            <img
+              src={getProfileImageUrl(user?.profileImage) || "https://i.pravatar.cc/100?img=12"}
+              alt={user?.name || "Mentor"}
+              className="mentorDashboardAvatar"
+            />
+          </Link>
         </div>
       </header>
 
@@ -187,8 +200,8 @@ export default function MentorDashboard() {
       {successMessage && <div className="mentorDashboardSuccess">{successMessage}</div>}
 
       <section className="mentorQuickActions">
-        <Link to="#pending-requests" className="mentorQuickAction">View pending requests</Link>
-        <Link to="#upcoming-sessions" className="mentorQuickAction">View upcoming sessions</Link>
+        <button type="button" onClick={() => scrollToSection("pending-requests")} className="mentorQuickAction">View pending requests</button>
+        <button type="button" onClick={() => scrollToSection("upcoming-sessions")} className="mentorQuickAction">View upcoming sessions</button>
         <Link to="/profile" className="mentorQuickAction">View profile</Link>
         <Link to="/notifications" className="mentorQuickAction">View notifications</Link>
       </section>
@@ -233,7 +246,7 @@ export default function MentorDashboard() {
       <section className="mentorStatsGrid">
         {stats.map((stat) => (
           <article key={stat.label} className={`mentorStatCard mentorStatCard--${stat.accent}`}>
-            <div className="mentorStatIcon">{stat.label === "Pending Requests" ? "⏳" : stat.label === "Upcoming Sessions" ? "📅" : stat.label === "Completed Sessions" ? "✅" : "📊"}</div>
+            <div className="mentorStatIcon">{stat.label === "Pending Requests" ? "⏳" : stat.label === "Upcoming Sessions" ? "📅" : "📊"}</div>
             <div>
               <p>{stat.label}</p>
               <strong>{stat.value}</strong>
@@ -254,7 +267,7 @@ export default function MentorDashboard() {
         ) : (
           <div className="mentorSessionList">
             {pendingRequests.map((session) => (
-              <article key={session._id} className="mentorSessionCard">
+              <article key={session._id} className="mentorDashboardSessionCard">
                 <div className="mentorSessionMeta">
                   <div>
                     <p className="mentorMetaLabel">Requester</p>
@@ -329,7 +342,7 @@ export default function MentorDashboard() {
           ) : (
             <div className="mentorSessionList compact">
               {upcomingSessions.map((session) => (
-                <article key={session._id} className="mentorSessionCard compactCard">
+                <article key={session._id} className="mentorDashboardSessionCard compactCard">
                   <div className="mentorSessionMeta">
                     <div>
                       <p className="mentorMetaLabel">Requester</p>
@@ -356,6 +369,13 @@ export default function MentorDashboard() {
                     <button
                       type="button"
                       className="mentorPrimaryButton"
+                      onClick={() => navigate(`/mentor-sessions/${session._id}/meeting`)}
+                    >
+                      Join
+                    </button>
+                    <button
+                      type="button"
+                      className="mentorPrimaryButton"
                       onClick={() => handleStatusUpdate(session._id, "Completed")}
                       disabled={actioningId === `${session._id}:Completed`}
                     >
@@ -368,46 +388,6 @@ export default function MentorDashboard() {
           )}
         </div>
 
-        <div className="mentorDashboardColumn">
-          <div className="mentorSectionHeader">
-            <h2>Completed Sessions</h2>
-          </div>
-
-          {loading ? (
-            <div className="mentorEmptyState">Loading completed sessions...</div>
-          ) : completedSessions.length === 0 ? (
-            <div className="mentorEmptyState">No completed sessions yet.</div>
-          ) : (
-            <div className="mentorSessionList compact">
-              {completedSessions.map((session) => (
-                <article key={session._id} className="mentorSessionCard compactCard">
-                  <div className="mentorSessionMeta">
-                    <div>
-                      <p className="mentorMetaLabel">Requester</p>
-                      <h3>{session.requesterId?.name || "Founder"}</h3>
-                    </div>
-                    <span className="mentorStatusBadge mentorStatusBadge--completed">Completed</span>
-                  </div>
-
-                  <div className="mentorSessionDetails compactDetails">
-                    <div>
-                      <p className="mentorMetaLabel">Topic</p>
-                      <strong>{session.topic}</strong>
-                    </div>
-                    <div>
-                      <p className="mentorMetaLabel">When</p>
-                      <strong>{formatDate(session.requestedDate)} • {formatTime(session.requestedTime)}</strong>
-                    </div>
-                  </div>
-
-                  <button type="button" className="mentorGhostButton fullWidth" onClick={() => setSelectedSession(session)}>
-                    View details
-                  </button>
-                </article>
-              ))}
-            </div>
-          )}
-        </div>
       </section>
 
       {selectedSession && (
@@ -480,6 +460,7 @@ export default function MentorDashboard() {
           </div>
         </div>
       )}
+      </main>
     </div>
   );
 }

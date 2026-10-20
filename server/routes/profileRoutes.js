@@ -7,6 +7,7 @@ import {
   updateMyProfile,
   uploadMyProfilePhoto,
 } from "../controllers/profileController.js";
+import { deleteMyAccount } from "../controllers/accountController.js";
 import { requireAuthenticatedUser } from "../middleware/authMiddleware.js";
 
 const router = express.Router();
@@ -41,5 +42,6 @@ router.get("/me", getMyProfile);
 router.put("/me", updateMyProfile);
 router.post("/me/photo", parseProfilePhoto, uploadMyProfilePhoto);
 router.put("/me/password", changeMyPassword);
+router.delete("/me", deleteMyAccount);
 
 export default router;

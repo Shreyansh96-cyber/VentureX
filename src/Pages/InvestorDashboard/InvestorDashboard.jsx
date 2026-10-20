@@ -143,11 +143,12 @@ function InvestorDashboard() {
 
         {/* SAVED */}
 
-        <div className="investor-stat-card">
+        <div className="investor-stat-card stat-saved">
 
-          <span>
+          <span className="stat-icon" aria-hidden="true">♡</span>
+          <div className="stat-card-top"><span>
             Saved Startups
-          </span>
+          </span></div>
 
           <strong>
             {savedCount}
@@ -162,11 +163,12 @@ function InvestorDashboard() {
 
         {/* INVESTMENT REQUESTS */}
 
-        <div className="investor-stat-card">
+        <div className="investor-stat-card stat-requests">
 
-          <span>
+          <span className="stat-icon" aria-hidden="true">↗</span>
+          <div className="stat-card-top"><span>
             Investment Requests
-          </span>
+          </span></div>
 
           <strong>
             {investmentRequests}
@@ -181,11 +183,12 @@ function InvestorDashboard() {
 
         {/* ACTIVE INVESTMENTS */}
 
-        <div className="investor-stat-card">
+        <div className="investor-stat-card stat-active">
 
-          <span>
+          <span className="stat-icon" aria-hidden="true">◈</span>
+          <div className="stat-card-top"><span>
             Active Investments
-          </span>
+          </span></div>
 
           <strong>
             {activeInvestmentCount}
@@ -200,11 +203,12 @@ function InvestorDashboard() {
 
         {/* PORTFOLIO VALUE */}
 
-        <div className="investor-stat-card" id="portfolio-value">
+        <div className="investor-stat-card stat-portfolio" id="portfolio-value">
 
-          <span>
+          <span className="stat-icon" aria-hidden="true">₹</span>
+          <div className="stat-card-top"><span>
             Portfolio Value
-          </span>
+          </span></div>
 
           <strong>
             ₹
@@ -259,7 +263,7 @@ function InvestorDashboard() {
 
         <div className="startup-preview">
 
-          <div className="startup-preview-card">
+          <div className="startup-preview-card opportunity-card">
 
             <div className="startup-logo">
               V
@@ -286,7 +290,7 @@ function InvestorDashboard() {
           </div>
 
 
-          <div className="startup-preview-card">
+          <div className="startup-preview-card portfolio-card">
 
             <div className="startup-logo">
               +
@@ -373,8 +377,7 @@ function InvestorDashboard() {
               </h3>
 
               <p>
-                Your investment requests will
-                appear here.
+                Start exploring promising startups and make your first investment.
               </p>
 
               <Link
@@ -398,14 +401,14 @@ function InvestorDashboard() {
                     key={investment._id}
                   >
 
-                    <div>
+                    <div className="activity-main">
 
                       <strong>
                         {investment.startupId?.name ||
                           "Startup"}
                       </strong>
 
-                      <p>
+                      <p className="activity-amount">
                         ₹
                         {Number(
                           investment.amount || 0
@@ -417,11 +420,14 @@ function InvestorDashboard() {
                     </div>
 
 
-                    <span
-                      className={`investment-status ${investment.status}`}
-                    >
-                      {investment.status}
-                    </span>
+                    <div className="activity-meta">
+                      <span className={`investment-status ${String(investment.status || "pending").toLowerCase()}`}>
+                        {investment.status || "Pending"}
+                      </span>
+                      {investment.createdAt && !Number.isNaN(new Date(investment.createdAt).getTime()) && (
+                        <time dateTime={investment.createdAt}>{new Date(investment.createdAt).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" })}</time>
+                      )}
+                    </div>
 
                   </div>
 
@@ -453,7 +459,7 @@ function InvestorDashboard() {
             className="quick-action"
           >
 
-            <span>
+            <span className="quick-icon">
               🔎
             </span>
 
@@ -481,7 +487,7 @@ function InvestorDashboard() {
             className="quick-action"
           >
 
-            <span>
+            <span className="quick-icon">
               ♡
             </span>
 
@@ -509,7 +515,7 @@ function InvestorDashboard() {
             className="quick-action"
           >
 
-            <span>
+            <span className="quick-icon">
               ₹
             </span>
 

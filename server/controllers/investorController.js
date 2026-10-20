@@ -2,7 +2,7 @@ import User from "../models/User.js";
 
 export const getAllInvestors = async (req, res) => {
   try {
-    const investors = await User.find({ role: "Investor" })
+    const investors = await User.find({ role: "Investor", emailVerified: { $ne: false } })
       .select("_id name role profileImage expertise bio experience skills location availability")
       .sort({ createdAt: -1 });
 

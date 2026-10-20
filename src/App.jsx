@@ -1,8 +1,10 @@
+// Codex new Undo Test
 import { Routes, Route } from "react-router-dom";
 
 import Home from "./Pages/Home";
 import Login from "./Pages/Login/Login";
 import Register from "./Pages/Register/Register";
+import VerifyOTP from "./Pages/VerifyOTP/VerifyOTP";
 import ForgotPassword from "./Pages/ForgotPassword/ForgotPassword";
 import ResetPassword from "./Pages/ResetPassword/ResetPassword";
 
@@ -25,6 +27,9 @@ import MyMentorship from "./Pages/MyMentorship/MyMentorship";
 import Notifications from "./Pages/Notifications/Notifications";
 import Profile from "./Pages/Profile/Profile";
 import FundingAnalytics from "./Pages/FundingAnalytics/FundingAnalytics";
+import InvestorProfile from "./Pages/InvestorProfile/InvestorProfile";
+import Messages from "./Pages/Messages/Messages";
+import MentorMeeting from "./Pages/MentorMeeting/MentorMeeting";
 
 import ProtectedRoute from "./Components/ProtectedRoute";
 
@@ -38,6 +43,7 @@ function App() {
       {/* AUTH */}
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
+      <Route path="/verify-otp" element={<VerifyOTP />} />
       <Route path="/forgot-password" element={<ForgotPassword />} />
       <Route path="/reset-password/:token" element={<ResetPassword />} />
 
@@ -46,6 +52,15 @@ function App() {
         element={
           <ProtectedRoute>
             <Notifications />
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/messages"
+        element={
+          <ProtectedRoute>
+            <Messages />
           </ProtectedRoute>
         }
       />
@@ -122,6 +137,15 @@ function App() {
       />
 
       <Route
+        path="/investor/:id"
+        element={
+          <ProtectedRoute>
+            <InvestorProfile />
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
         path="/discover-startups"
         element={<DiscoverStartups />}
       />
@@ -177,6 +201,15 @@ function App() {
         element={
           <ProtectedRoute allowedRole="Mentor">
             <MentorDashboard />
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/mentor-sessions/:sessionId/meeting"
+        element={
+          <ProtectedRoute>
+            <MentorMeeting />
           </ProtectedRoute>
         }
       />

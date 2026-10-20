@@ -5,8 +5,15 @@
 }
 
 .myMentorshipHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
   margin-bottom: 22px;
 }
+.myMentorshipBackLink { display:inline-flex; align-items:center; color:#244bd1; font-size:18px; font-weight:500; text-decoration:none; white-space:nowrap; }
+.myMentorshipBackLink:hover { color:#1739ad; text-decoration:underline; }
+.myMentorshipBackLink:focus-visible { outline:2px solid #365cf5; outline-offset:4px; border-radius:3px; }
 
 .myMentorshipEyebrow {
   margin: 0 0 8px;
@@ -140,6 +147,7 @@
 }
 
 @media (max-width: 768px) {
+  .myMentorshipHeader { flex-direction:column; }
   .mentorshipSessionMeta,
   .mentorshipDetails {
     flex-direction: column;

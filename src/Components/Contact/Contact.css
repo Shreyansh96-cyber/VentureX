@@ -312,3 +312,104 @@ font-size:24px;
 }
 
 }
+
+#root > .contactSection {
+    width: 100%;
+    max-width: 1500px;
+    margin: 100px auto 120px;
+    padding: 0 clamp(20px, 7vw, 96px);
+    scroll-margin-top: 112px;
+}
+
+.contactHeading {
+    max-width: 760px;
+    margin: 0 auto 48px;
+}
+
+.contactHeading span {
+    display: inline-block;
+    padding: 8px 14px;
+    border: 1px solid rgba(37, 99, 235, .14);
+    border-radius: 40px;
+    background: rgba(255, 255, 255, .56);
+}
+
+.contactHeading h2 {
+    margin-top: 18px;
+    font-size: clamp(38px, 4.5vw, 56px);
+    line-height: 1.12;
+    letter-spacing: -.025em;
+}
+
+.contactHeading p { max-width: 620px; font-size: 17px; }
+
+.contactContainer {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    grid-template-columns: minmax(280px, .85fr) minmax(0, 1.4fr);
+    gap: clamp(20px, 3.5vw, 46px);
+    align-items: stretch;
+}
+
+.contactInfo,
+.contactFormCard {
+    border: 1px solid rgba(255, 255, 255, .76);
+    border-radius: 24px;
+    background: linear-gradient(145deg, rgba(255, 255, 255, .78), rgba(239, 247, 255, .62));
+    box-shadow: 0 18px 48px rgba(32, 81, 172, .08), inset 0 1px 0 rgba(255, 255, 255, .9);
+}
+
+.contactInfo { padding: clamp(26px, 3.5vw, 42px); }
+.contactInfo h3, .contactFormCard h3 { font-size: clamp(25px, 2.5vw, 32px); }
+.contactInfo h3 { margin-bottom: 30px; }
+.infoBox { gap: 17px; margin-bottom: 24px; transition: transform .25s ease; }
+.infoBox:last-child { margin-bottom: 0; }
+.infoBox:hover { transform: translateX(4px); }
+.icon { width: 54px; height: 54px; border-radius: 15px; font-size: 23px; }
+.infoBox h4 { font-size: 17px; }
+.infoBox p { font-size: 14px; line-height: 1.65; overflow-wrap: anywhere; }
+
+.contactFormCard { padding: clamp(26px, 4vw, 44px); }
+.contactFormCard h3 { margin-bottom: 25px; }
+.contactFormCard form { gap: 15px; }
+.contactFormCard input,
+.contactFormCard textarea {
+    padding: 16px 18px;
+    border: 1px solid rgba(37, 99, 235, .08);
+    border-radius: 12px;
+    box-shadow: 0 7px 20px rgba(32, 81, 172, .045);
+}
+.contactFormCard input:focus,
+.contactFormCard textarea:focus { border-color: rgba(37, 99, 235, .3); }
+.contactFormCard button { height: 54px; margin-top: 3px; font-size: 16px; box-shadow: 0 10px 22px rgba(37, 99, 235, .17); }
+
+@media(max-width:1000px) {
+    .contactContainer { grid-template-columns: 1fr 1.2fr; gap: 20px; }
+}
+
+@media(max-width:768px) {
+    #root > .contactSection { margin: 75px auto 90px; padding: 0 20px; scroll-margin-top: 90px; }
+    .contactHeading { margin-bottom: 32px; }
+    .contactHeading h2 { font-size: 40px; }
+    .contactContainer { grid-template-columns: 1fr; }
+    .contactInfo { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 16px; }
+    .contactInfo h3 { grid-column: 1 / -1; margin-bottom: 0; }
+    .infoBox { gap: 12px; margin: 0; }
+    .infoBox:hover { transform: translateY(-2px); }
+    .icon { width: 46px; height: 46px; }
+}
+
+@media(max-width:520px) {
+    #root > .contactSection { padding: 0 16px; }
+    .contactHeading h2 { font-size: 34px; }
+    .contactHeading p { font-size: 15px; }
+    .contactInfo { grid-template-columns: 1fr; padding: 23px; }
+    .contactFormCard { padding: 23px; }
+    .infoBox { align-items: center; }
+    .infoBox h4 { margin-bottom: 4px; }
+}
+
+@media(prefers-reduced-motion: reduce) {
+    .infoBox { transition: none; }
+}

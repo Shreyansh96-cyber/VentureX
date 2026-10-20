@@ -1,6 +1,6 @@
 import nodemailer from "nodemailer";
 
-const sendEmail = async (to, subject, html) => {
+const sendEmail = async (to, subject, html, text) => {
 
     const transporter = nodemailer.createTransport({
 
@@ -26,7 +26,7 @@ const sendEmail = async (to, subject, html) => {
 
         html,
 
-        text: `
+        text: text || `
 VentureX Password Reset
 
 We received a request to reset your VentureX password.

@@ -1,4 +1,5 @@
 import "./InvestorCard.css";
+import { Link } from "react-router-dom";
 
 export default function InvestorCard({ investor }) {
   return (
@@ -13,7 +14,9 @@ export default function InvestorCard({ investor }) {
 
       <p>{investor.specialization}</p>
 
-      <button>View Profile</button>
+      <Link className="investorCardButton" to={`/investor/${investor.id}`}>
+        View Profile
+      </Link>
 
     </div>
   );
