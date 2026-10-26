@@ -261,7 +261,8 @@ export const forgotPassword = async (req, res) => {
     user.resetPasswordExpire = Date.now() + 15 * 60 * 1000;
 
     await user.save();
-    const url = `https://tmpcph4f-5173.inc1.devtunnels.ms/reset-password/${resetToken}`;
+    const frontendBaseUrl = process.env.FRONTEND_URL || process.env.RENDER_EXTERNAL_URL || "http://localhost:5173";
+    const url = new URL(`/reset-password/${resetToken}`, frontendBaseUrl).toString();
 
     await sendEmail(
   email,

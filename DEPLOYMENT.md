@@ -5,8 +5,8 @@ This repository is configured for one Render web service that serves the React s
 ## Before creating the service
 
 1. Create or choose a MongoDB Atlas database intended for the hosted app. Use its connection string for Render; do not paste it into GitHub or this file.
-2. Have these values ready for Render's private environment settings: `MONGO_URI`, a strong random `JWT_SECRET`, `GOOGLE_CLIENT_ID`, `VITE_GOOGLE_CLIENT_ID`, `EMAIL_USER`, `EMAIL_PASS`, `ZEGO_APP_ID`, and `ZEGO_SERVER_SECRET`.
-3. Use the same Google OAuth client ID for `GOOGLE_CLIENT_ID` and `VITE_GOOGLE_CLIENT_ID`. After Render creates the app URL, add that URL as an authorized JavaScript origin in Google Cloud Console.
+2. Have these values ready for Render's private environment settings: `MONGO_URI`, a strong random `JWT_SECRET`, `GOOGLE_CLIENT_ID`, `VITE_GOOGLE_CLIENT_ID`, `EMAIL_USER`, `EMAIL_PASS`, `ZEGO_APP_ID`, and `ZEGO_SERVER_SECRET`. `FRONTEND_URL` is optional; set it if you use a custom frontend domain.
+3. Use the same Google OAuth client ID for `GOOGLE_CLIENT_ID` and `VITE_GOOGLE_CLIENT_ID`. After Render creates the app URL, add that URL as an authorized JavaScript origin in Google Cloud Console. Password reset emails use Render's `RENDER_EXTERNAL_URL` by default; set `FRONTEND_URL` to your custom domain if you add one.
 
 ## Create the Render service
 
