@@ -1,0 +1,34 @@
+services:
+  - type: web
+    name: venturex
+    runtime: node
+    plan: starter
+    branch: master
+    buildCommand: npm ci && npm ci --prefix server && npm run build
+    startCommand: npm start --prefix server
+    healthCheckPath: /health
+    disk:
+      name: venturex-profile-images
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PROFILE_IMAGE_DIR
+        value: /var/data/profile-images
+      - key: MONGO_URI
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: GOOGLE_CLIENT_ID
+        sync: false
+      - key: VITE_GOOGLE_CLIENT_ID
+        sync: false
+      - key: EMAIL_USER
+        sync: false
+      - key: EMAIL_PASS
+        sync: false
+      - key: ZEGO_APP_ID
+        sync: false
+      - key: ZEGO_SERVER_SECRET
+        sync: false

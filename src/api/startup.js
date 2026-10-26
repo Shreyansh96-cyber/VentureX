@@ -1,9 +1,10 @@
+import { API_ORIGIN } from "./config.js";
 import axios from "axios";
 
 const API = axios.create({
   baseURL:
     import.meta.env.VITE_STARTUP_API_URL ||
-    "http://localhost:5000/api/startups",
+    `${API_ORIGIN}/api/startups`,
 });
 
 API.interceptors.request.use((config) => {

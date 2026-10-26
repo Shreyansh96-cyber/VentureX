@@ -2,7 +2,6 @@ import bcrypt from "bcryptjs";
 import mongoose from "mongoose";
 import path from "node:path";
 import { unlink } from "node:fs/promises";
-import { fileURLToPath } from "node:url";
 
 import Conversation from "../models/Conversation.js";
 import Investment from "../models/Investment.js";
@@ -12,6 +11,7 @@ import Notification from "../models/Notification.js";
 import SavedStartup from "../models/SavedStartup.js";
 import Startup from "../models/Startup.js";
 import User from "../models/User.js";
+import { profileImageDirectory } from "../config/uploads.js";
 import { verifyGoogleCredential } from "./authController.js";
 
 const normalizeEmail = (value) => String(value || "").trim().toLowerCase();
@@ -19,10 +19,6 @@ const isTransactionUnsupported = (error) =>
   error.code === 20 ||
   error.codeName === "IllegalOperation" ||
   /transaction numbers are only allowed|does not support transactions|replica set/i.test(error.message || "");
-const profilePhotoDirectory = path.resolve(
-  path.dirname(fileURLToPath(import.meta.url)),
-  "../uploads/profile-images"
-);
 
 const deleteOwnedData = async (userId, session) => {
   const startups = await Startup.find({ founderId: userId })
@@ -171,7 +167,7 @@ export const deleteMyAccount = async (req, res) => {
 
     if (user.profileImage?.startsWith("/uploads/profile-images/")) {
       const filename = path.basename(user.profileImage);
-      await unlink(path.join(profilePhotoDirectory, filename)).catch((error) => {
+      await unlink(path.join(profileImageDirectory, filename)).catch((error) => {
         console.error("ACCOUNT PHOTO CLEANUP ERROR:", error.code || error.name);
       });
     }

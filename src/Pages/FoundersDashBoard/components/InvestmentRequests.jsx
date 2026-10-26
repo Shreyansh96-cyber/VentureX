@@ -1,8 +1,9 @@
+import { API_ORIGIN } from "../../../api/config.js";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "./InvestmentRequests.css";
 
-const API_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:5000";
+const API_URL = API_ORIGIN;
 
 export default function InvestmentRequests({ founderId }) {
   const [requests, setRequests] = useState([]);

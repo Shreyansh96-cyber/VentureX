@@ -1,3 +1,4 @@
+import { API_ORIGIN } from "../../../api/config.js";
 import React, { useState } from "react";
 import axios from "axios";
 import { formatRupees } from "../../../utils/currency";
@@ -9,7 +10,7 @@ function InvestModal({ startup, onClose, onSuccess }) {
   const [loading, setLoading] = useState(false);
 
   const API_URL =
-    import.meta.env.VITE_API_BASE_URL || "http://localhost:5000";
+    API_ORIGIN;
 
   const handleSubmit = async (e) => {
     e.preventDefault();

@@ -1,6 +1,7 @@
+import { API_ORIGIN } from "./config.js";
 import axios from "axios";
 
-const API_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:5000";
+const API_URL = API_ORIGIN;
 
 const dashboardAPI = axios.create({
   baseURL: `${API_URL}/api/dashboard`,

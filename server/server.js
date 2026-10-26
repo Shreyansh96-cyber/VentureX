@@ -7,6 +7,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 import connectDB from "./config/db.js";
+import { profileImageDirectory } from "./config/uploads.js";
 
 import startupRoutes from "./routes/startupRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
@@ -22,6 +23,7 @@ import messageRoutes from "./routes/messageRoutes.js";
 
 const app = express();
 const serverDirectory = path.dirname(fileURLToPath(import.meta.url));
+const frontendDirectory = path.resolve(serverDirectory, "../dist");
 
 
 // ==============================
@@ -37,23 +39,23 @@ const allowedOrigins = [
   "https://sqqsp2s0-5173.inc1.devtunnels.ms",
 ];
 
+if (process.env.NODE_ENV !== "production") {
+  app.use(
+    cors({
+      origin: (origin, callback) => {
+        if (!origin || allowedOrigins.includes(origin)) {
+          callback(null, true);
+          return;
+        }
 
-
-app.use(
-  cors({
-    origin: (origin, callback) => {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-        return;
-      }
-
-      callback(new Error("Not allowed by CORS"));
-    },
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-    credentials: true,
-  })
-);
+        callback(new Error("Not allowed by CORS"));
+      },
+      methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+      allowedHeaders: ["Content-Type", "Authorization"],
+      credentials: true,
+    })
+  );
+}
 
 
 // ==============================
@@ -73,7 +75,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(
   "/uploads/profile-images",
-  express.static(path.join(serverDirectory, "uploads/profile-images"), {
+  express.static(profileImageDirectory, {
     maxAge: "1d",
     immutable: true,
   })
@@ -98,8 +100,8 @@ app.use((req, res, next) => {
 // Test Route
 // ==============================
 
-app.get("/", (req, res) => {
-  res.send("🚀 VentureX Backend Running...");
+app.get("/health", (req, res) => {
+  res.json({ status: "ok" });
 });
 
 app.get("/test", (req, res) => {
@@ -138,6 +140,17 @@ app.use("/api/dashboard", dashboardRoutes);
 
 app.use("/api/messages", messageRoutes);
 
+app.use(express.static(frontendDirectory));
+app.use((req, res, next) => {
+  if (req.method !== "GET" || req.path.startsWith("/api/") || req.path.startsWith("/uploads/")) {
+    return next();
+  }
+
+  return res.sendFile(path.join(frontendDirectory, "index.html"), (error) => {
+    if (error) next(error);
+  });
+});
+
 
 // ==============================
 // Start Server
@@ -145,8 +158,8 @@ app.use("/api/messages", messageRoutes);
 
 const PORT = process.env.PORT || 5000;
 
-connectDB();
+await connectDB();
 
-app.listen(PORT, () => {
+app.listen(PORT, "0.0.0.0", () => {
   console.log(`✅ Server Running on Port ${PORT}`);
 });

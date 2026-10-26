@@ -1,7 +1,8 @@
+import { API_ORIGIN } from "./config.js";
 import axios from "axios";
 
 const savedStartupAPI = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL || "http://localhost:5000/api/saved-startups",
+  baseURL: `${API_ORIGIN}/api/saved-startups`,
 });
 
 savedStartupAPI.interceptors.request.use((config) => {

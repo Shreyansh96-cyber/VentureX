@@ -2,21 +2,16 @@ import bcrypt from "bcryptjs";
 import { mkdir, unlink, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { randomUUID } from "node:crypto";
-import { fileURLToPath } from "node:url";
 
 import Investment from "../models/Investment.js";
 import MentorSession from "../models/MentorSession.js";
 import SavedStartup from "../models/SavedStartup.js";
 import Startup from "../models/Startup.js";
 import User from "../models/User.js";
+import { profileImageDirectory } from "../config/uploads.js";
 
 const privateUserFields = "-password -googleId -otp -otpExpiry -otpAttempts -otpResendCount -otpResendWindowStart -otpLastSentAt -accountDeletionInProgress -resetPasswordToken -resetPasswordExpire";
 const acceptedStatuses = { $in: ["Accepted", "accepted"] };
-const profilePhotoDirectory = path.resolve(
-  path.dirname(fileURLToPath(import.meta.url)),
-  "../uploads/profile-images"
-);
-
 class ProfileInputError extends Error {}
 
 const getProfileStats = async (user) => {
@@ -269,9 +264,9 @@ export const uploadMyProfilePhoto = async (req, res) => {
       return res.status(404).json({ message: "Your account could not be found." });
     }
 
-    await mkdir(profilePhotoDirectory, { recursive: true });
+    await mkdir(profileImageDirectory, { recursive: true });
     const filename = `${user._id}-${randomUUID()}${extension}`;
-    savedFilePath = path.join(profilePhotoDirectory, filename);
+    savedFilePath = path.join(profileImageDirectory, filename);
     await writeFile(savedFilePath, req.file.buffer, { flag: "wx" });
 
     const previousPhoto = user.profileImage;
@@ -281,7 +276,7 @@ export const uploadMyProfilePhoto = async (req, res) => {
 
     if (previousPhoto?.startsWith("/uploads/profile-images/")) {
       const previousFilename = path.basename(previousPhoto);
-      await unlink(path.join(profilePhotoDirectory, previousFilename)).catch(() => {});
+      await unlink(path.join(profileImageDirectory, previousFilename)).catch(() => {});
     }
 
     const safeUser = await User.findById(user._id).select(privateUserFields);
