@@ -28,13 +28,16 @@ const serverDirectory = path.dirname(fileURLToPath(import.meta.url));
 // CORS
 // ==============================
 
+
+
 const allowedOrigins = [
   "http://localhost:5173",
   "http://127.0.0.1:5173",
   "http://localhost:3000",
-  "https://tmpcph4f-5173.inc1.devtunnels.ms",
-  "https://tmpcph4f-5000.inc1.devtunnels.ms",
+  "https://sqqsp2s0-5173.inc1.devtunnels.ms",
 ];
+
+
 
 app.use(
   cors({

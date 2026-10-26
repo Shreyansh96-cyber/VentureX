@@ -49,7 +49,7 @@ function About() {
 
         <div className="aboutCard">
 
-          <h3>🚀 Our Mission</h3>
+          <h3>Our Mission</h3>
 
           <p>
 
@@ -62,7 +62,7 @@ function About() {
 
         <div className="aboutCard">
 
-          <h3>🌍 Our Vision</h3>
+          <h3>Our Vision</h3>
 
           <p>
 

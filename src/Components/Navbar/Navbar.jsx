@@ -154,8 +154,11 @@ function Navbar() {
 
         {/* MOBILE MENU */}
 
-        <div
+        <button
+          type="button"
           className="menuIcon"
+          aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-expanded={menuOpen}
           onClick={() => setMenuOpen(!menuOpen)}
         >
 
@@ -165,7 +168,7 @@ function Navbar() {
             <FaBars />
           )}
 
-        </div>
+        </button>
 
 
         {/* LOGOUT */}

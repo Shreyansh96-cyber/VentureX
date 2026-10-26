@@ -188,8 +188,6 @@ and grow your business on one unified platform.
 
 <div className="featureCard">
 
-🚀
-
 <h3>Launch Startup</h3>
 
 <p>
@@ -202,8 +200,6 @@ Create your startup profile and showcase your vision.
 
 <div className="featureCard">
 
-🤝
-
 <h3>Find Investors</h3>
 
 <p>
@@ -215,8 +211,6 @@ Connect with investors looking for innovative ideas.
 </div>
 
 <div className="featureCard">
-
-💡
 
 <h3>Get Mentorship</h3>
 

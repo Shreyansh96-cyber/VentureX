@@ -403,6 +403,14 @@ transform:translateY(0);
 
 }
 
+.inputIcon input:focus-visible{
+
+    border-color:transparent;
+    box-shadow:none;
+    outline:none;
+
+}
+
 .inputIcon input::placeholder{
 
     color:#94A3B8;

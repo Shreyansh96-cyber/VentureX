@@ -180,7 +180,7 @@ export default function MentorDashboard() {
       <header className="mentorDashboardHeader">
         <div className="mentorDashboardHeadingWrap">
           <p className="mentorDashboardEyebrow">MENTOR DASHBOARD</p>
-          <h1>{greeting()}, {user?.name || "Mentor"} 👋</h1>
+          <h1>{greeting()}, {user?.name || "Mentor"}</h1>
         </div>
 
         <div className="mentorDashboardActions">

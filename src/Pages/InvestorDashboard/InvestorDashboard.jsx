@@ -103,7 +103,7 @@ function InvestorDashboard() {
 
           <h1>
             Welcome back,{" "}
-            {user.name || "Investor"} 👋
+            {user.name || "Investor"}
           </h1>
 
           <p className="dashboard-subtitle">

@@ -44,7 +44,7 @@ export default function WelcomeCard() {
         <div className="rocketCard">
 
           <div className="rocketEmoji">
-            🚀
+      
           </div>
 
           <h3>Startup Growth</h3>
