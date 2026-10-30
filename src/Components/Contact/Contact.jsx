@@ -35,9 +35,7 @@ function Contact() {
               <h4>Address</h4>
 
               <p>
-                Prayagraj,
-                <br />
-                Uttar Pradesh, India
+                Prayagraj, Uttar Pradesh, India
               </p>
 
             </div>

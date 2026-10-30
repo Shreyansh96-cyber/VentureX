@@ -407,7 +407,7 @@ font-size:24px;
     .contactInfo { grid-template-columns: 1fr; padding: 23px; }
     .contactFormCard { padding: 23px; }
     .infoBox { align-items: center; }
-    .infoBox h4 { margin-bottom: 4px; }
+    .infoBox h4 { margin-bottom: 4px; display: flex; justify-content: center;}
 }
 
 @media(prefers-reduced-motion: reduce) {

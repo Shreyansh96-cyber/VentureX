@@ -328,7 +328,7 @@
 
 @media (max-width: 1100px) {
 
-    .searchBox {
+    .navbar .searchBox {
         display: none;
     }
 
