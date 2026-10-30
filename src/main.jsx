@@ -16,7 +16,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <GoogleOAuthProvider
       clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID || "799455039215-qr6d1thg65v5r65lm2mmu427sbhsdali.apps.googleusercontent.com"}
     >
-      <BrowserRouter>
+      <BrowserRouter basename="/VentureX">
         <App />
       </BrowserRouter>
     </GoogleOAuthProvider>
