@@ -798,8 +798,7 @@ transform:translateY(0);
 .loginPage{
 
 grid-template-columns:minmax(0, 1fr);
-min-height:100vh;
-min-height:100svh;
+min-height:85svh;
 height:auto;
 overflow:visible;
 overflow-x:clip;
@@ -875,7 +874,7 @@ height:54px;
 @media(max-width:480px){
 
 .loginPage{
-    padding:72px 14px 20px;
+    padding:0px 14px 20px;
 }
 
 .loginPage .homeButton--auth{

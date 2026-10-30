@@ -581,7 +581,6 @@
 @media (max-width: 960px) {
   .registerPage {
     grid-template-columns: minmax(0, 1fr);
-    min-height: 100vh;
     min-height: 100svh;
     gap: 0;
     padding: 78px clamp(24px, 8vw, 60px) 32px;
