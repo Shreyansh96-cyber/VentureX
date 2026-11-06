@@ -386,10 +386,6 @@
     text-decoration: none;
 }
 
-.hero-buttons .primary-btn {
-    box-shadow: 0 12px 28px rgba(37, 99, 235, .2);
-}
-
 .hero-right {
     min-width: 0;
     animation: heroArtEnter .85s .08s ease both;
