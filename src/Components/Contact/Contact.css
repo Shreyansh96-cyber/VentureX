@@ -253,12 +253,37 @@
 
 }
 
-.contactFormCard button:hover{
+.contactFormCard button:hover:not(:disabled){
 
     transform:translateY(-4px);
 
     box-shadow:0 20px 40px rgba(37,99,235,.25);
 
+}
+
+.contactFormCard button:disabled{
+    opacity:0.8;
+    cursor:wait;
+}
+
+.contactStatus {
+    margin: -4px 0 0;
+    padding: 10px 12px;
+    border-radius: 10px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.contactStatus.success {
+    background: rgba(34, 197, 94, 0.12);
+    color: #166534;
+    border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+.contactStatus.error {
+    background: rgba(239, 68, 68, 0.09);
+    color: #b91c1c;
+    border: 1px solid rgba(239, 68, 68, 0.2);
 }
 
 @media(max-width:1000px){

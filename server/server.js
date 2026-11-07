@@ -20,6 +20,7 @@ import investorRoutes from "./routes/investorRoutes.js";
 import profileRoutes from "./routes/profileRoutes.js";
 import dashboardRoutes from "./routes/dashboardRoutes.js";
 import messageRoutes from "./routes/messageRoutes.js";
+import contactRoutes from "./routes/contactRoutes.js";
 
 const app = express();
 const serverDirectory = path.dirname(fileURLToPath(import.meta.url));
@@ -139,6 +140,8 @@ app.use("/api/mentor-sessions", mentorSessionRoutes);
 app.use("/api/dashboard", dashboardRoutes);
 
 app.use("/api/messages", messageRoutes);
+
+app.use("/api/contact", contactRoutes);
 
 app.use(express.static(frontendDirectory));
 app.use((req, res, next) => {
